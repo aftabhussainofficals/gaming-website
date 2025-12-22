@@ -1,0 +1,933 @@
+/* ============================================
+   DYNAMIC RESPONSIVE BODY SYSTEM
+   - CSS Grid + Container Queries
+   - Fluid Typography & Spacing
+   - Adaptive Layouts
+   - Performance Optimized
+============================================= */
+
+/* CSS Custom Properties for Dynamic System */
+:root {
+  /* Layout Breakpoints (Container-based, not viewport!) */
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-xxl: 1536px;
+  
+  /* Fluid Typography Scales */
+  --fluid-min-width: 320;
+  --fluid-max-width: 1400;
+  --fluid-min-scale: 1;
+  --fluid-max-scale: 1.2;
+  --fluid-min-font: 16;
+  --fluid-max-font: 18;
+  
+  /* Dynamic Spacing */
+  --space-unit: 0.25rem;
+  --space-3xs: calc(0.25 * var(--space-unit));
+  --space-2xs: calc(0.5 * var(--space-unit));
+  --space-xs: calc(1 * var(--space-unit));
+  --space-sm: calc(1.5 * var(--space-unit));
+  --space-md: calc(2 * var(--space-unit));
+  --space-lg: calc(3 * var(--space-unit));
+  --space-xl: calc(4 * var(--space-unit));
+  --space-2xl: calc(6 * var(--space-unit));
+  --space-3xl: calc(8 * var(--space-unit));
+  
+  /* Grid Templates */
+  --grid-columns: 12;
+  --grid-gap: clamp(1rem, 2vw, 2rem);
+  --grid-container: minmax(1rem, 1fr) minmax(0, var(--breakpoint-xl)) minmax(1rem, 1fr);
+  
+  /* Animation Variables */
+  --motion-safe: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-bouncy: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --motion-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Dynamic Colors (CSS Relative Colors) */
+  --bg-base: oklch(15% 0.02 250);
+  --bg-elevated: color-mix(in oklch, var(--bg-base), white 5%);
+  --bg-surface: color-mix(in oklch, var(--bg-base), white 10%);
+  --bg-gradient: linear-gradient(
+    135deg,
+    oklch(15% 0.05 250) 0%,
+    oklch(20% 0.08 270) 50%,
+    oklch(18% 0.06 280) 100%
+  );
+  
+  /* Dynamic Effects */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --backdrop-blur: blur(20px) saturate(180%);
+  
+  /* Performance Variables */
+  --content-visibility: auto;
+  --contain-layout: layout paint;
+  --will-change: auto;
+}
+
+/* ============================================
+   DYNAMIC BODY LAYOUT SYSTEM
+============================================= */
+
+.dynamic-body {
+  /* Base Layout */
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  
+  /* Dynamic Background */
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  position: relative;
+  overflow-x: hidden;
+  
+  /* Performance Optimizations */
+  content-visibility: var(--content-visibility);
+  contain: var(--contain-layout);
+  will-change: var(--will-change);
+}
+
+/* Dynamic Background Effects */
+.dynamic-body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, oklch(25% 0.1 250 / 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, oklch(25% 0.1 270 / 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, oklch(30% 0.05 260 / 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+  animation: gradientShift 20s ease infinite alternate;
+}
+
+/* Animated Particles Overlay */
+.dynamic-body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, oklch(100% 0.1 250 / 0.03) 2px, transparent 3px),
+    radial-gradient(circle at 75% 75%, oklch(100% 0.1 270 / 0.02) 1px, transparent 2px),
+    radial-gradient(circle at 50% 50%, oklch(100% 0.1 260 / 0.01) 3px, transparent 4px);
+  background-size: 300px 300px, 200px 200px, 400px 400px;
+  animation: particlesFloat 120s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ============================================
+   MAIN CONTENT AREA DYNAMIC LAYOUT
+============================================= */
+
+.main-content {
+  grid-area: main;
+  
+  /* Dynamic Container */
+  container-type: inline-size;
+  container-name: main;
+  
+  /* Modern Layout */
+  display: grid;
+  grid-template-columns: var(--grid-container);
+  grid-auto-rows: min-content;
+  gap: var(--grid-gap);
+  padding-block: clamp(2rem, 5vh, 4rem);
+  
+  /* Performance */
+  content-visitation: auto;
+  
+  /* Smooth Scrolling Anchor */
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+.main-content > * {
+  grid-column: 2;
+  width: 100%;
+}
+
+/* Full-width Sections */
+.full-width {
+  grid-column: 1 / -1;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* ============================================
+   FLUID TYPOGRAPHY SYSTEM
+   - Clamp() based fluid scaling
+   - Viewport + Container aware
+============================================= */
+
+.dynamic-body {
+  /* Base Fluid Font Size */
+  font-size: clamp(
+    calc(var(--fluid-min-font) * 1px),
+    calc(var(--fluid-min-font) * 1px + (var(--fluid-max-font) - var(--fluid-min-font)) * ((100vw - var(--fluid-min-width) * 1px) / (var(--fluid-max-width) - var(--fluid-min-width)))),
+    calc(var(--fluid-max-font) * 1px)
+  );
+  
+  /* Line Height Scale */
+  line-height: calc(1.6 + var(--fluid-max-scale) - var(--fluid-min-scale));
+  letter-spacing: -0.011em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+}
+
+/* Fluid Type Scale */
+.fluid-h1 {
+  font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.fluid-h2 {
+  font-size: clamp(2rem, 4vw + 0.5rem, 3rem);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.fluid-h3 {
+  font-size: clamp(1.5rem, 3vw + 0.5rem, 2rem);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.fluid-h4 {
+  font-size: clamp(1.25rem, 2vw + 0.5rem, 1.5rem);
+  line-height: 1.4;
+}
+
+.fluid-text-lg {
+  font-size: clamp(1.125rem, 1.5vw + 0.5rem, 1.25rem);
+  line-height: 1.6;
+}
+
+.fluid-text-md {
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.125rem);
+  line-height: 1.7;
+}
+
+.fluid-text-sm {
+  font-size: clamp(0.875rem, 0.5vw + 0.5rem, 0.9375rem);
+  line-height: 1.8;
+}
+
+/* ============================================
+   DYNAMIC LAYOUT CONTAINERS
+   - Container Queries for component-level responsiveness
+============================================= */
+
+.dynamic-container {
+  container-type: inline-size;
+  width: 100%;
+  max-width: 100%;
+  
+  /* Performance */
+  contain: layout style paint;
+}
+
+/* Card Container Query */
+.card-container {
+  container-type: inline-size;
+  container-name: card;
+}
+
+@container card (min-width: 350px) {
+  .card-content {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@container card (min-width: 500px) {
+  .card-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+}
+
+/* Grid Container Query */
+.grid-container {
+  container-type: inline-size;
+  container-name: grid;
+}
+
+@container grid (min-width: 400px) {
+  .grid-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@container grid (min-width: 768px) {
+  .grid-layout {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@container grid (min-width: 1024px) {
+  .grid-layout {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ============================================
+   MODERN CSS GRID SYSTEMS
+============================================= */
+
+/* Auto-fit Grid (Responsive without media queries) */
+.auto-grid {
+  --min-column-size: 300px;
+  
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min-column-size)), 1fr));
+  gap: clamp(1rem, 2vw, 2rem);
+  align-items: start;
+}
+
+/* Masonry Layout (Modern CSS) */
+.masonry-grid {
+  column-count: 1;
+  column-gap: clamp(1rem, 2vw, 2rem);
+  
+  @media (min-width: 768px) {
+    column-count: 2;
+  }
+  
+  @media (min-width: 1024px) {
+    column-count: 3;
+  }
+  
+  @media (min-width: 1280px) {
+    column-count: 4;
+  }
+}
+
+.masonry-grid > * {
+  break-inside: avoid;
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+/* Dynamic Flex System */
+.dynamic-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--grid-gap);
+  
+  /* Responsive flex children */
+  & > * {
+    flex: 1 1 calc(var(--min-column-size) - var(--grid-gap));
+    min-width: 0; /* Prevents overflow */
+  }
+}
+
+/* ============================================
+   ADVANCED RESPONSIVE UTILITIES
+============================================= */
+
+/* Aspect Ratio Container */
+.aspect-container {
+  container-type: size;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  
+  @supports not (aspect-ratio: 16 / 9) {
+    &::before {
+      content: '';
+      float: left;
+      padding-top: 56.25%; /* 16:9 */
+    }
+    
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+}
+
+/* Fluid Spacing System */
+.fluid-spacing {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  margin-block: clamp(1rem, 3vw, 2rem);
+  
+  & > * + * {
+    margin-top: clamp(0.75rem, 2vw, 1.5rem);
+  }
+}
+
+/* Dynamic Gap Utilities */
+.gap-fluid {
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.gap-fluid-lg {
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+.gap-fluid-sm {
+  gap: clamp(0.5rem, 1vw, 1rem);
+}
+
+/* ============================================
+   RESPONSIVE IMAGE SYSTEM
+============================================= */
+
+.responsive-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  
+  /* Modern Image Loading */
+  content-visibility: auto;
+  loading: lazy;
+  decoding: async;
+}
+
+/* Art Direction with Picture Element */
+.picture-wrapper {
+  container-type: inline-size;
+  
+  & img {
+    transition: object-fit 0.3s var(--motion-smooth);
+  }
+  
+  @container (max-width: 768px) {
+    & img {
+      aspect-ratio: 1;
+      object-fit: contain;
+    }
+  }
+}
+
+/* ============================================
+   DYNAMIC ANIMATIONS & TRANSITIONS
+============================================= */
+
+/* Viewport-based Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  33% {
+    transform: translate(1%, 1%) scale(1.02);
+  }
+  66% {
+    transform: translate(-1%, -1%) scale(0.98);
+  }
+  100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+}
+
+@keyframes particlesFloat {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(100px, 50px) rotate(90deg);
+  }
+  50% {
+    transform: translate(0, 100px) rotate(180deg);
+  }
+  75% {
+    transform: translate(-100px, 50px) rotate(270deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+/* Scroll-based Animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--motion-smooth), transform 0.8s var(--motion-smooth);
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered Animation for Children */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.6s var(--motion-smooth) forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+
+/* ============================================
+   DYNAMIC EFFECTS & FILTERS
+============================================= */
+
+/* Glass Morphism Effect */
+.glass-effect {
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: clamp(1rem, 2vw, 2rem);
+  box-shadow: var(--glass-shadow);
+  
+  /* Performance */
+  isolation: isolate;
+  will-change: backdrop-filter, background;
+  
+  /* Smooth transitions */
+  transition: all 0.4s var(--motion-smooth);
+  
+  &:hover {
+    background: color-mix(in oklch, var(--glass-bg), white 10%);
+    transform: translateY(-2px);
+    box-shadow: 
+      0 12px 40px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Dynamic Gradient Borders */
+.gradient-border {
+  position: relative;
+  border-radius: clamp(1rem, 2vw, 2rem);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+      45deg,
+      oklch(60% 0.3 250),
+      oklch(60% 0.3 270),
+      oklch(60% 0.3 250)
+    );
+    border-radius: inherit;
+    z-index: -1;
+    animation: borderRotate 3s linear infinite;
+    opacity: 0.5;
+  }
+}
+
+@keyframes borderRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dynamic Shadows */
+.dynamic-shadow {
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.1),
+    0 16px 32px rgba(0, 0, 0, 0.15);
+  
+  transition: box-shadow 0.3s var(--motion-smooth);
+  
+  &:hover {
+    box-shadow: 
+      0 4px 8px rgba(0, 0, 0, 0.15),
+      0 12px 24px rgba(0, 0, 0, 0.2),
+      0 24px 48px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+============================================= */
+
+/* Content Visibility API */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 5000px;
+}
+
+/* Containment for Performance */
+.layout-contain {
+  contain: layout paint style;
+}
+
+.paint-contain {
+  contain: paint;
+}
+
+/* Will-change optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.will-change-contents {
+  will-change: contents;
+}
+
+/* ============================================
+   RESPONSIVE UTILITY CLASSES
+   - Mobile-first approach
+============================================= */
+
+/* Hide/Show based on breakpoints */
+.show-on-mobile {
+  display: block;
+  
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.show-on-desktop {
+  display: none;
+  
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+/* Direction based on viewport */
+.flex-direction-responsive {
+  flex-direction: column;
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+/* Grid column responsive */
+.grid-columns-responsive {
+  grid-template-columns: 1fr;
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================
+   DARK/LIGHT MODE SUPPORT
+============================================= */
+
+@media (prefers-color-scheme: light) {
+  .dynamic-body {
+    --bg-base: oklch(95% 0.01 250);
+    --bg-elevated: color-mix(in oklch, var(--bg-base), black 5%);
+    --bg-surface: color-mix(in oklch, var(--bg-base), black 10%);
+    --bg-gradient: linear-gradient(
+      135deg,
+      oklch(95% 0.02 250) 0%,
+      oklch(90% 0.03 270) 50%,
+      oklch(92% 0.025 280) 100%
+    );
+    
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Forced Dark/Light */
+.dark-mode {
+  color-scheme: dark;
+  --bg-base: oklch(15% 0.02 250);
+  /* ... other dark variables */
+}
+
+.light-mode {
+  color-scheme: light;
+  --bg-base: oklch(95% 0.01 250);
+  /* ... other light variables */
+}
+
+/* ============================================
+   DYNAMIC SCROLL AREAS
+============================================= */
+
+.scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(60% 0.3 250) transparent;
+  
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: oklch(60% 0.3 250);
+    border-radius: 4px;
+    
+    &:hover {
+      background: oklch(50% 0.3 250);
+    }
+  }
+}
+
+/* Horizontal Scroll Container */
+.horizontal-scroll {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(300px, 1fr);
+  gap: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  
+  & > * {
+    scroll-snap-align: start;
+  }
+}
+
+/* ============================================
+   RESPONSIVE MEDIA QUERIES (Fallback)
+============================================= */
+
+@media (max-width: 767px) {
+  .dynamic-body {
+    --grid-container: minmax(1rem, 1fr) minmax(0, 100%) minmax(1rem, 1fr);
+  }
+  
+  .main-content {
+    padding-block: 1.5rem;
+  }
+  
+  .fluid-h1 {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+  
+  .fluid-h2 {
+    font-size: clamp(1.75rem, 6vw, 2rem);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .dynamic-body {
+    --grid-container: minmax(2rem, 1fr) minmax(0, 90%) minmax(2rem, 1fr);
+  }
+  
+  .main-content {
+    padding-block: 2rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .dynamic-body {
+    --grid-container: minmax(3rem, 1fr) minmax(0, 80%) minmax(3rem, 1fr);
+  }
+  
+  .main-content {
+    padding-block: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .dynamic-body {
+    --grid-container: minmax(4rem, 1fr) minmax(0, 1400px) minmax(4rem, 1fr);
+  }
+  
+  .main-content {
+    padding-block: 4rem;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .dynamic-body {
+    --bg-gradient: linear-gradient(135deg, #000 0%, #222 100%);
+    --glass-border: rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .dynamic-body {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .dynamic-body::before,
+  .dynamic-body::after {
+    animation: none !important;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .dynamic-body {
+    --grid-gap: 1rem;
+  }
+  
+  .glass-effect:hover {
+    transform: none;
+  }
+  
+  /* Larger touch targets */
+  button, 
+  .btn-primary, 
+  .btn-secondary,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .dynamic-body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .dynamic-body::before,
+  .dynamic-body::after {
+    display: none;
+  }
+  
+  .main-content {
+    padding: 0;
+  }
+}
+
+/* ============================================
+   DYNAMIC LAYOUT EXAMPLES
+============================================= */
+
+/* Hero Section Dynamic Layout */
+.dynamic-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 80vh;
+  min-height: 80dvh;
+  place-items: center;
+  text-align: center;
+  
+  @container main (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+    place-items: start center;
+  }
+}
+
+/* Dynamic Card Layout */
+.dynamic-card-grid {
+  display: grid;
+  gap: clamp(1rem, 3vw, 2rem);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  
+  @container main (min-width: 1024px) {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 350px), 1fr));
+  }
+}
+
+/* Dynamic Sidebar Layout */
+.dynamic-sidebar-layout {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  
+  @container main (min-width: 1024px) {
+    grid-template-columns: 250px 1fr;
+    
+    &.sidebar-right {
+      grid-template-columns: 1fr 250px;
+    }
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES FOR QUICK USE
+============================================= */
+
+/* Spacing Utilities */
+.m-fluid { margin: clamp(0.5rem, 2vw, 1.5rem); }
+.p-fluid { padding: clamp(0.5rem, 2vw, 1.5rem); }
+
+/* Text Utilities */
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+
+/* Aspect Ratios */
+.aspect-video { aspect-ratio: 16/9; }
+.aspect-square { aspect-ratio: 1/1; }
+.asport-portrait { aspect-ratio: 9/16; }
+
+/* Container Utilities */
+.container-responsive {
+  width: min(100% - 2rem, 1400px);
+  margin-inline: auto;
+}
+
+.container-fluid {
+  width: 100%;
+  padding-inline: clamp(1rem, 4vw, 4rem);
+}
