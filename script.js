@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
     
-    // Profile dropdown functionality
     const userProfile = document.getElementById('userProfile');
     const dropdownMenu = userProfile.querySelector('.dropdown-menu');
     
@@ -16,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Theme toggle
     const themeToggle = document.querySelector('.theme-toggle');
     themeToggle.addEventListener('click', function() {
         document.body.classList.toggle('light-mode');
@@ -30,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Notification bell
     const notificationBtn = document.querySelector('.notification-btn');
     notificationBtn.addEventListener('click', function() {
         this.style.transform = 'scale(0.9) rotate(360deg)';
@@ -44,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
     
-    // Live stats animation
+    
     const statValues = document.querySelectorAll('.stat-value');
     statValues.forEach(stat => {
         const target = parseInt(stat.textContent.replace(/[^0-9]/g, ''));
@@ -67,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateStat();
     });
     
-    // Interactive stat cards
     const statCards = document.querySelectorAll('.stat-card');
     statCards.forEach(card => {
         card.addEventListener('click', function() {
@@ -76,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Game selector cards
     const gameCards = document.querySelectorAll('.game-card');
     gameCards.forEach(card => {
         card.addEventListener('click', function() {
@@ -84,15 +78,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const gameName = this.querySelector('.game-name').textContent;
             alert(`Launching ${gameName}...`);
             
-            // Add visual feedback
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = '';
             }, 200);
         });
     });
-    
-    // Stream cards interaction
+
     const streamCards = document.querySelectorAll('.stream-card');
     streamCards.forEach(card => {
         card.addEventListener('click', function() {
@@ -100,13 +92,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // View all streams button
     const viewAllBtn = document.querySelector('.view-all');
     viewAllBtn.addEventListener('click', function() {
         alert('Showing all live streams!');
     });
     
-    // CTA buttons
     const ctaButtons = document.querySelectorAll('.cta-btn');
     ctaButtons.forEach(btn => {
         btn.addEventListener('click', function() {
@@ -116,13 +106,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Theme changer
     const themeButtons = document.querySelectorAll('.theme-btn');
     themeButtons.forEach(btn => {
         btn.addEventListener('click', function() {
-            // Remove active class from all buttons
             themeButtons.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
             this.classList.add('active');
             
             const theme = this.dataset.theme;
@@ -133,13 +120,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function changeTheme(theme) {
         const root = document.documentElement;
         
-        // Remove existing theme classes
         document.body.className = document.body.className.replace(/theme-\w+/g, '');
         
-        // Add new theme class
         document.body.classList.add(`theme-${theme}`);
-        
-        // Update CSS variables based on theme
+
         switch(theme) {
             case 'blue':
                 updateColors('#0099ff', '#0066cc');
@@ -164,7 +148,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.style.setProperty('--secondary-color', secondary);
     }
     
-    // Scroll to top
     const scrollTopBtn = document.getElementById('scrollTop');
     
     window.addEventListener('scroll', function() {
@@ -182,7 +165,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Newsletter form
     const newsletterForm = document.querySelector('.newsletter-form');
     newsletterForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -202,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // XP bar animation
+    
     const xpFill = document.querySelector('.xp-fill');
     let xpWidth = 62;
     
@@ -210,8 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
         xpWidth = (xpWidth + 0.1) % 100;
         xpFill.style.width = `${xpWidth}%`;
     }, 1000);
-    
-    // Add live chat particles effect
+ 
     createChatParticles();
 });
 
@@ -260,7 +241,6 @@ function createParticle(container) {
     }, (Math.random() * 10000 + 5000));
 }
 
-// Add chat particles animation
 const style = document.createElement('style');
 style.textContent = `
     @keyframes chatFloat {

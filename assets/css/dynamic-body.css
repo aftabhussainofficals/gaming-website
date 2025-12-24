@@ -1,14 +1,4 @@
-/* ============================================
-   DYNAMIC RESPONSIVE BODY SYSTEM
-   - CSS Grid + Container Queries
-   - Fluid Typography & Spacing
-   - Adaptive Layouts
-   - Performance Optimized
-============================================= */
-
-/* CSS Custom Properties for Dynamic System */
 :root {
-  /* Layout Breakpoints (Container-based, not viewport!) */
   --breakpoint-xs: 320px;
   --breakpoint-sm: 480px;
   --breakpoint-md: 768px;
@@ -16,15 +6,13 @@
   --breakpoint-xl: 1280px;
   --breakpoint-xxl: 1536px;
   
-  /* Fluid Typography Scales */
   --fluid-min-width: 320;
   --fluid-max-width: 1400;
   --fluid-min-scale: 1;
   --fluid-max-scale: 1.2;
   --fluid-min-font: 16;
   --fluid-max-font: 18;
-  
-  /* Dynamic Spacing */
+
   --space-unit: 0.25rem;
   --space-3xs: calc(0.25 * var(--space-unit));
   --space-2xs: calc(0.5 * var(--space-unit));
@@ -36,17 +24,14 @@
   --space-2xl: calc(6 * var(--space-unit));
   --space-3xl: calc(8 * var(--space-unit));
   
-  /* Grid Templates */
   --grid-columns: 12;
   --grid-gap: clamp(1rem, 2vw, 2rem);
   --grid-container: minmax(1rem, 1fr) minmax(0, var(--breakpoint-xl)) minmax(1rem, 1fr);
-  
-  /* Animation Variables */
+
   --motion-safe: cubic-bezier(0.4, 0, 0.2, 1);
   --motion-bouncy: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   --motion-smooth: cubic-bezier(0.16, 1, 0.3, 1);
-  
-  /* Dynamic Colors (CSS Relative Colors) */
+
   --bg-base: oklch(15% 0.02 250);
   --bg-elevated: color-mix(in oklch, var(--bg-base), white 5%);
   --bg-surface: color-mix(in oklch, var(--bg-base), white 10%);
@@ -57,26 +42,19 @@
     oklch(18% 0.06 280) 100%
   );
   
-  /* Dynamic Effects */
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   --backdrop-blur: blur(20px) saturate(180%);
-  
-  /* Performance Variables */
+
   --content-visibility: auto;
   --contain-layout: layout paint;
   --will-change: auto;
 }
 
-/* ============================================
-   DYNAMIC BODY LAYOUT SYSTEM
-============================================= */
-
 .dynamic-body {
-  /* Base Layout */
   min-height: 100vh;
-  min-height: 100dvh; /* Dynamic viewport height */
+  min-height: 100dvh; 
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
@@ -84,20 +62,17 @@
     "header"
     "main"
     "footer";
-  
-  /* Dynamic Background */
+
   background: var(--bg-gradient);
   background-attachment: fixed;
   position: relative;
   overflow-x: hidden;
   
-  /* Performance Optimizations */
   content-visibility: var(--content-visibility);
   contain: var(--contain-layout);
   will-change: var(--will-change);
 }
 
-/* Dynamic Background Effects */
 .dynamic-body::before {
   content: '';
   position: fixed;
@@ -111,7 +86,6 @@
   animation: gradientShift 20s ease infinite alternate;
 }
 
-/* Animated Particles Overlay */
 .dynamic-body::after {
   content: '';
   position: fixed;
@@ -126,28 +100,20 @@
   z-index: -1;
 }
 
-/* ============================================
-   MAIN CONTENT AREA DYNAMIC LAYOUT
-============================================= */
-
 .main-content {
   grid-area: main;
-  
-  /* Dynamic Container */
+
   container-type: inline-size;
   container-name: main;
   
-  /* Modern Layout */
   display: grid;
   grid-template-columns: var(--grid-container);
   grid-auto-rows: min-content;
   gap: var(--grid-gap);
   padding-block: clamp(2rem, 5vh, 4rem);
-  
-  /* Performance */
+
   content-visitation: auto;
   
-  /* Smooth Scrolling Anchor */
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
 }
@@ -157,7 +123,6 @@
   width: 100%;
 }
 
-/* Full-width Sections */
 .full-width {
   grid-column: 1 / -1;
   width: 100vw;
@@ -168,21 +133,13 @@
   margin-right: -50vw;
 }
 
-/* ============================================
-   FLUID TYPOGRAPHY SYSTEM
-   - Clamp() based fluid scaling
-   - Viewport + Container aware
-============================================= */
-
 .dynamic-body {
-  /* Base Fluid Font Size */
   font-size: clamp(
     calc(var(--fluid-min-font) * 1px),
     calc(var(--fluid-min-font) * 1px + (var(--fluid-max-font) - var(--fluid-min-font)) * ((100vw - var(--fluid-min-width) * 1px) / (var(--fluid-max-width) - var(--fluid-min-width)))),
     calc(var(--fluid-max-font) * 1px)
   );
   
-  /* Line Height Scale */
   line-height: calc(1.6 + var(--fluid-max-scale) - var(--fluid-min-scale));
   letter-spacing: -0.011em;
   text-rendering: optimizeLegibility;
@@ -191,7 +148,6 @@
   font-synthesis: none;
 }
 
-/* Fluid Type Scale */
 .fluid-h1 {
   font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
   line-height: 1.1;
@@ -232,21 +188,14 @@
   line-height: 1.8;
 }
 
-/* ============================================
-   DYNAMIC LAYOUT CONTAINERS
-   - Container Queries for component-level responsiveness
-============================================= */
-
 .dynamic-container {
   container-type: inline-size;
   width: 100%;
   max-width: 100%;
   
-  /* Performance */
   contain: layout style paint;
 }
 
-/* Card Container Query */
 .card-container {
   container-type: inline-size;
   container-name: card;
@@ -267,7 +216,6 @@
   }
 }
 
-/* Grid Container Query */
 .grid-container {
   container-type: inline-size;
   container-name: grid;
@@ -291,11 +239,6 @@
   }
 }
 
-/* ============================================
-   MODERN CSS GRID SYSTEMS
-============================================= */
-
-/* Auto-fit Grid (Responsive without media queries) */
 .auto-grid {
   --min-column-size: 300px;
   
@@ -305,7 +248,6 @@
   align-items: start;
 }
 
-/* Masonry Layout (Modern CSS) */
 .masonry-grid {
   column-count: 1;
   column-gap: clamp(1rem, 2vw, 2rem);
@@ -328,24 +270,17 @@
   margin-bottom: clamp(1rem, 2vw, 2rem);
 }
 
-/* Dynamic Flex System */
 .dynamic-flex {
   display: flex;
   flex-wrap: wrap;
   gap: var(--grid-gap);
   
-  /* Responsive flex children */
   & > * {
     flex: 1 1 calc(var(--min-column-size) - var(--grid-gap));
-    min-width: 0; /* Prevents overflow */
+    min-width: 0; 
   }
 }
 
-/* ============================================
-   ADVANCED RESPONSIVE UTILITIES
-============================================= */
-
-/* Aspect Ratio Container */
 .aspect-container {
   container-type: size;
   aspect-ratio: 16 / 9;
@@ -355,7 +290,7 @@
     &::before {
       content: '';
       float: left;
-      padding-top: 56.25%; /* 16:9 */
+      padding-top: 56.25%; 
     }
     
     &::after {
@@ -366,7 +301,6 @@
   }
 }
 
-/* Fluid Spacing System */
 .fluid-spacing {
   padding: clamp(1.5rem, 4vw, 3rem);
   margin-block: clamp(1rem, 3vw, 2rem);
@@ -376,7 +310,6 @@
   }
 }
 
-/* Dynamic Gap Utilities */
 .gap-fluid {
   gap: clamp(1rem, 2vw, 2rem);
 }
@@ -389,10 +322,6 @@
   gap: clamp(0.5rem, 1vw, 1rem);
 }
 
-/* ============================================
-   RESPONSIVE IMAGE SYSTEM
-============================================= */
-
 .responsive-image {
   width: 100%;
   height: auto;
@@ -400,13 +329,11 @@
   object-fit: cover;
   object-position: center;
   
-  /* Modern Image Loading */
   content-visibility: auto;
   loading: lazy;
   decoding: async;
 }
 
-/* Art Direction with Picture Element */
 .picture-wrapper {
   container-type: inline-size;
   
@@ -422,11 +349,6 @@
   }
 }
 
-/* ============================================
-   DYNAMIC ANIMATIONS & TRANSITIONS
-============================================= */
-
-/* Viewport-based Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -493,7 +415,6 @@
   }
 }
 
-/* Scroll-based Animations */
 .scroll-animate {
   opacity: 0;
   transform: translateY(30px);
@@ -505,7 +426,6 @@
   transform: translateY(0);
 }
 
-/* Staggered Animation for Children */
 .stagger-children > * {
   opacity: 0;
   transform: translateY(20px);
@@ -518,11 +438,6 @@
 .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
 .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
 
-/* ============================================
-   DYNAMIC EFFECTS & FILTERS
-============================================= */
-
-/* Glass Morphism Effect */
 .glass-effect {
   background: var(--glass-bg);
   backdrop-filter: var(--backdrop-blur);
@@ -531,11 +446,9 @@
   border-radius: clamp(1rem, 2vw, 2rem);
   box-shadow: var(--glass-shadow);
   
-  /* Performance */
   isolation: isolate;
   will-change: backdrop-filter, background;
-  
-  /* Smooth transitions */
+
   transition: all 0.4s var(--motion-smooth);
   
   &:hover {
@@ -547,7 +460,6 @@
   }
 }
 
-/* Dynamic Gradient Borders */
 .gradient-border {
   position: relative;
   border-radius: clamp(1rem, 2vw, 2rem);
@@ -578,7 +490,6 @@
   }
 }
 
-/* Dynamic Shadows */
 .dynamic-shadow {
   box-shadow: 
     0 2px 4px rgba(0, 0, 0, 0.1),
@@ -595,17 +506,11 @@
   }
 }
 
-/* ============================================
-   PERFORMANCE OPTIMIZATIONS
-============================================= */
-
-/* Content Visibility API */
 .content-visibility-auto {
   content-visibility: auto;
   contain-intrinsic-size: 1px 5000px;
 }
 
-/* Containment for Performance */
 .layout-contain {
   contain: layout paint style;
 }
@@ -614,7 +519,6 @@
   contain: paint;
 }
 
-/* Will-change optimizations */
 .will-change-transform {
   will-change: transform;
 }
@@ -627,12 +531,6 @@
   will-change: contents;
 }
 
-/* ============================================
-   RESPONSIVE UTILITY CLASSES
-   - Mobile-first approach
-============================================= */
-
-/* Hide/Show based on breakpoints */
 .show-on-mobile {
   display: block;
   
@@ -649,7 +547,6 @@
   }
 }
 
-/* Direction based on viewport */
 .flex-direction-responsive {
   flex-direction: column;
   
@@ -658,7 +555,6 @@
   }
 }
 
-/* Grid column responsive */
 .grid-columns-responsive {
   grid-template-columns: 1fr;
   
@@ -670,10 +566,6 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
-/* ============================================
-   DARK/LIGHT MODE SUPPORT
-============================================= */
 
 @media (prefers-color-scheme: light) {
   .dynamic-body {
@@ -692,22 +584,15 @@
   }
 }
 
-/* Forced Dark/Light */
 .dark-mode {
   color-scheme: dark;
   --bg-base: oklch(15% 0.02 250);
-  /* ... other dark variables */
 }
 
 .light-mode {
   color-scheme: light;
   --bg-base: oklch(95% 0.01 250);
-  /* ... other light variables */
 }
-
-/* ============================================
-   DYNAMIC SCROLL AREAS
-============================================= */
 
 .scroll-area {
   scrollbar-width: thin;
@@ -732,7 +617,6 @@
   }
 }
 
-/* Horizontal Scroll Container */
 .horizontal-scroll {
   display: grid;
   grid-auto-flow: column;
@@ -746,10 +630,6 @@
     scroll-snap-align: start;
   }
 }
-
-/* ============================================
-   RESPONSIVE MEDIA QUERIES (Fallback)
-============================================= */
 
 @media (max-width: 767px) {
   .dynamic-body {
@@ -799,7 +679,6 @@
   }
 }
 
-/* High Contrast Mode */
 @media (prefers-contrast: high) {
   .dynamic-body {
     --bg-gradient: linear-gradient(135deg, #000 0%, #222 100%);
@@ -807,7 +686,6 @@
   }
 }
 
-/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   .dynamic-body {
     animation-duration: 0.01ms !important;
@@ -821,7 +699,6 @@
   }
 }
 
-/* Touch Device Optimizations */
 @media (hover: none) and (pointer: coarse) {
   .dynamic-body {
     --grid-gap: 1rem;
@@ -831,7 +708,6 @@
     transform: none;
   }
   
-  /* Larger touch targets */
   button, 
   .btn-primary, 
   .btn-secondary,
@@ -841,7 +717,6 @@
   }
 }
 
-/* Print Styles */
 @media print {
   .dynamic-body {
     background: white !important;
@@ -858,11 +733,6 @@
   }
 }
 
-/* ============================================
-   DYNAMIC LAYOUT EXAMPLES
-============================================= */
-
-/* Hero Section Dynamic Layout */
 .dynamic-hero {
   display: grid;
   grid-template-columns: 1fr;
@@ -879,7 +749,6 @@
   }
 }
 
-/* Dynamic Card Layout */
 .dynamic-card-grid {
   display: grid;
   gap: clamp(1rem, 3vw, 2rem);
@@ -890,7 +759,6 @@
   }
 }
 
-/* Dynamic Sidebar Layout */
 .dynamic-sidebar-layout {
   display: grid;
   gap: clamp(1.5rem, 4vw, 3rem);
@@ -904,24 +772,16 @@
   }
 }
 
-/* ============================================
-   UTILITY CLASSES FOR QUICK USE
-============================================= */
-
-/* Spacing Utilities */
 .m-fluid { margin: clamp(0.5rem, 2vw, 1.5rem); }
 .p-fluid { padding: clamp(0.5rem, 2vw, 1.5rem); }
 
-/* Text Utilities */
 .text-balance { text-wrap: balance; }
 .text-pretty { text-wrap: pretty; }
 
-/* Aspect Ratios */
 .aspect-video { aspect-ratio: 16/9; }
 .aspect-square { aspect-ratio: 1/1; }
 .asport-portrait { aspect-ratio: 9/16; }
 
-/* Container Utilities */
 .container-responsive {
   width: min(100% - 2rem, 1400px);
   margin-inline: auto;

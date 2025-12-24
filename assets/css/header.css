@@ -1,4 +1,4 @@
-/* Main Header */
+
 .main-header {
     position: fixed;
     top: 0;
@@ -16,7 +16,6 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Nav Container */
 .nav-container {
     display: flex;
     justify-content: space-between;
@@ -26,7 +25,6 @@
     margin: 0 auto;
 }
 
-/* Logo */
 .logo-container {
     flex-shrink: 0;
 }
@@ -79,7 +77,6 @@
     text-transform: uppercase;
 }
 
-/* Navigation Menu */
 .nav-menu {
     flex: 1;
     display: flex;
@@ -154,7 +151,6 @@
     font-size: 0.6rem;
 }
 
-/* Search Container */
 .search-container {
     position: relative;
     margin-right: 30px;
@@ -224,7 +220,6 @@
     transform: scale(1.1);
 }
 
-/* User Actions */
 .user-actions {
     display: flex;
     align-items: center;
@@ -267,7 +262,6 @@
     box-shadow: 0 10px 30px rgba(255, 165, 0, 0.3);
 }
 
-/* Menu Toggle */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -301,7 +295,6 @@
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Notification Bar */
 .notification-bar {
     background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
     color: white;
@@ -360,7 +353,6 @@
     opacity: 1;
 }
 
-/* Mobile Navigation */
 @media (max-width: 1024px) {
     .nav-container {
         padding: 15px 20px;
