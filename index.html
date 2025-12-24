@@ -3,264 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Gaming Portal | Ultimate Gaming Experience</title>
-    <meta name="description" content="Nexus Gaming - Ultimate gaming portal with tournaments, news, and community features">
-    <meta name="keywords" content="gaming, esports, tournaments, gaming news, gaming community">
-    <meta name="theme-color" content="#ffa500">
-    <meta property="og:title" content="Nexus Gaming Portal">
-    <meta property="og:description" content="Where Legends Are Born">
-    <meta property="og:image" content="assets/images/og-image.jpg">
-    <meta property="og:url" content="https://nexus-gaming.com">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
-    <link rel="preload" href="assets/css/dynamic-body.css" as="style">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <title>GameHub - Ultimate Gaming Portal</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="assets/css/dynamic-body.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/hero.css">
-    <link rel="stylesheet" href="assets/css/games.css">
-    <link rel="stylesheet" href="assets/css/animations.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
-<body class="dynamic-body"> 
-    <header class="main-header glass-effect" id="mainHeader" style="background-image: url('assets/images/hero-bg.jpg'); background-size: cover; background-position: center;">
-        <nav class="nav-container">
-            <div class="logo-container">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <span class="logo-text">
-                        <span class="logo-main">NEXUS</span>
-                        <span class="logo-sub">GAMING</span>
-                    </span>
-                </a>
-            </div>
+<body>
+    <div class="bg-overlay"></div>
+    
+    <header>
+        <div class="header-bg">
+            <div class="header-gradient"></div>
+            <div class="header-particles"></div>
+        </div>
         
-            <div class="nav-menu" id="navMenu">
-                <div class="nav-links">
-                    <a href="index.html" class="nav-link active">
-                        <i class="fas fa-home"></i>
-                        <span>Home</span>
-                    </a>
-                    <a href="pages/games.html" class="nav-link">
-                        <i class="fas fa-gamepad"></i>
-                        <span>Games</span>
-                    </a>
-                    <a href="pages/news.html" class="nav-link">
-                        <i class="fas fa-newspaper"></i>
-                        <span>News</span>
-                        <span class="badge">New</span>
-                    </a>
-                    <a href="pages/tournaments.html" class="nav-link">
-                        <i class="fas fa-trophy"></i>
-                        <span>Tournaments</span>
-                    </a>
-                    <a href="pages/store.html" class="nav-link">
-                        <i class="fas fa-store"></i>
-                        <span>Store</span>
-                    </a>
-                    <a href="pages/community.html" class="nav-link">
-                        <i class="fas fa-users"></i>
-                        <span>Community</span>
-                    </a>
-                </div>
+        <div class="header-container">
+            <div class="logo">
+                <h1><i class="fas fa-gamepad"></i> GameHub</h1>
+                <div class="logo-subtitle">Play. Connect. Conquer.</div>
             </div>
             
-            <div class="nav-actions">
-                <div class="search-container">
-                    <button class="search-btn" id="searchBtn">
-                        <i class="fas fa-search"></i>
+            <div class="header-right">
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=gamer&background=%2300a8ff" alt="User Avatar">
+                        <div class="online-status"></div>
+                    </div>
+                    <div class="user-info">
+                        <span class="username">CyberNinja</span>
+                        <div class="user-badges">
+                            <span class="badge premium"><i class="fas fa-crown"></i></span>
+                            <span class="badge streamer"><i class="fas fa-broadcast-tower"></i></span>
+                            <span class="badge elite"><i class="fas fa-star"></i></span>
+                        </div>
+                    </div>
+                    <button class="profile-dropdown">
+                        <i class="fas fa-chevron-down"></i>
                     </button>
-                    <div class="search-box" id="searchBox">
-                        <input type="text" placeholder="Search games, news, guides...">
-                        <button class="search-submit">
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
+                    <div class="dropdown-menu">
+                        <a href="#"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-trophy"></i> Achievements</a>
+                        <a href="#"><i class="fas fa-gamepad"></i> My Games</a>
+                        <a href="#"><i class="fas fa-friends"></i> Friends</a>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     </div>
                 </div>
                 
-                <div class="user-actions">
-                    <a href="login\login.html" class="btn-login">
-                        <i class="fas fa-sign-in-alt"></i>
-                        <span>Login</span>
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <button class="theme-toggle">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
                     </a>
                 </div>
-                
-                <button class="menu-toggle" id="menuToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+            </div>
+        </div>
+
+        <nav>
+            <div class="nav-container">
+                <ul class="main-nav">
+                    <li><a href="#home" class="nav-active"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="#games"><i class="fas fa-gamepad"></i> <span>Games</span></a></li>
+                    <li><a href="#news"><i class="fas fa-newspaper"></i> <span>News</span></a></li>
+                    <li><a href="#community"><i class="fas fa-users"></i> <span>Community</span></a></li>
+                    <li><a href="#tournaments"><i class="fas fa-trophy"></i> <span>Tournaments</span></a></li>
+                    <li><a href="#stream"><i class="fas fa-broadcast-tower"></i> <span>Stream</span></a></li>
+                    <li><a href="#shop"><i class="fas fa-shopping-cart"></i> <span>Shop</span></a></li>
+                    <li><a href="#support"><i class="fas fa-headset"></i> <span>Support</span></a></li>
+                </ul>
             </div>
         </nav>
-
-        <div class="notification-bar">
-            <div class="notification-content">
-                <i class="fas fa-exclamation-circle"></i>
-                <span>🔥 LIVE NOW: Cyberpunk Tournament - $50,000 Prize Pool!</span>
-                <a href="pages/tournaments.html" class="notification-link">Join Now →</a>
-            </div>
-            <button class="notification-close">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
     </header>
 
-    <main></main>
-
-    <footer class="main-footer">
-        <div class="footer-content container-responsive">
-            <div class="footer-main dynamic-sidebar-layout gap-fluid-lg">
-                <div class="footer-brand">
-                    <a href="index.html" class="footer-logo">
+    <footer class="dynamic-footer">
+        <!-- Footer Main Content -->
+        <div class="footer-main">
+            <div class="footer-container">
+                <div class="footer-section footer-brand">
+                    <div class="footer-logo">
                         <i class="fas fa-gamepad"></i>
-                        <span class="fluid-h3">NEXUS GAMING</span>
-                    </a>
-                    <p class="footer-description fluid-text-md">
-                        The ultimate destination for competitive gaming, 
-                        tournaments, and community. Join millions of gamers worldwide.
+                        <h3>GameHub</h3>
+                    </div>
+                    <p class="footer-description">
+                        The ultimate gaming ecosystem where players connect, compete, and create memories.
                     </p>
-                    <div class="footer-social dynamic-flex gap-fluid-sm">
-                        <a href="#" class="social-link glass-effect">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link glass-effect">
-                            <i class="fab fa-discord"></i>
-                        </a>
-                        <a href="#" class="social-link glass-effect">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="#" class="social-link glass-effect">
-                            <i class="fab fa-twitch"></i>
-                        </a>
-                        <a href="#" class="social-link glass-effect">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+                    <div class="social-links">
+                        <a href="#" class="social-link discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link twitch"><i class="fab fa-twitch"></i></a>
+                        <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-links dynamic-grid grid-columns-responsive gap-fluid">
-                    <div class="link-group">
-                        <h4 class="link-title fluid-h4">Gaming</h4>
-                        <a href="pages/games.html" class="fluid-text-sm">All Games</a>
-                        <a href="pages/game-detail.html" class="fluid-text-sm">New Releases</a>
-                        <a href="pages/tournaments.html" class="fluid-text-sm">Tournaments</a>
-                        <a href="pages/guides.html" class="fluid-text-sm">Game Guides</a>
-                        <a href="pages/reviews.html" class="fluid-text-sm">Reviews</a>
-                    </div>
-                    
-                    <div class="link-group">
-                        <h4 class="link-title fluid-h4">Community</h4>
-                        <a href="pages/community.html" class="fluid-text-sm">Forums</a>
-                        <a href="pages/profile.html" class="fluid-text-sm">Leaderboards</a>
-                        <a href="pages/community.html" class="fluid-text-sm">Teams</a>
-                        <a href="pages/community.html" class="fluid-text-sm">Streamers</a>
-                        <a href="pages/community.html" class="fluid-text-sm">Events</a>
-                    </div>
-                    
-                    <div class="link-group">
-                        <h4 class="link-title fluid-h4">Support</h4>
-                        <a href="pages/support.html" class="fluid-text-sm">Help Center</a>
-                        <a href="pages/contact.html" class="fluid-text-sm">Contact Us</a>
-                        <a href="pages/privacy.html" class="fluid-text-sm">Privacy Policy</a>
-                        <a href="pages/terms.html" class="fluid-text-sm">Terms of Service</a>
-                        <a href="pages/support.html" class="fluid-text-sm">FAQ</a>
-                    </div>
-                    
-                    <div class="link-group">
-                        <h4 class="link-title fluid-h4">Company</h4>
-                        <a href="pages/about.html" class="fluid-text-sm">About Us</a>
-                        <a href="pages/news.html" class="fluid-text-sm">Press</a>
-                        <a href="pages/careers.html" class="fluid-text-sm">Careers</a>
-                        <a href="pages/partners.html" class="fluid-text-sm">Partners</a>
-                        <a href="pages/contact.html" class="fluid-text-sm">Advertise</a>
-                    </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-arrow-right"></i> Home</a></li>
+                        <li><a href="#games"><i class="fas fa-arrow-right"></i> Games Library</a></li>
+                        <li><a href="#tournaments"><i class="fas fa-arrow-right"></i> Tournaments</a></li>
+                        <li><a href="#stream"><i class="fas fa-arrow-right"></i> Live Streams</a></li>
+                        <li><a href="#shop"><i class="fas fa-arrow-right"></i> Game Store</a></li>
+                    </ul>
                 </div>
-            </div>
-            
-            <div class="footer-newsletter glass-effect p-fluid scroll-animate">
-                <h4 class="newsletter-title fluid-h4">
-                    <i class="fas fa-envelope"></i>
-                    Stay Updated
-                </h4>
-                <p class="newsletter-text fluid-text-md">
-                    Get the latest gaming news, tournament updates, and exclusive offers.
-                </p>
-                <form class="newsletter-form dynamic-flex gap-fluid-sm">
-                    <input type="email" placeholder="Your email address" required class="glass-effect">
-                    <button type="submit" class="glass-effect">
-                        <i class="fas fa-paper-plane"></i>
-                        <span class="fluid-text-sm">Subscribe</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-        
-        <div class="footer-bottom container-responsive dynamic-flex gap-fluid">
-            <div class="footer-copyright">
-                <p class="fluid-text-sm">&copy; 2024 Nexus Gaming Portal. All rights reserved.</p>
-                <p class="fluid-text-sm">All trademarks are property of their respective owners.</p>
-            </div>
-            
-            <div class="footer-legal dynamic-flex gap-fluid">
-                <a href="pages/privacy.html" class="fluid-text-sm">Privacy Policy</a>
-                <a href="pages/terms.html" class="fluid-text-sm">Terms of Use</a>
-                <a href="pages/cookie.html" class="fluid-text-sm">Cookie Policy</a>
-                <a href="pages/sitemap.html" class="fluid-text-sm">Sitemap</a>
-            </div>
-            
-            <div class="footer-ratings dynamic-flex gap-fluid-sm">
-                <div class="rating-badge glass-effect">
-                    <span class="rating-age fluid-text-sm">18+</span>
-                    <span class="rating-text fluid-text-sm">Age Rating</span>
+                
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#forums"><i class="fas fa-comments"></i> Forums</a></li>
+                        <li><a href="#teams"><i class="fas fa-users"></i> Teams</a></li>
+                        <li><a href="#leaderboards"><i class="fas fa-chart-line"></i> Leaderboards</a></li>
+                        <li><a href="#events"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                        <li><a href="#clans"><i class="fas fa-shield-alt"></i> Clans</a></li>
+                    </ul>
                 </div>
-                <div class="rating-badge glass-effect">
-                    <i class="fas fa-shield-alt"></i>
-                    <span class="rating-text fluid-text-sm">Safe Gaming</span>
+                
+                <div class="footer-section newsletter">
+                    <h4>Weekly Newsletter</h4>
+                    <p>Get gaming news, updates, and exclusive content delivered weekly.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your gaming email" required>
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
         
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div class="copyright">
+                    <p>&copy; 2025 GameHub. All rights reserved. <span class="age-rating">18+</span></p>
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Safety Guidelines</a>
+                    </div>
+                </div>
+                
+                <div class="footer-features">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Gaming</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <span>Low Latency</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-globe"></i>
+                        <span>Global Servers</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        <button class="back-to-top glass-effect" id="backToTop">
+        <!-- Interactive Theme Changer -->
+        <div class="theme-changer">
+            <button class="theme-btn" data-theme="blue">
+                <i class="fas fa-water"></i>
+            </button>
+            <button class="theme-btn active" data-theme="red">
+                <i class="fas fa-fire"></i>
+            </button>
+            <button class="theme-btn" data-theme="green">
+                <i class="fas fa-leaf"></i>
+            </button>
+            <button class="theme-btn" data-theme="purple">
+                <i class="fas fa-crown"></i>
+            </button>
+            <button class="theme-btn" data-theme="cyber">
+                <i class="fas fa-robot"></i>
+            </button>
+        </div>
+        
+        <div class="scroll-top" id="scrollTop">
             <i class="fas fa-chevron-up"></i>
-        </button>
+        </div>
     </footer>
 
-    
     <script src="assets/js/header.js"></script>
-    <script src="assets/js/animations.js"></script>
-    <script src="assets/js/games-slider.js"></script>
-    <script src="assets/js/dynamic-body.js" type="module"></script>
     <script src="script.js"></script>
-    
-    
-    <script>
-        // Performance monitoring
-        if ('PerformanceObserver' in window) {
-            const perfObserver = new PerformanceObserver((list) => {
-                for (const entry of list.getEntries()) {
-                    console.log(`[Performance] ${entry.name}: ${entry.startTime}`);
-                }
-            });
-            
-            perfObserver.observe({ entryTypes: ['paint', 'largest-contentful-paint', 'layout-shift'] });
-        }
-        
-        // Theme preference
-        const savedTheme = localStorage.getItem('preferred-theme') || 'auto';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        
-        // Touch detection
-        if ('ontouchstart' in window || navigator.maxTouchPoints) {
-            document.documentElement.classList.add('touch-device');
-        }
-    </script>
 </body>
 </html>
-

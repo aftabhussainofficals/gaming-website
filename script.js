@@ -1,492 +1,312 @@
-// Main JavaScript for Gaming Website
-
-// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
-    initParticles();
-    initHeaderEffects();
-    initAnimations();
-    initGamesSlider();
-    initCounters();
-    initNewsletter();
-    initBackToTop();
-    initInteractiveElements();
     
-    // Check for reduced motion preference
-    checkMotionPreference();
-});
-
-// Particles Background
-function initParticles() {
-    const container = document.getElementById('particles');
-    if (!container) return;
+    // Profile dropdown functionality
+    const userProfile = document.getElementById('userProfile');
+    const dropdownMenu = userProfile.querySelector('.dropdown-menu');
     
-    const particleCount = 50;
-    const particles = [];
+    userProfile.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdownMenu.classList.toggle('active');
+    });
     
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.cssText = `
-            position: absolute;
-            width: ${Math.random() * 5 + 2}px;
-            height: ${Math.random() * 5 + 2}px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            left: ${Math.random() * 100}%;
-            top: ${Math.random() * 100}%;
-            opacity: ${Math.random() * 0.3 + 0.1};
-        `;
-        container.appendChild(particle);
-        particles.push({
-            element: particle,
-            x: Math.random() * 100,
-            y: Math.random() * 100,
-            speedX: (Math.random() - 0.5) * 0.5,
-            speedY: (Math.random() - 0.5) * 0.5,
-            radius: Math.random() * 5 + 2
-        });
-    }
-    
-    // Animate particles
-    function animateParticles() {
-        particles.forEach(p => {
-            p.x = (p.x + p.speedX) % 100;
-            p.y = (p.y + p.speedY) % 100;
-            
-            p.element.style.left = `${p.x}%`;
-            p.element.style.top = `${p.y}%`;
-            
-            // Add floating effect
-            const float = Math.sin(Date.now() * 0.001 + p.x) * 10;
-            p.element.style.transform = `translateY(${float}px)`;
-        });
-        
-        requestAnimationFrame(animateParticles);
-    }
-    
-    animateParticles();
-}
-
-// Header Scroll Effects
-function initHeaderEffects() {
-    const header = document.getElementById('mainHeader');
-    let lastScroll = 0;
-    
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
-        
-        // Add scrolled class for background change
-        if (currentScroll > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+    document.addEventListener('click', function(e) {
+        if (!userProfile.contains(e.target)) {
+            dropdownMenu.classList.remove('active');
         }
-        
-        // Hide/show header on scroll
-        if (currentScroll > lastScroll && currentScroll > 100) {
-            // Scrolling down
-            header.style.transform = 'translateY(-100%)';
+    });
+    
+    // Theme toggle
+    const themeToggle = document.querySelector('.theme-toggle');
+    themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('light-mode');
+        const icon = this.querySelector('i');
+        if (document.body.classList.contains('light-mode')) {
+            icon.classList.remove('fa-palette');
+            icon.classList.add('fa-sun');
         } else {
-            // Scrolling up
-            header.style.transform = 'translateY(0)';
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-palette');
         }
-        
-        lastScroll = currentScroll;
     });
     
-    // Search toggle
-    const searchBtn = document.getElementById('searchBtn');
-    const searchBox = document.getElementById('searchBox');
-    
-    if (searchBtn && searchBox) {
-        searchBtn.addEventListener('click', function() {
-            searchBox.classList.toggle('active');
-            if (searchBox.classList.contains('active')) {
-                searchBox.querySelector('input').focus();
+    // Notification bell
+    const notificationBtn = document.querySelector('.notification-btn');
+    notificationBtn.addEventListener('click', function() {
+        this.style.transform = 'scale(0.9) rotate(360deg)';
+        setTimeout(() => {
+            this.style.transform = '';
+            const count = this.querySelector('.notification-count');
+            if (parseInt(count.textContent) > 0) {
+                count.textContent = '0';
+                count.style.background = 'linear-gradient(135deg, #333, #666)';
             }
-        });
-        
-        // Close search when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!searchBox.contains(e.target) && !searchBtn.contains(e.target)) {
-                searchBox.classList.remove('active');
-            }
-        });
-    }
-    
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', function() {
-            menuToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        
-        // Close menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-    }
-}
-
-// Initialize animations
-function initAnimations() {
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '50px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-            }
-        });
-    }, observerOptions);
-    
-    // Observe elements for animation
-    document.querySelectorAll('.game-card, .tournament-card, .news-card').forEach(el => {
-        observer.observe(el);
-    });
-}
-
-// Games Slider
-function initGamesSlider() {
-    const slider = document.getElementById('gamesSlider');
-    if (!slider) return;
-    
-    const track = slider.querySelector('.slider-track');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    
-    const games = [
-        {
-            id: 1,
-            title: 'Cyberpunk 2077',
-            category: 'rpg',
-            image: 'assets/images/game1.jpg',
-            rating: 4.8,
-            players: '2.4M',
-            tags: ['RPG', 'Open World', 'Futuristic']
-        },
-        // Add more games...
-    ];
-    
-    // Create game cards
-    games.forEach(game => {
-        const card = document.createElement('div');
-        card.className = 'game-card';
-        card.setAttribute('data-category', game.category);
-        card.innerHTML = `
-            <div class="game-image">
-                <span class="game-rating">${game.rating}</span>
-                <span class="game-category">${game.tags[0]}</span>
-            </div>
-            <div class="game-content">
-                <h3 class="game-title">${game.title}</h3>
-                <div class="game-meta">
-                    <span class="meta-item">
-                        <i class="fas fa-users"></i>
-                        ${game.players}
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-tag"></i>
-                        ${game.tags.join(', ')}
-                    </span>
-                </div>
-                <button class="game-action">
-                    <i class="fas fa-play"></i>
-                    Play Now
-                </button>
-            </div>
-        `;
-        track.appendChild(card);
+        }, 300);
     });
     
-    // Slider functionality
-    let position = 0;
-    const cardWidth = 300;
-    const gap = 20;
-    const visibleCards = Math.floor(slider.clientWidth / (cardWidth + gap));
-    
-    nextBtn.addEventListener('click', () => {
-        const maxPosition = -(games.length - visibleCards) * (cardWidth + gap);
-        position = Math.max(position - (cardWidth + gap), maxPosition);
-        track.style.transform = `translateX(${position}px)`;
-        updateButtons();
-    });
-    
-    prevBtn.addEventListener('click', () => {
-        position = Math.min(position + (cardWidth + gap), 0);
-        track.style.transform = `translateX(${position}px)`;
-        updateButtons();
-    });
-    
-    function updateButtons() {
-        const maxPosition = -(games.length - visibleCards) * (cardWidth + gap);
-        prevBtn.disabled = position >= 0;
-        nextBtn.disabled = position <= maxPosition;
-    }
-    
-    // Category filtering
-    const categoryBtns = document.querySelectorAll('.category-btn');
-    categoryBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            categoryBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            
-            const category = this.dataset.category;
-            const cards = document.querySelectorAll('.game-card');
-            
-            cards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-}
-
-// Animated counters
-function initCounters() {
-    const counters = document.querySelectorAll('.stat-value');
-    
-    counters.forEach(counter => {
-        const target = parseInt(counter.dataset.count);
-        const suffix = counter.dataset.suffix || '';
-        const duration = 2000;
-        const step = target / (duration / 16);
+    // Live stats animation
+    const statValues = document.querySelectorAll('.stat-value');
+    statValues.forEach(stat => {
+        const target = parseInt(stat.textContent.replace(/[^0-9]/g, ''));
         let current = 0;
+        const increment = target / 50;
         
-        const updateCounter = () => {
-            current += step;
+        const updateStat = () => {
             if (current < target) {
-                counter.textContent = Math.floor(current) + suffix;
-                requestAnimationFrame(updateCounter);
-            } else {
-                counter.textContent = target + suffix;
+                current += increment;
+                if (current > target) current = target;
+                
+                if (stat.textContent.includes('$')) {
+                    stat.textContent = '$' + Math.floor(current).toLocaleString() + (stat.textContent.includes('M') ? 'M' : '');
+                } else {
+                    stat.textContent = Math.floor(current).toLocaleString();
+                }
+                setTimeout(updateStat, 30);
             }
         };
-        
-        // Start when visible
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                updateCounter();
-                observer.unobserve(counter);
-            }
-        });
-        
-        observer.observe(counter);
+        updateStat();
     });
-}
-
-// Newsletter form
-function initNewsletter() {
-    const form = document.querySelector('.newsletter-form');
-    if (!form) return;
     
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = this.querySelector('input[type="email"]').value;
-        
-        // Simulate API call
-        const submitBtn = this.querySelector('button');
-        const originalText = submitBtn.innerHTML;
-        
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
-        submitBtn.disabled = true;
-        
-        setTimeout(() => {
-            // Show success message
-            const successMsg = document.createElement('div');
-            successMsg.className = 'success-message';
-            successMsg.innerHTML = `
-                <i class="fas fa-check-circle"></i>
-                <span>Successfully subscribed! Check your email for confirmation.</span>
-            `;
-            
-            form.parentNode.insertBefore(successMsg, form.nextSibling);
-            form.reset();
-            
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-            
-            // Remove success message after 5 seconds
-            setTimeout(() => {
-                successMsg.remove();
-            }, 5000);
-        }, 1500);
+    // Interactive stat cards
+    const statCards = document.querySelectorAll('.stat-card');
+    statCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const stat = this.dataset.stat;
+            alert(`Viewing detailed stats for ${stat}!`);
+        });
     });
-}
-
-// Back to top button
-function initBackToTop() {
-    const backBtn = document.getElementById('backToTop');
-    if (!backBtn) return;
+    
+    // Game selector cards
+    const gameCards = document.querySelectorAll('.game-card');
+    gameCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const game = this.dataset.game;
+            const gameName = this.querySelector('.game-name').textContent;
+            alert(`Launching ${gameName}...`);
+            
+            // Add visual feedback
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 200);
+        });
+    });
+    
+    // Stream cards interaction
+    const streamCards = document.querySelectorAll('.stream-card');
+    streamCards.forEach(card => {
+        card.addEventListener('click', function() {
+            alert('Opening stream...');
+        });
+    });
+    
+    // View all streams button
+    const viewAllBtn = document.querySelector('.view-all');
+    viewAllBtn.addEventListener('click', function() {
+        alert('Showing all live streams!');
+    });
+    
+    // CTA buttons
+    const ctaButtons = document.querySelectorAll('.cta-btn');
+    ctaButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const action = this.classList.contains('explore') ? 'exploring games' : 
+                         this.classList.contains('join') ? 'joining community' : 'starting stream';
+            alert(`You are now ${action}!`);
+        });
+    });
+    
+    // Theme changer
+    const themeButtons = document.querySelectorAll('.theme-btn');
+    themeButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active class from all buttons
+            themeButtons.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const theme = this.dataset.theme;
+            changeTheme(theme);
+        });
+    });
+    
+    function changeTheme(theme) {
+        const root = document.documentElement;
+        
+        // Remove existing theme classes
+        document.body.className = document.body.className.replace(/theme-\w+/g, '');
+        
+        // Add new theme class
+        document.body.classList.add(`theme-${theme}`);
+        
+        // Update CSS variables based on theme
+        switch(theme) {
+            case 'blue':
+                updateColors('#0099ff', '#0066cc');
+                break;
+            case 'red':
+                updateColors('#ff2d75', '#ff5a3d');
+                break;
+            case 'green':
+                updateColors('#00ff9d', '#00cc7a');
+                break;
+            case 'purple':
+                updateColors('#9146ff', '#a970ff');
+                break;
+            case 'cyber':
+                updateColors('#00ffea', '#0099ff');
+                break;
+        }
+    }
+    
+    function updateColors(primary, secondary) {
+        document.documentElement.style.setProperty('--primary-color', primary);
+        document.documentElement.style.setProperty('--secondary-color', secondary);
+    }
+    
+    // Scroll to top
+    const scrollTopBtn = document.getElementById('scrollTop');
     
     window.addEventListener('scroll', function() {
         if (window.pageYOffset > 300) {
-            backBtn.classList.add('visible');
+            scrollTopBtn.classList.add('visible');
         } else {
-            backBtn.classList.remove('visible');
+            scrollTopBtn.classList.remove('visible');
         }
     });
     
-    backBtn.addEventListener('click', function() {
+    scrollTopBtn.addEventListener('click', function() {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
     });
-}
-
-// Interactive elements
-function initInteractiveElements() {
-    // Tournament join buttons
-    const joinBtns = document.querySelectorAll('.tournament-join');
-    joinBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const tournament = this.closest('.tournament-card');
-            const title = tournament.querySelector('.tournament-title').textContent;
-            
-            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Joining...';
-            this.disabled = true;
+    
+    // Newsletter form
+    const newsletterForm = document.querySelector('.newsletter-form');
+    newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input').value;
+        if (email) {
+            const btn = this.querySelector('button');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i>';
+            btn.style.background = 'linear-gradient(135deg, #00ff00, #00cc00)';
             
             setTimeout(() => {
-                this.innerHTML = '<i class="fas fa-check"></i> Joined!';
-                this.classList.add('joined');
-                
-                // Show success notification
-                showNotification(`Successfully joined ${title}!`);
+                alert(`Welcome to GameHub newsletter! Confirmation sent to ${email}`);
+                btn.innerHTML = originalHTML;
+                btn.style.background = 'linear-gradient(135deg, #ff2d75, #ff5a3d)';
+                this.reset();
             }, 1000);
-        });
-    });
-    
-    // Game action buttons
-    const gameActions = document.querySelectorAll('.game-action');
-    gameActions.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const game = this.closest('.game-card');
-            const title = game.querySelector('.game-title').textContent;
-            
-            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
-            
-            setTimeout(() => {
-                // Simulate game launch
-                showNotification(`Launching ${title}...`);
-                this.innerHTML = '<i class="fas fa-play"></i> Play Now';
-            }, 2000);
-        });
-    });
-}
-
-// Notification system
-function showNotification(message, type = 'success') {
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
-            <span>${message}</span>
-        </div>
-        <button class="notification-close">
-            <i class="fas fa-times"></i>
-        </button>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Add styles
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: var(--card-bg);
-        color: white;
-        padding: 15px 20px;
-        border-radius: var(--border-radius-md);
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        z-index: 9999;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        border-left: 4px solid ${type === 'success' ? 'var(--success-color)' : 'var(--danger-color)'};
-        transform: translateX(150%);
-        transition: transform 0.3s ease;
-    `;
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Close button
-    notification.querySelector('.notification-close').addEventListener('click', () => {
-        notification.style.transform = 'translateX(150%)';
-        setTimeout(() => notification.remove(), 300);
-    });
-    
-    // Auto remove after 5 seconds
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.style.transform = 'translateX(150%)';
-            setTimeout(() => notification.remove(), 300);
         }
-    }, 5000);
-}
-
-// Check reduced motion preference
-function checkMotionPreference() {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    });
     
-    if (prefersReducedMotion) {
-        // Disable animations
-        document.body.classList.add('reduce-motion');
+    // XP bar animation
+    const xpFill = document.querySelector('.xp-fill');
+    let xpWidth = 62;
+    
+    setInterval(() => {
+        xpWidth = (xpWidth + 0.1) % 100;
+        xpFill.style.width = `${xpWidth}%`;
+    }, 1000);
+    
+    // Add live chat particles effect
+    createChatParticles();
+});
+
+function createChatParticles() {
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'chat-particles';
+    particlesContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+    `;
+    document.body.appendChild(particlesContainer);
+    
+    for (let i = 0; i < 20; i++) {
+        createParticle(particlesContainer);
     }
 }
 
-// Responsive adjustments
-window.addEventListener('resize', function() {
-    // Reinitialize slider on resize
-    initGamesSlider();
-});
-
-// Lazy loading for images
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.add('loaded');
-                observer.unobserve(img);
-            }
-        });
-    });
+function createParticle(container) {
+    const particle = document.createElement('div');
+    const colors = ['#ff2d75', '#ff5a3d', '#00ffea', '#9146ff', '#0099ff'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
     
-    document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
+    particle.style.cssText = `
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: ${color};
+        border-radius: 50%;
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        box-shadow: 0 0 10px ${color};
+        opacity: 0;
+        animation: chatFloat ${Math.random() * 10 + 5}s linear infinite;
+    `;
+    
+    container.appendChild(particle);
+    
+    setTimeout(() => {
+        particle.remove();
+        createParticle(container);
+    }, (Math.random() * 10000 + 5000));
 }
 
-// Service Worker for PWA (optional)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').then(
-            registration => {
-                console.log('ServiceWorker registration successful');
-            },
-            err => {
-                console.log('ServiceWorker registration failed: ', err);
-            }
-        );
-    });
-}
+// Add chat particles animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes chatFloat {
+        0% {
+            transform: translateY(100vh) translateX(0) scale(0);
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100px) translateX(${Math.random() * 200 - 100}px) scale(1);
+            opacity: 0;
+        }
+    }
+    
+    .light-mode {
+        --bg-color: #f5f7fa;
+        --text-color: #333333;
+        --card-bg: rgba(255, 255, 255, 0.9);
+    }
+    
+    body.light-mode {
+        background: var(--bg-color);
+        color: var(--text-color);
+    }
+    
+    body.light-mode .live-stats {
+        background: linear-gradient(90deg, #ff7eb3 0%, #ffb3a7 100%);
+    }
+    
+    body.light-mode .stat-card,
+    body.light-mode .game-card,
+    body.light-mode .stream-card {
+        background: var(--card-bg);
+        border-color: rgba(0, 0, 0, 0.1);
+        color: var(--text-color);
+    }
+    
+    body.light-mode .footer-section a,
+    body.light-mode .footer-section p,
+    body.light-mode .copyright {
+        color: #666666;
+    }
+`;
+document.head.appendChild(style);
