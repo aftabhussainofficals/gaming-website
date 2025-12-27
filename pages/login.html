@@ -1,26 +1,36 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Signup Form</title>
+    <title>GameHub - Login & Signup</title>
     <link rel="stylesheet" href="../assets/css/login-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body class="signin">
     <header></header>
     <div class="auth-wrapper">
         <div class="background-shape"></div>
         <div class="secondary-shape"></div>
+        
         <div class="credentials-panel signin">
-            <h2 class="slide-element">Login</h2>
+            <div class="panel-header">
+                <div class="gamehub-logo">
+                    <i class="fas fa-gamepad"></i>
+                    <h2>GameHub</h2>
+                </div>
+              
+            </div>
+            
+            <h2 class="slide-element">Welcome Back, Gamer!</h2>
             <form action="#">
                 <div class="field-wrapper slide-element">
                     <input type="text" required>
-                    <label for="">Username</label>
+                    <label for="">Username or Email</label>
                     <i class="fa-solid fa-user"></i>
                 </div>
 
@@ -28,66 +38,217 @@
                     <input type="password" required>
                     <label for="">Password</label>
                     <i class="fa-solid fa-lock"></i>
+                    <span class="toggle-password" onclick="togglePassword(this)">
+                        <i class="fa-solid fa-eye"></i>
+                    </span>
+                </div>
+
+                <div class="extra-options slide-element">
+                    <label class="remember-me">
+                        <input type="checkbox">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
                 </div>
 
                 <div class="field-wrapper slide-element">
-                    <button class="submit-button" type="submit">Login</button>
+                    <button class="submit-button" type="submit">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login to GameHub
+                    </button>
+                </div>
+
+                <div class="social-login slide-element">
+                    <p>Or login with</p>
+                    <div class="social-buttons">
+                        <button class="social-btn discord">
+                            <i class="fab fa-discord"></i>
+                        </button>
+                        <button class="social-btn google">
+                            <i class="fab fa-google"></i>
+                        </button>
+                        <button class="social-btn steam">
+                            <i class="fab fa-steam"></i>
+                        </button>
+                        <button class="social-btn twitch">
+                            <i class="fab fa-twitch"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="switch-link slide-element">
-                    <p>Don't have an account? <br> <a href="#" class="register-trigger">Sign Up</a></p>
+                    <p>New to GameHub? <a href="#" class="register-trigger">Create Account</a></p>
+                    <p class="guest-option">
+                        <a href="../index.html">
+                            <i class="fas fa-gamepad"></i> Continue as Guest
+                        </a>
+                    </p>
                 </div>
             </form>
         </div>
 
         <div class="welcome-section signin">
-            <h2 class="slide-element">WELCOME BACK!</h2>
+            <div class="welcome-content">
+                <h2 class="slide-element">JOIN THE BATTLEFIELD</h2>
+                <div class="features-list slide-element">
+                    <div class="feature">
+                        <i class="fas fa-trophy"></i>
+                        <span>Compete in Tournaments</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-users"></i>
+                        <span>Connect with Gamers</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-broadcast-tower"></i>
+                        <span>Live Stream Games</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-gamepad"></i>
+                        <span>Access 1000+ Games</span>
+                    </div>
+                </div>
+               
+            </div>
         </div>
 
         <div class="credentials-panel signup">
-            <h2 class="slide-element">Register</h2>
+            <div class="panel-header">
+                <div class="gamehub-logo">
+                    <i class="fas fa-gamepad"></i>
+                    <h2>GameHub</h2>
+                </div>
+                <p class="tagline">Start Your Gaming Journey</p>
+            </div>
+            
+            <h2 class="slide-element">Become a Legend</h2>
             <form action="#">
                 <div class="field-wrapper slide-element">
                     <input type="text" required>
-                    <label for="">Username</label>
-                    <i class="fa-solid fa-user"></i>
+                    <label for="">Gamer Tag</label>
+                    <i class="fa-solid fa-user-ninja"></i>
                 </div>
 
                 <div class="field-wrapper slide-element">
                     <input type="email" required>
-                    <label for="">Email</label>
+                    <label for="">Email Address</label>
                     <i class="fa-solid fa-envelope"></i>
                 </div>
 
                 <div class="field-wrapper slide-element">
                     <input type="password" required>
-                    <label for="">Password</label>
+                    <label for="">Create Password</label>
                     <i class="fa-solid fa-lock"></i>
+                    <span class="toggle-password" onclick="togglePassword(this)">
+                        <i class="fa-solid fa-eye"></i>
+                    </span>
                 </div>
 
                 <div class="field-wrapper slide-element">
-                    <button class="submit-button" type="submit">Register</button>
+                    <input type="password" required>
+                    <label for="">Confirm Password</label>
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+
+                <div class="gamer-info slide-element">
+                    <div class="gamer-type">
+                        <label>Preferred Game Type:</label>
+                        <select>
+                            <option value="">Select your style</option>
+                            <option value="fps">FPS Shooter</option>
+                            <option value="rpg">RPG/MMO</option>
+                            <option value="moba">MOBA</option>
+                            <option value="sports">Sports/Racing</option>
+                            <option value="strategy">Strategy</option>
+                            <option value="casual">Casual</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field-wrapper slide-element">
+                    <button class="submit-button" type="submit">
+                        <i class="fas fa-user-plus"></i>
+                        Create GameHub Account
+                    </button>
+                </div>
+
+                <div class="terms slide-element">
+                    <label class="terms-checkbox">
+                        <input type="checkbox" required>
+                        <span>I agree to GameHub's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                    </label>
                 </div>
 
                 <div class="switch-link slide-element">
-                    <p>Already have an account? <br> <a href="#" class="login-trigger">Sign In</a></p>
+                    <p>Already have an account? <a href="#" class="login-trigger">Sign In</a></p>
                 </div>
             </form>
         </div>
 
         <div class="welcome-section signup">
-            <h2 class="slide-element">WELCOME!</h2>
+            <div class="welcome-content">
+                <h2 class="slide-element">LEVEL UP YOUR GAMING</h2>
+                <div class="benefits-list slide-element">
+                    <div class="benefit">
+                        <i class="fas fa-crown"></i>
+                        <div>
+                            <h4>Premium Rewards</h4>
+                            <p>Exclusive skins, items & discounts</p>
+                        </div>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <h4>Track Stats</h4>
+                            <p>Detailed performance analytics</p>
+                        </div>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h4>Join Clans</h4>
+                            <p>Team up with players worldwide</p>
+                        </div>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-gift"></i>
+                        <div>
+                            <h4>Free Games</h4>
+                            <p>Monthly free game giveaways</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="slide-element">Join 2.5M+ gamers worldwide</p>
+            </div>
         </div>
-
     </div>
+
     <footer>
-        <p>Made with ❤️ by <a href="#" target="_blank">@Aftab</a></p>
+        <p>GameHub © 2025 | Creadet to @Aftab Hussain</p>
+        <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="#">Support</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms</a>
+        </div>
     </footer>
 
-
-    <script src="../assets/js/header.js"></script>
     <script src="../assets/js/login.js"></script>
-    <script src="../script.js"></script>
+    <script>
+        function togglePassword(element) {
+            const input = element.parentElement.querySelector('input');
+            const icon = element.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+    </script>
 </body>
-
 </html>
