@@ -1,16 +1,655 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy</title>
+    <title>GameHub - Privacy Policy</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../assets/css/privacy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header></header>
-    <main><h1>Privacy Page</h1></main>
-    <footer></footer>
+    <div class="bg-overlay"></div>
+    
+    <header>
+        <div class="header-bg">
+            <div class="header-gradient"></div>
+            <div class="header-particles"></div>
+        </div>
+        
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <h1><i class="fas fa-gamepad"></i> GameHub</h1>
+                    <div class="logo-subtitle">Play. Connect. Conquer.</div>
+                </a>
+            </div>
+            
+            <div class="header-right">
+                <a href="../pages/login.html" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+            </div>
+        </div>
+
+        <nav>
+            <div class="nav-container">
+                <ul class="main-nav">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="games.html"><i class="fas fa-gamepad"></i> <span>Games</span></a></li>
+                    <li><a href="news.html"><i class="fas fa-newspaper"></i> <span>News</span></a></li>
+                    <li><a href="community.html"><i class="fas fa-users"></i> <span>Community</span></a></li>
+                    <li><a href="support.html"><i class="fas fa-headset"></i> <span>Support</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="privacy-main">
+        <div class="privacy-header">
+            <div class="privacy-banner">
+                <div class="banner-content">
+                    <h1><i class="fas fa-lock"></i> Privacy Policy</h1>
+                    <p class="privacy-subtitle">Your Privacy Matters to Us | Last Updated: January 15, 2025</p>
+                    <div class="privacy-stats">
+                        <div class="stat">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>GDPR Compliant</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-user-shield"></i>
+                            <span>Data Protected</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-eye-slash"></i>
+                            <span>No Data Selling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="privacy-container">
+            <div class="privacy-sidebar">
+                <div class="sidebar-sticky">
+                    <h3>Policy Contents</h3>
+                    <ul class="toc-nav">
+                        <li><a href="#introduction"><i class="fas fa-info-circle"></i> Introduction</a></li>
+                        <li><a href="#data-collection"><i class="fas fa-database"></i> Data We Collect</a></li>
+                        <li><a href="#data-use"><i class="fas fa-cogs"></i> How We Use Data</a></li>
+                        <li><a href="#data-sharing"><i class="fas fa-share-alt"></i> Data Sharing</a></li>
+                        <li><a href="#cookies"><i class="fas fa-cookie-bite"></i> Cookies & Tracking</a></li>
+                        <li><a href="#security"><i class="fas fa-shield"></i> Data Security</a></li>
+                        <li><a href="#rights"><i class="fas fa-user-check"></i> Your Rights</a></li>
+                        <li><a href="#children"><i class="fas fa-child"></i> Children's Privacy</a></li>
+                        <li><a href="#changes"><i class="fas fa-sync-alt"></i> Policy Changes</a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    </ul>
+                    
+                    <div class="sidebar-highlight">
+                        <i class="fas fa-download"></i>
+                        <h4>Download PDF</h4>
+                        <p><a href="#" class="download-link">Download Privacy Policy</a></p>
+                    </div>
+                    
+                    <div class="consent-manager">
+                        <h4>Privacy Settings</h4>
+                        <button class="manage-consent">
+                            <i class="fas fa-sliders-h"></i> Manage Preferences
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="privacy-content">
+                <section id="introduction" class="privacy-section">
+                    <div class="section-header">
+                        <i class="fas fa-info-circle"></i>
+                        <h2>1. Introduction</h2>
+                    </div>
+                    <div class="section-content">
+                        <p>Welcome to GameHub's Privacy Policy. This document explains how we collect, use, disclose, and safeguard your information when you use our gaming platform.</p>
+                        
+                        <div class="privacy-principles">
+                            <h3>Our Privacy Principles</h3>
+                            <div class="principles-grid">
+                                <div class="principle">
+                                    <i class="fas fa-transparency"></i>
+                                    <h4>Transparency</h4>
+                                    <p>We're clear about what data we collect and why</p>
+                                </div>
+                                <div class="principle">
+                                    <i class="fas fa-control"></i>
+                                    <h4>Control</h4>
+                                    <p>You have control over your personal information</p>
+                                </div>
+                                <div class="principle">
+                                    <i class="fas fa-security"></i>
+                                    <h4>Security</h4>
+                                    <p>We protect your data with industry-standard measures</p>
+                                </div>
+                                <div class="principle">
+                                    <i class="fas fa-minimize"></i>
+                                    <h4>Minimization</h4>
+                                    <p>We only collect data necessary for your gaming experience</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="data-collection" class="privacy-section">
+                    <div class="section-header">
+                        <i class="fas fa-database"></i>
+                        <h2>2. Data We Collect</h2>
+                    </div>
+                    <div class="section-content">
+                        <h3>2.1 Information You Provide</h3>
+                        <div class="data-category">
+                            <h4><i class="fas fa-user"></i> Account Information</h4>
+                            <ul class="data-list">
+                                <li>Username and password</li>
+                                <li>Email address</li>
+                                <li>Profile information</li>
+                                <li>Communication preferences</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="data-category">
+                            <h4><i class="fas fa-gamepad"></i> Gaming Information</h4>
+                            <ul class="data-list">
+                                <li>Game preferences and settings</li>
+                                <li>Achievements and progress</li>
+                                <li>Friends list and social connections</li>
+                                <li>In-game purchases and transactions</li>
+                            </ul>
+                        </div>
+                        
+                        <h3>2.2 Information Collected Automatically</h3>
+                        <div class="automatic-data">
+                            <div class="data-item">
+                                <i class="fas fa-desktop"></i>
+                                <div>
+                                    <h4>Device Information</h4>
+                                    <p>Device type, operating system, browser type</p>
+                                </div>
+                            </div>
+                            <div class="data-item">
+                                <i class="fas fa-network-wired"></i>
+                                <div>
+                                    <h4>Usage Data</h4>
+                                    <p>Pages visited, features used, time spent</p>
+                                </div>
+                            </div>
+                            <div class="data-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Location Data</h4>
+                                    <p>General location for server optimization</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="data-use" class="privacy-section">
+                    <div class="section-header">
+                        <i class="fas fa-cogs"></i>
+                        <h2>3. How We Use Your Data</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="usage-grid">
+                            <div class="usage-item">
+                                <div class="usage-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="usage-content">
+                                    <h4>Service Delivery</h4>
+                                    <p>To provide and maintain our gaming services</p>
+                                    <span class="usage-badge">Essential</span>
+                                </div>
+                            </div>
+                            
+                            <div class="usage-item">
+                                <div class="usage-icon">
+                                    <i class="fas fa-user-friends"></i>
+                                </div>
+                                <div class="usage-content">
+                                    <h4>Social Features</h4>
+                                    <p>To enable friend connections and multiplayer</p>
+                                    <span class="usage-badge">Functional</span>
+                                </div>
+                            </div>
+                            
+                            <div class="usage-item">
+                                <div class="usage-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="usage-content">
+                                    <h4>Improvements</h4>
+                                    <p>To analyze usage and improve our platform</p>
+                                    <span class="usage-badge">Analytical</span>
+                                </div>
+                            </div>
+                            
+                            <div class="usage-item">
+                                <div class="usage-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="usage-content">
+                                    <h4>Security</h4>
+                                    <p>To detect and prevent fraud and abuse</p>
+                                    <span class="usage-badge">Security</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="legal-basis">
+                            <h3>Legal Basis for Processing</h3>
+                            <div class="basis-cards">
+                                <div class="basis-card">
+                                    <i class="fas fa-check-circle"></i>
+                                    <h4>Consent</h4>
+                                    <p>For optional features and marketing</p>
+                                </div>
+                                <div class="basis-card">
+                                    <i class="fas fa-file-contract"></i>
+                                    <h4>Contract</h4>
+                                    <p>To fulfill our service agreement</p>
+                                </div>
+                                <div class="basis-card">
+                                    <i class="fas fa-balance-scale"></i>
+                                    <h4>Legitimate Interest</h4>
+                                    <p>For service improvement and security</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="data-sharing" class="privacy-section">
+                    <div class="section-header">
+                        <i class="fas fa-share-alt"></i>
+                        <h2>4. Data Sharing & Disclosure</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="sharing-warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p><strong>We do not sell your personal data to third parties.</strong></p>
+                        </div>
+                        
+                        <h3>4.1 Service Providers</h3>
+                        <p>We share data with trusted partners who help us operate our services:</p>
+                        
+                        <div class="provider-grid">
+                            <div class="provider">
+                                <i class="fas fa-server"></i>
+                                <h4>Hosting Services</h4>
+                                <p>Cloud infrastructure providers</p>
+                            </div>
+                            <div class="provider">
+                                <i class="fas fa-credit-card"></i>
+                                <h4>Payment Processors</h4>
+                                <p>Secure transaction handlers</p>
+                            </div>
+                            <div class="provider">
+                                <i class="fas fa-headset"></i>
+                                <h4>Support Services</h4>
+                                <p>Customer support platforms</p>
+                            </div>
+                        </div>
+                        
+                        <h3>4.2 Legal Requirements</h3>
+                        <p>We may disclose your information if required by law or to protect our rights.</p>
+                    </div>
+                </section>
+
+                <section id="cookies" class="privacy-section">
+                    <div class="section-header">
+                        <i class="fas fa-cookie-bite"></i>
+                        <h2>5. Cookies & Tracking Technologies</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="cookie-types">
+                            <h3>Types of Cookies We Use</h3>
+                            <div class="cookie-grid">
+                                <div class="cookie-type essential">
+                                    <h4>Essential Cookies</h4>
+                                    <p>Required for basic functionality</p>
+                                    <span class="cookie-badge">Cannot be disabled</span>
+                                </div>
+                                <div class="cookie-type functional">
+                                    <h4>Functional Cookies</h4>
+                                    <p>Remember your preferences</p>
+                                    <span class="cookie-badge">Optional</span>
+                                </div>
+                                <div class="cookie-type analytical">
+                                    <h4>Analytical Cookies</h4>
+                                    <p>Help us improve our services</p>
+                                    <span class="cookie-badge">Optional</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="cookie-control">
+                            <h3>Cookie Management</h3>
+                            <p>You can control cookies through your browser settings or using our cookie consent tool.</p>
+                            <button class="cookie-settings">
+                                <i class="fas fa-cog"></i> Adjust Cookie Settings
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="security" class="privacy-section">
+                    <div class="section-header">
+                        <i class="fas fa-shield"></i>
+                        <h2>6. Data Security</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="security-features">
+                            <h3>Security Measures</h3>
+                            <div class="security-grid">
+                                <div class="security-feature">
+                                    <i class="fas fa-lock"></i>
+                                    <h4>Encryption</h4>
+                                    <p>Data encrypted in transit and at rest</p>
+                                </div>
+                                <div class="security-feature">
+                                    <i class="fas fa-user-shield"></i>
+                                    <h4>Access Control</h4>
+                                    <p>Strict access controls and monitoring</p>
+                                </div>
+                                <div class="security-feature">
+                                    <i class="fas fa-history"></i>
+                                    <h4>Regular Audits</h4>
+                                    <p>Security assessments and penetration testing</p>
+                                </div>
+                                <div class="security-feature">
+                                    <i class="fas fa-backup"></i>
+                                    <h4>Backup & Recovery</h4>
+                                    <p>Regular backups and disaster recovery plans</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="security-notice">
+                            <i class="fas fa-info-circle"></i>
+                            <p>While we implement strong security measures, no system is 100% secure. We encourage users to use strong passwords and enable two-factor authentication.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="rights" class="privacy-section">
+                    <div class="section-header">
+                        <i class="fas fa-user-check"></i>
+                        <h2>7. Your Privacy Rights</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="rights-grid">
+                            <div class="right">
+                                <i class="fas fa-eye"></i>
+                                <h4>Right to Access</h4>
+                                <p>Request a copy of your personal data</p>
+                            </div>
+                            <div class="right">
+                                <i class="fas fa-edit"></i>
+                                <h4>Right to Rectify</h4>
+                                <p>Correct inaccurate personal data</p>
+                            </div>
+                            <div class="right">
+                                <i class="fas fa-trash-alt"></i>
+                                <h4>Right to Erasure</h4>
+                                <p>Request deletion of your data</p>
+                            </div>
+                            <div class="right">
+                                <i class="fas fa-pause"></i>
+                                <h4>Right to Restrict</h4>
+                                <p>Limit how we use your data</p>
+                            </div>
+                        </div>
+                        
+                        <div class="rights-request">
+                            <h3>Exercising Your Rights</h3>
+                            <p>To exercise any of these rights, please contact us at <a href="mailto:privacy@gamehub.com">privacy@gamehub.com</a></p>
+                            <button class="data-request">
+                                <i class="fas fa-file-export"></i> Submit Data Request
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="children" class="privacy-section">
+                    <div class="section-header">
+                        <i class="fas fa-child"></i>
+                        <h2>8. Children's Privacy</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="children-protection">
+                            <h3>Our Commitment</h3>
+                            <p>GameHub does not knowingly collect personal information from children under 13 without parental consent.</p>
+                            
+                            <div class="children-features">
+                                <div class="feature">
+                                    <i class="fas fa-user-lock"></i>
+                                    <h4>Parental Controls</h4>
+                                    <p>Tools for parents to manage children's accounts</p>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-comment-slash"></i>
+                                    <h4>Safe Communication</h4>
+                                    <p>Restricted chat and social features for minors</p>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-filter"></i>
+                                    <h4>Content Filtering</h4>
+                                    <p>Age-appropriate content filtering</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="changes" class="privacy-section">
+                    <div class="section-header">
+                        <i class="fas fa-sync-alt"></i>
+                        <h2>9. Policy Changes</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="changes-notice">
+                            <i class="fas fa-bell"></i>
+                            <div>
+                                <h3>Updates to This Policy</h3>
+                                <p>We may update this Privacy Policy periodically. We will notify users of significant changes via email or platform notifications.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="version-history">
+                            <h3>Version History</h3>
+                            <div class="versions">
+                                <div class="version">
+                                    <span class="version-number">v2.1</span>
+                                    <span class="version-date">Jan 15, 2025</span>
+                                    <span class="version-changes">Current version</span>
+                                </div>
+                                <div class="version">
+                                    <span class="version-number">v2.0</span>
+                                    <span class="version-date">Jul 10, 2024</span>
+                                    <span class="version-changes">GDPR compliance updates</span>
+                                </div>
+                                <div class="version">
+                                    <span class="version-number">v1.5</span>
+                                    <span class="version-date">Mar 22, 2024</span>
+                                    <span class="version-changes">Added cookie controls</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="contact" class="privacy-section">
+                    <div class="section-header">
+                        <i class="fas fa-envelope"></i>
+                        <h2>10. Contact Us</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="contact-info">
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <h4>Email</h4>
+                                        <a href="mailto:privacy@gamehub.com">privacy@gamehub.com</a>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-headset"></i>
+                                    <div>
+                                        <h4>Support</h4>
+                                        <a href="support.html">Visit Support Center</a>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-file-alt"></i>
+                                    <div>
+                                        <h4>Data Protection Officer</h4>
+                                        <p>DPO: Alex Morgan</p>
+                                        <a href="mailto:dpo@gamehub.com">dpo@gamehub.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="privacy-footer">
+                            <div class="compliance-badges">
+                                <div class="badge">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>GDPR Compliant</span>
+                                </div>
+                                <div class="badge">
+                                    <i class="fas fa-user-shield"></i>
+                                    <span>CCPA Ready</span>
+                                </div>
+                                <div class="badge">
+                                    <i class="fas fa-globe"></i>
+                                    <span>Global Standards</span>
+                                </div>
+                            </div>
+                            
+                            <div class="last-updated">
+                                <p><strong>Effective Date:</strong> January 15, 2025</p>
+                                <p><strong>Last Updated:</strong> January 15, 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="dynamic-footer">
+        <div class="footer-main">
+            <div class="footer-container">
+                <div class="footer-section footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>GameHub</h3>
+                    </div>
+                    <p class="footer-description">
+                        Committed to protecting your privacy and providing a safe gaming environment.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link twitch"><i class="fab fa-twitch"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Privacy Resources</h4>
+                    <ul>
+                        <li><a href="privacy.html"><i class="fas fa-lock"></i> Privacy Policy</a></li>
+                        <li><a href="terms.html"><i class="fas fa-balance-scale"></i> Terms of Service</a></li>
+                        <li><a href="#"><i class="fas fa-cookie-bite"></i> Cookie Policy</a></li>
+                        <li><a href="#"><i class="fas fa-shield-alt"></i> Security Center</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Data Rights</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-download"></i> Data Download</a></li>
+                        <li><a href="#"><i class="fas fa-trash-alt"></i> Data Deletion</a></li>
+                        <li><a href="#"><i class="fas fa-cog"></i> Privacy Settings</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> Privacy FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section newsletter">
+                    <h4>Privacy Updates</h4>
+                    <p>Get notified about privacy policy changes and updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div class="copyright">
+                    <p>&copy; 2025 GameHub. All rights reserved. Protecting your privacy since 2023.</p>
+                    <div class="legal-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="#">Cookie Settings</a>
+                        <a href="#">Data Protection</a>
+                    </div>
+                </div>
+                
+                <div class="footer-features">
+                    <div class="feature">
+                        <i class="fas fa-lock"></i>
+                        <span>Encrypted Data</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Privacy First</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Platform</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-top" id="scrollTop">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+        
+        <div class="cookie-consent" id="cookieConsent">
+            <div class="cookie-content">
+                <i class="fas fa-cookie-bite"></i>
+                <div>
+                    <h4>Cookie Preferences</h4>
+                    <p>We use cookies to enhance your gaming experience. By continuing, you agree to our use of cookies.</p>
+                </div>
+            </div>
+            <div class="cookie-actions">
+                <button class="cookie-settings-btn">Settings</button>
+                <button class="cookie-accept-btn">Accept All</button>
+            </div>
+        </div>
+    </footer>
+
     <script src="../assets/js/header.js"></script>
     <script src="../script.js"></script>
+    <script src="../assets/js/privacy.js"></script>
 </body>
 </html>
