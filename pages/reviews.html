@@ -1,16 +1,254 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reviews</title>
+    <title>GameHub - Reviews & Ratings</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../assets/css/reviews.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header></header>
-    <main><h1>Reviews Page</h1></main>
-    <footer></footer>
+    <div class="bg-overlay"></div>
+    
+    <header>
+        <div class="header-bg">
+            <div class="header-gradient"></div>
+            <div class="header-particles"></div>
+        </div>
+        
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <h1><i class="fas fa-gamepad"></i> GameHub</h1>
+                    <div class="logo-subtitle">Play. Connect. Conquer.</div>
+                </a>
+            </div>
+            
+            <div class="header-right">
+                <a href="login.html" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+            </div>
+        </div>
+
+        <nav>
+            <div class="nav-container">
+                <ul class="main-nav">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="games.html"><i class="fas fa-gamepad"></i> <span>Games</span></a></li>
+                    <li><a href="news.html"><i class="fas fa-newspaper"></i> <span>News</span></a></li>
+                    <li><a href="community.html"><i class="fas fa-users"></i> <span>Community</span></a></li>
+                    <li><a href="support.html"><i class="fas fa-headset"></i> <span>Support</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="reviews-main">
+        <!-- Hero Section -->
+        <section class="reviews-hero">
+            <div class="hero-content">
+                <h1><i class="fas fa-star"></i> Game Reviews & Ratings</h1>
+                <p class="hero-subtitle">Discover what gamers are saying about the hottest titles</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value">4.8</span>
+                        <span class="stat-label">Average Rating</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">12.4K</span>
+                        <span class="stat-label">Reviews</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">98%</span>
+                        <span class="stat-label">Positive Feedback</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Reviews -->
+        <section class="featured-reviews">
+            <div class="section-header">
+                <h2><i class="fas fa-crown"></i> Featured Reviews</h2>
+                <p>Top-rated reviews from our community</p>
+            </div>
+            
+            <div class="reviews-grid">
+                <!-- Review cards will be populated by JavaScript -->
+            </div>
+            
+            <div class="load-more">
+                <button class="load-more-btn">
+                    <i class="fas fa-sync-alt"></i> Load More Reviews
+                </button>
+            </div>
+        </section>
+
+        <!-- Review Submission -->
+        <section class="submit-review">
+            <div class="submit-container">
+                <div class="submit-info">
+                    <h2><i class="fas fa-edit"></i> Share Your Experience</h2>
+                    <p>Help other gamers by sharing your thoughts and ratings</p>
+                    <div class="requirements">
+                        <h4>Review Requirements:</h4>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Must have played the game for at least 2 hours</li>
+                            <li><i class="fas fa-check-circle"></i> Provide detailed feedback</li>
+                            <li><i class="fas fa-check-circle"></i> Be honest and constructive</li>
+                            <li><i class="fas fa-check-circle"></i> Follow community guidelines</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="review-form">
+                    <form id="reviewForm">
+                        <div class="form-group">
+                            <label for="gameSelect">Select Game *</label>
+                            <select id="gameSelect" required>
+                                <option value="">Choose a game...</option>
+                                <option value="valorant">Valorant</option>
+                                <option value="fortnite">Fortnite</option>
+                                <option value="genshin">Genshin Impact</option>
+                                <option value="minecraft">Minecraft</option>
+                                <option value="league">League of Legends</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Your Rating *</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5" name="rating" value="5">
+                                <label for="star5"><i class="fas fa-star"></i></label>
+                                <input type="radio" id="star4" name="rating" value="4">
+                                <label for="star4"><i class="fas fa-star"></i></label>
+                                <input type="radio" id="star3" name="rating" value="3">
+                                <label for="star3"><i class="fas fa-star"></i></label>
+                                <input type="radio" id="star2" name="rating" value="2">
+                                <label for="star2"><i class="fas fa-star"></i></label>
+                                <input type="radio" id="star1" name="rating" value="1">
+                                <label for="star1"><i class="fas fa-star"></i></label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reviewTitle">Review Title *</label>
+                            <input type="text" id="reviewTitle" required placeholder="Summarize your experience">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reviewText">Your Review *</label>
+                            <textarea id="reviewText" rows="6" required placeholder="Share your detailed thoughts about the game..."></textarea>
+                            <div class="char-count">0/1000 characters</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" required>
+                                <span>I confirm this review is based on my personal experience</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Submit Review
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="dynamic-footer">
+        <div class="footer-main">
+            <div class="footer-container">
+                <div class="footer-section footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>GameHub</h3>
+                    </div>
+                    <p class="footer-description">
+                        Honest reviews from real gamers. Your voice matters.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link twitch"><i class="fab fa-twitch"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Top Rated Games</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-star"></i> Valorant</a></li>
+                        <li><a href="#"><i class="fas fa-star"></i> Genshin Impact</a></li>
+                        <li><a href="#"><i class="fas fa-star"></i> Minecraft</a></li>
+                        <li><a href="#"><i class="fas fa-star"></i> Fortnite</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Review Guidelines</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Community Rules</a></li>
+                        <li><a href="#"><i class="fas fa-shield-alt"></i> Content Policy</a></li>
+                        <li><a href="#"><i class="fas fa-flag"></i> Report Abuse</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> Review FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section newsletter">
+                    <h4>Review Updates</h4>
+                    <p>Get notified when new reviews are posted for your favorite games.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div class="copyright">
+                    <p>&copy; 2025 GameHub Reviews. All reviews are user-generated.</p>
+                    <div class="legal-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="#">Content Guidelines</a>
+                        <a href="#">Report System</a>
+                    </div>
+                </div>
+                
+                <div class="footer-features">
+                    <div class="feature">
+                        <i class="fas fa-star"></i>
+                        <span>Verified Reviews</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Authentic Feedback</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-thumbs-up"></i>
+                        <span>Helpful Ratings</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-top" id="scrollTop">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+    </footer>
+
     <script src="../assets/js/header.js"></script>
     <script src="../script.js"></script>
+    <script src="../assets/js/reviews.js"></script>
 </body>
 </html>
