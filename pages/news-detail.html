@@ -5,12 +5,256 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News Detail</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            color: #222;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            padding: 22px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.5);
+        }
+        nav.container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #ff8c00;
+        }
+        header ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+        header ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        header ul li a:hover,
+        header ul li a.active {
+            color: #ff8c00;
+        }
+        header ul li a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 0;
+            bottom: -5px;
+            background: #ff8c00;
+            transition: width 0.3s ease;
+        }
+        header ul li a:hover::after,
+        header ul li a.active::after {
+            width: 100%;
+        }
+        .news-section {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            margin: 60px auto;
+        }
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .news-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 18px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+        }
+        .news-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .news-item-content {
+            padding: 25px;
+        }
+        .news-item-content h3 {
+            margin-bottom: 5px;
+            font-size: 22px;
+            color: #111;
+        }
+        .news-item-content .date {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 5px;
+        }
+        .news-item-content .tournament-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #ff8c00;
+            margin-bottom: 15px;
+        }
+        .news-item-content p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .read-more {
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(135deg, #ff8c00, #ff4500);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .read-more:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,140,0,0.4);
+        }
+        .ads-section {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .ad {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .ad:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+        .ad img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        footer {
+            background: #000;
+            color: #aaa;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 50px;
+        }
+        @media(max-width: 1024px) {
+            .news-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header></header>
-    <main><h1>News Detail Page</h1></main>
-    <footer></footer>
-    <script src="../assets/js/header.js"></script>
-    <script src="../script.js"></script>
+
+<header>
+    <nav class="container">
+        <h1>GameHub</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="news.html" class="active">News</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <div class="news-section">
+        <div class="news-list">
+            <div class="news-item">
+                <img src="../assets/images/rpg game.jfif" alt="RPG Expansion" width="200" height="200">
+                <div class="news-item-content">
+                    <h3>RPG Expansion Released!</h3>
+                    <div class="date">December 26, 2025</div>
+                    <div class="tournament-name">Epic Quest Challenge</div>
+                    <p>Explore new kingdoms, fight bosses, and unlock unique skins. Smooth gameplay with updated server performance!</p>
+                    <a href="news-details1.html" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <img src="../assets/images/winter tounment.jpg" alt="Winter Tournament">
+                <div class="news-item-content">
+                    <h3>Winter Tournament Announced</h3>
+                    <div class="date">December 20, 2025</div>
+                    <div class="tournament-name">Frost Battle Royale</div>
+                    <p>Join our Winter Tournament and win exclusive rewards. Teams from all over the world are ready to compete!</p>
+                    <a href="news-details2.html" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <img src="../assets/images/chess.jpg" alt="chess">
+                <div class="news-item-content">
+                    <h3>chess</h3>
+                    <div class="date">December 28, 2025</div>
+                    <div class="tournament-name">lets play chess</div>
+                    <p>Join us for a battle of wits and strategy—let’s play chess</p>
+                    <a href="news-details3.html" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <img src="../assets/images/8 pool.jpg" alt="8 ball pool">
+                <div class="news-item-content">
+                    <h3>8 ball pool</h3>
+                    <div class="date">December 29, 2025</div>
+                    <div class="tournament-name">8 ball pool tounment</div>
+                    <p>"Chalk up, take aim, and clear the table—join our 8-ball pool tournament!"</p>
+                    <a href="news-details4.html" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="ads-section">
+            <div class="ad">
+                <img src="../assets/images/membership - Copy.jpg" alt="Premium Membership">
+                <p>Join our premium membership and get early access to new games!</p>
+            </div>
+            <div class="ad">
+                <img src="../assets/images/gaming gear - Copy.jpg" alt="Gaming Gear">
+                <p>Check out our new gaming gear collection for the ultimate experience!</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 GameHub. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="../assets/js/header.js"></script>
+<script src="../script.js"></script>
 </body>
 </html>

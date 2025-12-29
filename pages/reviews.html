@@ -1,16 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reviews</title>
-    <link rel="stylesheet" href="../style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews | GameHub</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #141e30, #243b55);
+        color: #fff;
+        line-height: 1.6;
+    }
+
+    header {
+        background: rgba(0,0,0,0.75);
+        padding: 20px 0;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 700;
+        color: #ff8c00;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .review-container {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    .review-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .review-header h1 {
+        font-size: 2.8rem;
+        color: #ff8c00;
+    }
+
+    .review-header p {
+        color: #ccc;
+        font-size: 1.1rem;
+        margin-top: 10px;
+    }
+
+    .card {
+        background: #1c1c2e;
+        padding: 25px 20px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+    }
+
+    .card h2 {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #ff8c00;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    .game-list {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .game-list li {
+        padding: 8px 0;
+        font-size: 1.05rem;
+        color: #ddd;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+        margin-bottom: 30px;
+    }
+
+    .info-box {
+        background: #2a2a3d;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .info-box:hover {
+        transform: translateY(-5px);
+    }
+
+    .info-box h3 {
+        margin-bottom: 8px;
+        color: #ff8c00;
+    }
+
+    .rating-card .rating {
+        font-size: 2rem;
+        color: #ff9800;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .user-review {
+        margin-top: 20px;
+    }
+
+    .user-review h3 {
+        color: #ff8c00;
+        margin-bottom: 15px;
+    }
+
+    .review-item {
+        background: #2a2a3d;
+        padding: 15px 18px;
+        margin-bottom: 15px;
+        border-radius: 12px;
+    }
+
+    .review-item p {
+        color: #ddd;
+        font-size: 0.95rem;
+    }
+
+    .review-item .author {
+        margin-top: 8px;
+        font-weight: 600;
+        color: #ff8c00;
+    }
+
+    .cta-section {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .cta-section a {
+        display: inline-block;
+        padding: 14px 40px;
+        border-radius: 50px;
+        background: linear-gradient(135deg, #ff8c00, #ff4500);
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-section a:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(255,140,0,0.6);
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px 0;
+        background: #000;
+        color: #aaa;
+        margin-top: 40px;
+        font-size: 14px;
+    }
+
+    @media(max-width: 600px) {
+        .review-header h1 { font-size: 2rem; }
+        .info-grid { grid-template-columns: 1fr; }
+    }
+
+</style>
 </head>
 <body>
-    <header></header>
-    <main><h1>Reviews Page</h1></main>
-    <footer></footer>
-    <script src="../assets/js/header.js"></script>
-    <script src="../script.js"></script>
+
+<header>GameHub Reviews</header>
+
+<main class="review-container">
+
+    <div class="review-header">
+        <h1>🎮 GameHub</h1>
+        <p>One platform • Multiple games • Endless fun</p>
+    </div>
+
+    <section class="card">
+        <h2>Available Games</h2>
+        <ul class="game-list">
+            <li>♟️ Chess</li>
+            <li>🎱 8 Ball Pool</li>
+            <li>🧙 RPG Games</li>
+            <li>🧩 Puzzle Games</li>
+            <li>⚔️ Action Games</li>
+        </ul>
+    </section>
+
+    <section class="info-grid">
+        <div class="info-box">
+            <h3>Genres</h3>
+            <p>Strategy, RPG, Puzzle, Action</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Developer</h3>
+            <p>GameHub Team</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Platforms</h3>
+            <p>PC & Mobile</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Audience</h3>
+            <p>All Users</p>
+        </div>
+    </section>
+
+    <section class="card rating-card">
+        <h2>Overall Rating</h2>
+        <p class="rating">⭐ 7 / 10</p>
+    </section>
+
+    <section class="card">
+        <h2>Pros</h2>
+        <ul>
+            <li>Multiple games in one platform</li>
+            <li>PC & Mobile support</li>
+            <li>Clean and user-friendly interface</li>
+            <li>Suitable for all age groups</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>Cons</h2>
+        <ul>
+            <li>Performance may vary on older devices</li>
+            <li>Graphics quality differs between games</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>Overall Opinion</h2>
+        <p>
+            GameHub is built to give users the best experience by providing a variety of games in one place. 
+            It focuses on accessibility, enjoyment, and continuous improvement for everyone.
+        </p>
+    </section>
+
+    <section class="card user-review">
+        <h3>User Reviews</h3>
+        <div class="review-item">
+            <p>Love the variety of games! Works great on my phone.</p>
+            <span class="author">- Sarah J.</span>
+        </div>
+        <div class="review-item">
+            <p>Chess and RPG games are my favorite. Great UI!</p>
+            <span class="author">- Mark T.</span>
+        </div>
+        <div class="review-item">
+            <p>Would love to see more action games added soon.</p>
+            <span class="author">- Lisa K.</span>
+        </div>
+    </section>
+
+    <div class="cta-section">
+        <a href="contact.html">Share Your Review</a>
+    </div>
+
+</main>
+
+<footer>
+    &copy; 2025 GameHub. All rights reserved.
+</footer>
+
 </body>
 </html>
