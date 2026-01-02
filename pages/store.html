@@ -3,14 +3,626 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>Game Store - Upgrade Your Gear</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #6c5ce7;
+            --primary-dark: #5649c4;
+            --secondary: #00cec9;
+            --dark: #2d3436;
+            --light: #f9f9f9;
+            --gray: #636e72;
+            --danger: #e74c3c;
+            --success: #2ecc71;
+            --warning: #f39c12;
+        }
+
+        body {
+            background-color: #1a1a2e;
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo h1 {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -5px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .header-icons i {
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .header-icons i:hover {
+            color: var(--secondary);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--danger);
+            color: white;
+            font-size: 0.7rem;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .hero {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at center, #2d2d4a 0%, #1a1a2e 100%);
+            margin-bottom: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #b0b0d0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .categories {
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--light);
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .category-btn:hover {
+            background-color: rgba(108, 92, 231, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .category-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .products {
+            padding: 0 2rem 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            z-index: 2;
+        }
+
+        .hot {
+            background-color: var(--danger);
+        }
+
+        .new {
+            background-color: var(--success);
+        }
+
+        .product-image {
+            height: 200px;
+            background-color: #2d2d4a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary);
+            font-size: 3rem;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .special-offer {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #6c5ce7, #00cec9);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-content {
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .offer-badge {
+            display: inline-block;
+            background-color: var(--warning);
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .offer-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .offer-description {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .timer {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .timer-item {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.8rem;
+            border-radius: 8px;
+            min-width: 70px;
+        }
+
+        .timer-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .timer-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .offer-button {
+            background-color: white;
+            color: var(--primary);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .offer-button:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #b0b0d0;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 992px) {
+            .special-offer {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                padding: 0 1rem 2rem;
+            }
+            
+            .timer {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .products {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .category-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header></header>
-    <main><h1>Store Page</h1></main>
-    <footer></footer>
-    <script src="../assets/js/header.js"></script>
-    <script src="../script.js"></script>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-gamepad"></i>
+            <h1>GAMESTORE</h1>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="store.html" class="active">Store</a></li>
+                <li><a href="tournaments.html">Tournaments</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-icons">
+            <i class="fas fa-search"></i>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">3</span>
+            </div>
+            <i class="fas fa-user"></i>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>GAME STORE</h2>
+        <p>Upgrade your gear. Power up your play.</p>
+    </section>
+
+    <section class="categories">
+        <button class="category-btn active">All</button>
+        <button class="category-btn">Skins</button>
+        <button class="category-btn">Weapons</button>
+        <button class="category-btn">Characters</button>
+        <button class="category-btn">Accessories</button>
+        <button class="category-btn">Battle Pass</button>
+    </section>
+
+    <main class="products">
+        <div class="product-card">
+            <div class="product-badge hot">HOT</div>
+            <div class="product-image">
+                <i class="fas fa-headphones"></i>
+            </div>
+            <div class="product-content">
+                <h3 class="product-title">HyperX Cloud Alpha</h3>
+                <p class="product-description">Premium gaming headset with dual chamber drivers</p>
+                <div class="product-price">$129</div>
+                <button class="add-to-cart">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-badge new">NEW</div>
+            <div class="product-image">
+                <i class="fas fa-keyboard"></i>
+            </div>
+            <div class="product-content">
+                <h3 class="product-title">Razer BlackWidow V3</h3>
+                <p class="product-description">Mechanical RGB keyboard with green switches</p>
+                <div class="product-price">$149</div>
+                <button class="add-to-cart">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-badge">BEST SELLER</div>
+            <div class="product-image">
+                <i class="fas fa-mouse"></i>
+            </div>
+            <div class="product-content">
+                <h3 class="product-title">Logitech G502 HERO</h3>
+                <p class="product-description">High-performance gaming mouse with HERO sensor</p>
+                <div class="product-price">$79</div>
+                <button class="add-to-cart">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-badge hot">HOT</div>
+            <div class="product-image">
+                <i class="fas fa-gamepad"></i>
+            </div>
+            <div class="product-content">
+                <h3 class="product-title">Elite Battle Controller</h3>
+                <p class="product-description">Wireless pro controller with customizable buttons</p>
+                <div class="product-price">$99</div>
+                <button class="add-to-cart">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="product-card special-offer">
+            <div class="offer-content">
+                <div class="offer-badge">LIMITED TIME OFFER</div>
+                <h3 class="offer-title">Ultimate Gaming Bundle</h3>
+                <p class="offer-description">Complete pro gaming setup. Save 40% today.</p>
+                
+                <div class="timer">
+                    <div class="timer-item">
+                        <div class="timer-value" id="hours">23</div>
+                        <div class="timer-label">HOURS</div>
+                    </div>
+                    <div class="timer-item">
+                        <div class="timer-value" id="minutes">33</div>
+                        <div class="timer-label">MINUTES</div>
+                    </div>
+                    <div class="timer-item">
+                        <div class="timer-value" id="seconds">51</div>
+                        <div class="timer-label">SECONDS</div>
+                    </div>
+                </div>
+                
+                <button class="offer-button">GET BUNDLE NOW</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="support.html">Support</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <p class="copyright">© 2023 GAMESTORE. All rights reserved. All trademarks are property of their respective owners.</p>
+    </footer>
+
+    <script>
+        function updateTimer() {
+            const now = new Date();
+            const endTime = new Date();
+            endTime.setHours(23, 33, 51, 0);
+         
+            if (now > endTime) {
+                endTime.setDate(endTime.getDate() + 1);
+            }
+            
+            const timeLeft = endTime - now;
+            
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateTimer, 1000);
+        updateTimer(); 
+
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                if (btn.textContent !== 'All') {
+                    alert(`Filtering by ${btn.textContent} category`);
+                }
+            });
+        });
+
+        const addToCartBtns = document.querySelectorAll('.add-to-cart');
+        const cartCount = document.querySelector('.cart-count');
+        
+        addToCartBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const productTitle = this.parentElement.querySelector('.product-title').textContent;
+                const productPrice = this.parentElement.querySelector('.product-price').textContent;
+
+                let currentCount = parseInt(cartCount.textContent);
+                cartCount.textContent = currentCount + 1;
+
+                this.innerHTML = '<i class="fas fa-check"></i> Added to Cart';
+                this.style.backgroundColor = '#2ecc71';
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-cart-plus"></i> Add to Cart';
+                    this.style.backgroundColor = '';
+                }, 2000);
+                
+                console.log(`Added to cart: ${productTitle} for ${productPrice}`);
+            });
+        });
+        const offerBtn = document.querySelector('.offer-button');
+        offerBtn.addEventListener('click', () => {
+            alert('Special offer bundle added to cart!');
+            let currentCount = parseInt(cartCount.textContent);
+            cartCount.textContent = currentCount + 1;
+        });
+    </script>
 </body>
 </html>

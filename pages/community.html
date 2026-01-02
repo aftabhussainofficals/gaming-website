@@ -2,20 +2,178 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community - GameHub</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../assets/css/header.css">
-    <link rel="stylesheet" href="../assets/css/footer.css">
-    <link rel="stylesheet" href="../assets/css/animations.css">
-    <link rel="stylesheet" href="../assets/css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>GameStore Community</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0f172a;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: #020617;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to right, #020617, #1e293b);
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #cbd5f5;
+            font-size: 18px;
+        }
+
+        .section {
+            padding: 50px 40px;
+        }
+
+        .section h2 {
+            color: #38bdf8;
+            margin-bottom: 20px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #cbd5f5;
+        }
+
+        .join {
+            background-color: #020617;
+            padding: 50px 40px;
+        }
+
+        .join form {
+            max-width: 400px;
+            margin: auto;
+            background-color: #1e293b;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .join input, .join textarea, .join button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .join button {
+            background-color: #38bdf8;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .join button:hover {
+            background-color: #0ea5e9;
+        }
+
+        footer {
+            background-color: #020617;
+            text-align: center;
+            padding: 20px;
+            color: #94a3b8;
+        }
+    </style>
 </head>
 <body>
-    <header></header>
-    <main><h1>Community Page</h1></main>
-    <footer></footer>
-    <script src="../assets/js/header.js"></script>
-    <script src="../script.js"></script>
+
+<header>
+    <h1>GAMESTORE</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="store.html">Store</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="community.html">Community</a>
+        <a href="profile.html">Profile</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Gaming Community</h2>
+    <p>Connect • Compete • Share • Level Up Together</p>
+</section>
+
+<section class="section">
+    <h2> Community Highlights</h2>
+    <div class="cards">
+        <div class="card">
+            <h3> Player Forums</h3>
+            <p>Discuss games, share tips, strategies, and gameplay experiences with other players.</p>
+        </div>
+
+        <div class="card">
+            <h3> Clan & Teams</h3>
+            <p>Join clans, form teams, and compete together in online tournaments.</p>
+        </div>
+
+        <div class="card">
+            <h3> Game Events</h3>
+            <p>Participate in weekly challenges, live streams, and special community events.</p>
+        </div>
+
+        <div class="card">
+            <h3> Announcements</h3>
+            <p>Stay updated with game updates, patch notes, and upcoming tournaments.</p>
+        </div>
+    </div>
+</section>
+
+<section class="join">
+    <h2 style="text-align:center; color:#38bdf8;">Join the Community</h2>
+    <form>
+        <input type="text" placeholder="Gamer Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <textarea rows="4" placeholder="Why do you want to join?"></textarea>
+        <button type="submit">Join Now</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2025 GameStore Community | Play Together. Win Together.</p>
+</footer>
+
 </body>
 </html>
