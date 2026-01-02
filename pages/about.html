@@ -4,18 +4,290 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - GameHub</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../assets/css/header.css">
-    <link rel="stylesheet" href="../assets/css/footer.css">
-    <link rel="stylesheet" href="../assets/css/animations.css">
-    <link rel="stylesheet" href="../assets/css/responsive.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            color: #222;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            padding: 22px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.5);
+        }
+
+        nav.container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #ff8c00;
+        }
+
+        header ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        header ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        header ul li a:hover {
+            color: #ff8c00;
+        }
+
+        header ul li a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 0;
+            bottom: -6px;
+            background: #ff8c00;
+            transition: width 0.3s ease;
+        }
+
+        header ul li a:hover::after,
+        header ul li a.active::after {
+            width: 100%;
+        }
+
+        .content-section {
+            padding: 70px 45px;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 60px auto;
+            border-radius: 18px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            animation: fadeUp 0.9s ease forwards;
+        }
+
+        .content-section h2,
+        .content-section h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 34px;
+            font-weight: 600;
+            color: #111;
+        }
+
+        .content-section p {
+            text-align: center;
+            max-width: 850px;
+            margin: auto;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .story-content {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            flex-wrap: wrap;
+            margin-top: 35px;
+        }
+
+        .story-content img {
+            max-width: 420px;
+            width: 100%;
+            border-radius: 18px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .story-content img:hover {
+            transform: scale(1.08) rotate(1deg);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 40px;
+            margin-top: 45px;
+        }
+
+        .team-member {
+            background: linear-gradient(135deg, #ffffff, #f4f4f4);
+            border-radius: 18px;
+            padding: 22px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-bottom: 18px;
+        }
+
+        .team-member h4 {
+            font-size: 19px;
+            font-weight: 600;
+            color: #111;
+        }
+
+        .team-member p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff8c00, #ff4500);
+            color: #fff;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 25px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 140, 0, 0.6);
+        }
+
+        footer {
+            background: #000;
+            color: #aaa;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <header></header>
-    <main><h1>About Page</h1></main>
-    <footer></footer>
-    <script src="../assets/js/header.js"></script>
-    <script src="../script.js"></script>
+
+<header>
+    <nav class="container">
+        <h1>GameHub</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="about" class="container content-section">
+        <h2>Welcome the theS GameHub</h2>
+        <p>GameHub is an all-in-one platform where players can discover games, connect with other gamers, and stay updated on the latest releases.</p>
+    </section>
+
+    <section id="story" class="container content-section">
+        <h3>Our Story</h3>
+        <div class="story-content">
+            <p>Founded in 2025 by a small group of HTML developers, GameHub has grown into a community-driven studio focusing on innovative RPG and strategy titles.</p>
+            <img src="../assets/images/Gemini_Generated_Image_jbhqxljbhqxljbhq.jpg" alt="Our  team">
+            
+        </div>
+    </section>
+
+    <section id="team" class="container content-section">
+        <h3>Meet the Team</h3>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="../assets/images/aftab .jpeg" alt="Aftab Hussain">
+                <h4>Aftab Hussain</h4>
+                <p>Creates individual game detail pages, download pages, and purchase interfaces.</p>
+            </div>
+
+            <div class="team-member">
+                <img src="../assets/images/abubakar.jpeg" alt="Abubakar Saddique">
+                <h4>Abubakar Saddique</h4>
+                <p>Develops game features and user interface layouts.</p>
+            </div>
+
+            <div class="team-member">
+                <img src="../assets/images/tabeer.png" alt="Tabeer Zahra">
+                <h4>Tabeer Zahra</h4>
+                <p>Works on detailed game pages and checkout sections.</p>
+            </div>
+
+            <div class="team-member">
+                <img src="../assets/images/sajawal.jpeg" alt="Sajawal Mirza">
+                <h4>Sajawal Mirza</h4>
+                <p>Builds the characters section and leaderboard.</p>
+            </div>
+
+            <div class="team-member">
+                <img src="../assets/images/khawar.jpeg" alt="Khawar Arslan">
+                <h4>Khawar Arslan</h4>
+                <p>Designs the homepage and category pages.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container content-section">
+        <h3>Join Our Journey</h3>
+        <p>Level up your gaming experience! Join us on social media or drop us an email.</p>
+        <a href="mailto:info@gamehub.com" class="cta-button">Contact Us</a>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 GameHub. All rights reserved.</p>
+    </div>
+</footer>
+
 </body>
 </html>
