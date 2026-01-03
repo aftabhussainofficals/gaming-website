@@ -7,16 +7,597 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/hero.css">
     <link rel="stylesheet" href="../assets/css/games.css">
     <link rel="stylesheet" href="../assets/css/animations.css">
+    <link rel="stylesheet" href="../assets/css/dynamic-body.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header></header>
-    <main><h1>Games Page</h1></main>
-    <footer></footer>
-    <script src="../assets/js/header.js"></script>
-    <script src="../script.js"></script>
+    <!-- Enhanced Header -->
+    <header>
+        <div class="header-bg">
+            <div class="header-gradient"></div>
+            <div class="header-particles"></div>
+        </div>
+
+        <div class="header-container">
+            <div class="logo">
+                <h1><i class="fas fa-gamepad"></i> GameHub</h1>
+                <div class="logo-subtitle">Play. Connect. Conquer.</div>
+            </div>
+
+            <div class="xp-progress">
+                <div class="xp-info">
+                    <span class="xp-level">Level 42</span>
+                    <span class="xp-text">62% to next level</span>
+                </div>
+                <div class="xp-bar">
+                    <div class="xp-fill"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=gamer&background=%2300a8ff" alt="User Avatar">
+                        <div class="online-status"></div>
+                    </div>
+                    <div class="user-info">
+                        <span class="username">CyberNinja</span>
+                        <div class="user-badges">
+                            <span class="badge premium"><i class="fas fa-crown"></i></span>
+                            <span class="badge streamer"><i class="fas fa-broadcast-tower"></i></span>
+                            <span class="badge elite"><i class="fas fa-star"></i></span>
+                        </div>
+                    </div>
+                    <button class="profile-dropdown">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-trophy"></i> Achievements</a>
+                        <a href="#"><i class="fas fa-gamepad"></i> My Games</a>
+                        <a href="#"><i class="fas fa-friends"></i> Friends</a>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <button class="theme-toggle">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <nav>
+            <div class="nav-container">
+                <ul class="main-nav">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="games.html" class="active"><i class="fas fa-gamepad"></i> <span>Games</span></a></li>
+                    <li><a href="news.html"><i class="fas fa-newspaper"></i> <span>News</span></a></li>
+                    <li><a href="community.html"><i class="fas fa-users"></i> <span>Community</span></a></li>
+                    <li><a href="tournaments.html"><i class="fas fa-trophy"></i> <span>Tournaments</span></a></li>
+                    <li><a href="reviews.html"><i class="fas fa-broadcast-tower"></i> <span>Reviews</span></a></li>
+                    <li><a href="store.html"><i class="fas fa-shopping-cart"></i> <span>Shop</span></a></li>
+                    <li><a href="support.html"><i class="fas fa-headset"></i> <span>Support</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="games-hero">
+            <h1><i class="fas fa-gamepad"></i> Games Library</h1>
+            <p>Explore our vast collection of games across all genres</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Search games..." id="gameSearch">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </section>
+
+        <!-- Featured Games Section -->
+        <section class="featured-games">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> Featured Games</h2>
+                <p>Handpicked games that are trending right now</p>
+            </div>
+
+            <div class="featured-grid">
+                <div class="featured-card large">
+                    <div class="featured-image">
+                        <img src="https://via.placeholder.com/600x300/ff6b6b/ffffff?text=Cyber+Punk+2077" alt="Cyber Punk 2077">
+                        <div class="featured-badge">HOT</div>
+                        <div class="featured-overlay">
+                            <button class="play-btn-large">Play Now</button>
+                        </div>
+                    </div>
+                    <div class="featured-info">
+                        <h3>Cyber Punk 2077</h3>
+                        <div class="featured-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+                            <span class="downloads">2.5M downloads</span>
+                        </div>
+                        <p>Immerse yourself in a dystopian future with cutting-edge graphics and deep storytelling.</p>
+                        <div class="game-tags">
+                            <span class="tag">RPG</span>
+                            <span class="tag">Action</span>
+                            <span class="tag">Open World</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="https://via.placeholder.com/300x200/4ecdc4/ffffff?text=Battle+Arena" alt="Battle Arena">
+                        <div class="featured-badge">NEW</div>
+                        <div class="featured-overlay">
+                            <button class="play-btn-large">Play Now</button>
+                        </div>
+                    </div>
+                    <div class="featured-info">
+                        <h3>Battle Arena</h3>
+                        <div class="featured-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 4.9</span>
+                            <span class="downloads">1.8M downloads</span>
+                        </div>
+                        <p>Fast-paced multiplayer combat with unique abilities.</p>
+                        <div class="game-tags">
+                            <span class="tag">Action</span>
+                            <span class="tag">Multiplayer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="https://via.placeholder.com/300x200/45b7d1/ffffff?text=Mystery+Quest" alt="Mystery Quest">
+                        <div class="featured-badge">TRENDING</div>
+                        <div class="featured-overlay">
+                            <button class="play-btn-large">Play Now</button>
+                        </div>
+                    </div>
+                    <div class="featured-info">
+                        <h3>Mystery Quest</h3>
+                        <div class="featured-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 4.7</span>
+                            <span class="downloads">950K downloads</span>
+                        </div>
+                        <p>Unravel ancient mysteries in this adventure game.</p>
+                        <div class="game-tags">
+                            <span class="tag">Adventure</span>
+                            <span class="tag">Puzzle</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Games Stats Section -->
+        <section class="games-stats">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>500+</h3>
+                        <p>Games Available</p>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>10M+</h3>
+                        <p>Active Players</p>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>50M+</h3>
+                        <p>Downloads</p>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>100K+</h3>
+                        <p>Tournaments</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="games-filters">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Games</button>
+                <button class="filter-tab" data-filter="action">Action</button>
+                <button class="filter-tab" data-filter="rpg">RPG</button>
+                <button class="filter-tab" data-filter="strategy">Strategy</button>
+                <button class="filter-tab" data-filter="sports">Sports</button>
+                <button class="filter-tab" data-filter="racing">Racing</button>
+            </div>
+            <div class="sort-options">
+                <select id="sortSelect">
+                    <option value="popular">Most Popular</option>
+                    <option value="newest">Newest</option>
+                    <option value="rating">Highest Rated</option>
+                    <option value="name">Name A-Z</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="games-section">
+            <div class="games-layout">
+                <div class="games-main">
+                    <div class="games-grid" id="gamesGrid">
+                <div class="game-card" data-category="rpg">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/4a5568/ffffff?text=RPG+Adventure" alt="RPG Adventure">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="wishlist-btn"><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>RPG Adventure</h3>
+                        <div class="game-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+                            <span class="players">2.4M players</span>
+                        </div>
+                        <p>An epic role-playing game with quests and magic.</p>
+                        <div class="game-tags">
+                            <span class="tag">RPG</span>
+                            <span class="tag">Adventure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-category="action">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/2d3748/ffffff?text=Battle+Royale" alt="Battle Royale">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="wishlist-btn"><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Battle Royale</h3>
+                        <div class="game-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 4.6</span>
+                            <span class="players">5.1M players</span>
+                        </div>
+                        <p>Compete in intense multiplayer battles.</p>
+                        <div class="game-tags">
+                            <span class="tag">Action</span>
+                            <span class="tag">Multiplayer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-category="strategy">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/1a202c/ffffff?text=Strategy+Wars" alt="Strategy Wars">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="wishlist-btn"><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Strategy Wars</h3>
+                        <div class="game-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 4.7</span>
+                            <span class="players">1.8M players</span>
+                        </div>
+                        <p>Build your empire and conquer the world.</p>
+                        <div class="game-tags">
+                            <span class="tag">Strategy</span>
+                            <span class="tag">RTS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-category="racing">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/2b6cb0/ffffff?text=Racing+Thunder" alt="Racing Thunder">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="wishlist-btn"><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Racing Thunder</h3>
+                        <div class="game-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 4.5</span>
+                            <span class="players">3.2M players</span>
+                        </div>
+                        <p>High-speed racing with customizable cars.</p>
+                        <div class="game-tags">
+                            <span class="tag">Racing</span>
+                            <span class="tag">Sports</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-category="sports">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/38a169/ffffff?text=Sports+Champ" alt="Sports Champ">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="wishlist-btn"><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Sports Championship</h3>
+                        <div class="game-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 4.4</span>
+                            <span class="players">4.1M players</span>
+                        </div>
+                        <p>Experience realistic sports action.</p>
+                        <div class="game-tags">
+                            <span class="tag">Sports</span>
+                            <span class="tag">Simulation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-category="action">
+                    <div class="game-image">
+                        <img src="https://via.placeholder.com/300x200/805ad5/ffffff?text=Action+Hero" alt="Action Hero">
+                        <div class="game-overlay">
+                            <button class="play-btn">Play Now</button>
+                            <button class="wishlist-btn"><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Action Hero</h3>
+                        <div class="game-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 4.3</span>
+                            <span class="players">2.7M players</span>
+                        </div>
+                        <p>Become the ultimate action hero.</p>
+                        <div class="game-tags">
+                            <span class="tag">Action</span>
+                            <span class="tag">Adventure</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <i class="fas fa-sync-alt"></i> Load More Games
+                </button>
+            </div>
+        </div>
+
+        <!-- Games Sidebar -->
+        <div class="games-sidebar">
+            <!-- Game Categories -->
+            <div class="sidebar-section">
+                <h3><i class="fas fa-tags"></i> Categories</h3>
+                <div class="category-list">
+                    <div class="category-item" data-category="all">
+                        <i class="fas fa-th-large"></i>
+                        <span>All Games</span>
+                        <span class="count">500+</span>
+                    </div>
+                    <div class="category-item" data-category="action">
+                        <i class="fas fa-bolt"></i>
+                        <span>Action</span>
+                        <span class="count">120</span>
+                    </div>
+                    <div class="category-item" data-category="rpg">
+                        <i class="fas fa-magic"></i>
+                        <span>RPG</span>
+                        <span class="count">85</span>
+                    </div>
+                    <div class="category-item" data-category="strategy">
+                        <i class="fas fa-chess"></i>
+                        <span>Strategy</span>
+                        <span class="count">65</span>
+                    </div>
+                    <div class="category-item" data-category="sports">
+                        <i class="fas fa-futbol"></i>
+                        <span>Sports</span>
+                        <span class="count">45</span>
+                    </div>
+                    <div class="category-item" data-category="racing">
+                        <i class="fas fa-car"></i>
+                        <span>Racing</span>
+                        <span class="count">35</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popular Games -->
+            <div class="sidebar-section">
+                <h3><i class="fas fa-fire"></i> Popular This Week</h3>
+                <div class="popular-games">
+                    <div class="popular-game">
+                        <div class="popular-rank">1</div>
+                        <div class="popular-info">
+                            <h4>Cyber Punk 2077</h4>
+                            <div class="popular-meta">
+                                <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+                                <span class="trend up">+12%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular-game">
+                        <div class="popular-rank">2</div>
+                        <div class="popular-info">
+                            <h4>Battle Arena</h4>
+                        <div class="popular-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 4.9</span>
+                            <span class="trend up">+8%</span>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="popular-game">
+                        <div class="popular-rank">3</div>
+                        <div class="popular-info">
+                            <h4>RPG Adventure</h4>
+                            <div class="popular-meta">
+                                <span class="rating"><i class="fas fa-star"></i> 4.7</span>
+                                <span class="trend down">-3%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Recommendations -->
+            <div class="sidebar-section">
+                <h3><i class="fas fa-lightbulb"></i> Recommended for You</h3>
+                <div class="recommendations">
+                    <div class="recommendation-card">
+                        <img src="https://via.placeholder.com/80x80/667eea/ffffff?text=Rec1" alt="Recommended Game">
+                        <div class="recommendation-info">
+                            <h4>Space Explorer</h4>
+                            <p>Because you liked RPG games</p>
+                        </div>
+                    </div>
+                    <div class="recommendation-card">
+                        <img src="https://via.placeholder.com/80x80/764ba2/ffffff?text=Rec2" alt="Recommended Game">
+                        <div class="recommendation-info">
+                            <h4>City Builder</h4>
+                            <p>Strategy game fans also play this</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+    <footer class="dynamic-footer">
+
+        <div class="footer-main">
+            <div class="footer-container">
+                <div class="footer-section footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>GameHub</h3>
+                    </div>
+                    <p class="footer-description">
+                        The ultimate gaming ecosystem where players connect, compete, and create memories.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link twitch"><i class="fab fa-twitch"></i></a>
+                        <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html"><i class="fas fa-arrow-right"></i> Home</a></li>
+                        <li><a href="games.html"><i class="fas fa-arrow-right"></i> Games Library</a></li>
+                        <li><a href="tournaments.html"><i class="fas fa-arrow-right"></i> Tournaments</a></li>
+                        <li><a href="community.html"><i class="fas fa-arrow-right"></i> Community</a></li>
+                        <li><a href="store.html"><i class="fas fa-arrow-right"></i> Game Store</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html"><i class="fas fa-comments"></i> Forums</a></li>
+                        <li><a href="community.html"><i class="fas fa-users"></i> Teams</a></li>
+                        <li><a href="reviews.html"><i class="fas fa-chart-line"></i> Leaderboards</a></li>
+                        <li><a href="tournaments.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                        <li><a href="community.html"><i class="fas fa-shield-alt"></i> Clans</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section newsletter">
+                    <h4>Weekly Newsletter</h4>
+                    <p>Get gaming news, updates, and exclusive content delivered weekly.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your gaming email" required>
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div class="copyright">
+                    <p>&copy; 2025 GameHub. All rights reserved. <span class="age-rating">18+</span></p>
+                    <div class="legal-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Safety Guidelines</a>
+                    </div>
+                </div>
+                
+                <div class="footer-features">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Gaming</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <span>Low Latency</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-globe"></i>
+                        <span>Global Servers</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="theme-changer">
+            <button class="theme-btn" data-theme="blue">
+                <i class="fas fa-water"></i>
+            </button>
+            <button class="theme-btn active" data-theme="red">
+                <i class="fas fa-fire"></i>
+            </button>
+            <button class="theme-btn" data-theme="green">
+                <i class="fas fa-leaf"></i>
+            </button>
+            <button class="theme-btn" data-theme="purple">
+                <i class="fas fa-crown"></i>
+            </button>
+            <button class="theme-btn" data-theme="cyber">
+                <i class="fas fa-robot"></i>
+            </button>
+        </div>
+        
+        <div class="scroll-top" id="scrollTop">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+    </footer>
 </body>
 </html>

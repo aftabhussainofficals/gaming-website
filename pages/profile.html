@@ -3,14 +3,922 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>Profile - GameHub</title>
+    <link rel="stylesheet" href="../assets/css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header></header>
-    <main><h1>Profile Page</h1></main>
-    <footer></footer>
-    <script src="../assets/js/header.js"></script>
-    <script src="../script.js"></script>
+    <!-- Enhanced Header -->
+    <header>
+        <div class="header-bg">
+            <div class="header-gradient"></div>
+            <div class="header-particles"></div>
+        </div>
+
+        <div class="header-container">
+            <div class="logo">
+                <h1><i class="fas fa-gamepad"></i> GameHub</h1>
+                <div class="logo-subtitle">Play. Connect. Conquer.</div>
+            </div>
+
+            <div class="xp-progress">
+                <div class="xp-info">
+                    <span class="xp-level">Level 42</span>
+                    <span class="xp-text">62% to next level</span>
+                </div>
+                <div class="xp-bar">
+                    <div class="xp-fill"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=gamer&background=%2300a8ff" alt="User Avatar">
+                        <div class="online-status"></div>
+                    </div>
+                    <div class="user-info">
+                        <span class="username">CyberNinja</span>
+                        <div class="user-badges">
+                            <span class="badge premium"><i class="fas fa-crown"></i></span>
+                            <span class="badge streamer"><i class="fas fa-broadcast-tower"></i></span>
+                            <span class="badge elite"><i class="fas fa-star"></i></span>
+                        </div>
+                    </div>
+                    <button class="profile-dropdown">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="active"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#" onclick="openSettingsModal()"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-trophy"></i> Achievements</a>
+                        <a href="#"><i class="fas fa-gamepad"></i> My Games</a>
+                        <a href="#"><i class="fas fa-friends"></i> Friends</a>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <button class="theme-toggle">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <nav>
+            <div class="nav-container">
+                <ul class="main-nav">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="games.html"><i class="fas fa-gamepad"></i> <span>Games</span></a></li>
+                    <li><a href="news.html"><i class="fas fa-newspaper"></i> <span>News</span></a></li>
+                    <li><a href="community.html"><i class="fas fa-users"></i> <span>Community</span></a></li>
+                    <li><a href="tournaments.html"><i class="fas fa-trophy"></i> <span>Tournaments</span></a></li>
+                    <li><a href="reviews.html"><i class="fas fa-broadcast-tower"></i> <span>Reviews</span></a></li>
+                    <li><a href="store.html"><i class="fas fa-shopping-cart"></i> <span>Shop</span></a></li>
+                    <li><a href="support.html"><i class="fas fa-headset"></i> <span>Support</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Profile Hero Section -->
+        <section class="profile-hero">
+            <div class="hero-content">
+                <h1><i class="fas fa-user-circle"></i> My Gaming Profile</h1>
+                <p class="hero-subtitle">Manage your account, track your progress, and showcase your gaming achievements</p>
+            </div>
+        </section>
+
+        <!-- Profile Container -->
+        <div class="profile-container">
+            <!-- Profile Sidebar -->
+            <aside class="profile-sidebar">
+                <div class="profile-avatar-section">
+                    <div class="profile-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=gamer&background=%2300a8ff" alt="Profile Avatar">
+                        <div class="avatar-edit-overlay">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                    </div>
+                    <h2 class="profile-name">CyberNinja</h2>
+                    <div class="profile-level">Level 42</div>
+                </div>
+
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">1,247</div>
+                        <div class="stat-label">Games Played</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">892</div>
+                        <div class="stat-label">Hours Played</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">156</div>
+                        <div class="stat-label">Achievements</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">23</div>
+                        <div class="stat-label">Friends</div>
+                    </div>
+                </div>
+
+                <div class="profile-badges">
+                    <h4 class="badges-title">Badges Earned</h4>
+                    <div class="badges-grid">
+                        <div class="badge-item premium">
+                            <i class="fas fa-crown"></i>
+                            <span>Premium</span>
+                        </div>
+                        <div class="badge-item streamer">
+                            <i class="fas fa-broadcast-tower"></i>
+                            <span>Streamer</span>
+                        </div>
+                        <div class="badge-item elite">
+                            <i class="fas fa-star"></i>
+                            <span>Elite</span>
+                        </div>
+                        <div class="badge-item pro">
+                            <i class="fas fa-trophy"></i>
+                            <span>Pro Player</span>
+                        </div>
+                        <div class="badge-item">
+                            <i class="fas fa-medal"></i>
+                            <span>Champion</span>
+                        </div>
+                        <div class="badge-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Guardian</span>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="profile-navigation">
+                    <div class="nav-item active" onclick="showProfileSection('overview')">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Overview</span>
+                    </div>
+                    <div class="nav-item" onclick="showProfileSection('activity')">
+                        <i class="fas fa-history"></i>
+                        <span>Recent Activity</span>
+                    </div>
+                    <div class="nav-item" onclick="showProfileSection('achievements')">
+                        <i class="fas fa-trophy"></i>
+                        <span>Achievements</span>
+                    </div>
+                    <div class="nav-item" onclick="showProfileSection('friends')">
+                        <i class="fas fa-users"></i>
+                        <span>Friends</span>
+                    </div>
+                    <div class="nav-item" onclick="showProfileSection('games')">
+                        <i class="fas fa-gamepad"></i>
+                        <span>My Games</span>
+                    </div>
+                    <div class="nav-item" onclick="showProfileSection('settings')">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Profile Main Content -->
+            <div class="profile-main">
+                <!-- Profile Overview -->
+                <section class="profile-overview" id="overview-section">
+                    <div class="overview-header">
+                        <h2>Profile Overview</h2>
+                        <button class="edit-profile-btn" onclick="openSettingsModal()">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </button>
+                    </div>
+
+                    <div class="overview-content">
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div class="card-title">Games Owned</div>
+                            <div class="card-value">47</div>
+                            <div class="card-description">12 completed this month</div>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="card-title">Play Time</div>
+                            <div class="card-value">892h</div>
+                            <div class="card-description">Average 8.2h per week</div>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="card-title">Achievements</div>
+                            <div class="card-value">156</div>
+                            <div class="card-description">23 unlocked this month</div>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="card-title">Friends</div>
+                            <div class="card-value">23</div>
+                            <div class="card-description">5 online now</div>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="card-title">Reputation</div>
+                            <div class="card-value">4.8</div>
+                            <div class="card-description">Excellent standing</div>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="card-title">GameCoins</div>
+                            <div class="card-value">2,450</div>
+                            <div class="card-description">Earned from gameplay</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Activity -->
+                <section class="recent-activity" id="activity-section" style="display: none;">
+                    <div class="activity-header">
+                        <h2>Recent Activity</h2>
+                        <a href="#" class="view-all-btn">View All</a>
+                    </div>
+
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">Won Tournament: Cyber Strike Championship</div>
+                                <div class="activity-description">1st place in Valorant tournament with $500 prize</div>
+                            </div>
+                            <div class="activity-time">2 hours ago</div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">Achievement Unlocked: Master Sniper</div>
+                                <div class="activity-description">Completed all sniper challenges in Call of Duty</div>
+                            </div>
+                            <div class="activity-time">5 hours ago</div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">New Friend Added</div>
+                                <div class="activity-description">Connected with ProGamer2024</div>
+                            </div>
+                            <div class="activity-time">1 day ago</div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">Game Purchased</div>
+                                <div class="activity-description">Bought Cyberpunk 2077 from the store</div>
+                            </div>
+                            <div class="activity-time">2 days ago</div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">Rank Promotion</div>
+                                <div class="activity-description">Promoted to Diamond rank in League of Legends</div>
+                            </div>
+                            <div class="activity-time">3 days ago</div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-comment"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">Review Posted</div>
+                                <div class="activity-description">Reviewed "The Last of Us Part II" - 5 stars</div>
+                            </div>
+                            <div class="activity-time">4 days ago</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Achievements Section -->
+                <section class="achievements-section" id="achievements-section" style="display: none;">
+                    <div class="achievements-header">
+                        <h2>My Achievements</h2>
+                        <span class="achievement-count">156 / 200 unlocked</span>
+                    </div>
+
+                    <div class="achievements-grid">
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="achievement-title">Tournament Champion</div>
+                            <div class="achievement-description">Win your first tournament</div>
+                            <div class="achievement-progress">
+                                <div class="progress-fill" style="width: 100%;"></div>
+                            </div>
+                            <div class="achievement-status">Completed</div>
+                        </div>
+
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="achievement-title">Master Player</div>
+                            <div class="achievement-description">Reach level 50 in any game</div>
+                            <div class="achievement-progress">
+                                <div class="progress-fill" style="width: 84%;"></div>
+                            </div>
+                            <div class="achievement-status">84% complete</div>
+                        </div>
+
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="achievement-title">Social Butterfly</div>
+                            <div class="achievement-description">Add 50 friends to your network</div>
+                            <div class="achievement-progress">
+                                <div class="progress-fill" style="width: 46%;"></div>
+                            </div>
+                            <div class="achievement-status">23 / 50 friends</div>
+                        </div>
+
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="achievement-title">Dedicated Gamer</div>
+                            <div class="achievement-description">Play for 1000 hours total</div>
+                            <div class="achievement-progress">
+                                <div class="progress-fill" style="width: 89%;"></div>
+                            </div>
+                            <div class="achievement-status">892 / 1000 hours</div>
+                        </div>
+
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="achievement-title">Reviewer</div>
+                            <div class="achievement-description">Write 25 game reviews</div>
+                            <div class="achievement-progress">
+                                <div class="progress-fill" style="width: 100%;"></div>
+                            </div>
+                            <div class="achievement-status">Completed</div>
+                        </div>
+
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="achievement-title">Community Guardian</div>
+                            <div class="achievement-description">Help 100 community members</div>
+                            <div class="achievement-progress">
+                                <div class="progress-fill" style="width: 67%;"></div>
+                            </div>
+                            <div class="achievement-status">67 / 100 helped</div>
+                        </div>
+
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="achievement-title">Wealthy Gamer</div>
+                            <div class="achievement-description">Earn 5000 GameCoins</div>
+                            <div class="achievement-progress">
+                                <div class="progress-fill" style="width: 49%;"></div>
+                            </div>
+                            <div class="achievement-status">2450 / 5000 coins</div>
+                        </div>
+
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="achievement-title">Elite Member</div>
+                            <div class="achievement-description">Maintain premium status for 2 years</div>
+                            <div class="achievement-progress">
+                                <div class="progress-fill" style="width: 75%;"></div>
+                            </div>
+                            <div class="achievement-status">18 / 24 months</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Friends Section -->
+                <section class="friends-section" id="friends-section" style="display: none;">
+                    <div class="friends-header">
+                        <h2>My Friends</h2>
+                        <button class="edit-profile-btn">
+                            <i class="fas fa-user-plus"></i> Add Friend
+                        </button>
+                    </div>
+
+                    <div class="friends-grid">
+                        <div class="friend-card">
+                            <div class="friend-avatar">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=friend1" alt="Friend">
+                            </div>
+                            <div class="friend-name">ProGamer2024</div>
+                            <div class="friend-status online">Online</div>
+                        </div>
+
+                        <div class="friend-card">
+                            <div class="friend-avatar">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=friend2" alt="Friend">
+                            </div>
+                            <div class="friend-name">NightHunter</div>
+                            <div class="friend-status online">In Game</div>
+                        </div>
+
+                        <div class="friend-card">
+                            <div class="friend-avatar">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=friend3" alt="Friend">
+                            </div>
+                            <div class="friend-name">SkillMaster</div>
+                            <div class="friend-status offline">Offline</div>
+                        </div>
+
+                        <div class="friend-card">
+                            <div class="friend-avatar">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=friend4" alt="Friend">
+                            </div>
+                            <div class="friend-name">GameWizard</div>
+                            <div class="friend-status offline">Offline</div>
+                        </div>
+
+                        <div class="friend-card">
+                            <div class="friend-avatar">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=friend5" alt="Friend">
+                            </div>
+                            <div class="friend-name">ElitePlayer</div>
+                            <div class="friend-status online">Online</div>
+                        </div>
+
+                        <div class="friend-card">
+                            <div class="friend-avatar">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=friend6" alt="Friend">
+                            </div>
+                            <div class="friend-name">CyberWarrior</div>
+                            <div class="friend-status offline">Offline</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- My Games Section (Placeholder) -->
+                <section class="profile-overview" id="games-section" style="display: none;">
+                    <div class="overview-header">
+                        <h2>My Games Library</h2>
+                        <button class="edit-profile-btn">
+                            <i class="fas fa-shopping-cart"></i> Browse Store
+                        </button>
+                    </div>
+                    <div class="overview-content">
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div class="card-title">Installed Games</div>
+                            <div class="card-value">23</div>
+                            <div class="card-description">12 GB used</div>
+                        </div>
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <div class="card-title">Cloud Saves</div>
+                            <div class="card-value">47</div>
+                            <div class="card-description">Auto-sync enabled</div>
+                        </div>
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <div class="card-title">Downloads</div>
+                            <div class="card-value">156</div>
+                            <div class="card-description">This month</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings Section (Placeholder) -->
+                <section class="profile-overview" id="settings-section" style="display: none;">
+                    <div class="overview-header">
+                        <h2>Account Settings</h2>
+                        <button class="edit-profile-btn" onclick="openSettingsModal()">
+                            <i class="fas fa-edit"></i> Edit Settings
+                        </button>
+                    </div>
+                    <div class="overview-content">
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="card-title">Profile Settings</div>
+                            <div class="card-value">Public</div>
+                            <div class="card-description">Manage privacy settings</div>
+                        </div>
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="card-title">Notifications</div>
+                            <div class="card-value">Enabled</div>
+                            <div class="card-description">Email & push notifications</div>
+                        </div>
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="card-title">Security</div>
+                            <div class="card-value">Secure</div>
+                            <div class="card-description">Two-factor authentication</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Settings Modal -->
+    <div class="settings-modal" id="settingsModal">
+        <div class="settings-content">
+            <div class="settings-header">
+                <h2>Edit Profile Settings</h2>
+                <button class="settings-close" onclick="closeSettingsModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="settings-body">
+                <div class="settings-section">
+                    <h3>Basic Information</h3>
+                    <div class="setting-group">
+                        <label class="setting-label">Display Name</label>
+                        <input type="text" class="setting-input" value="CyberNinja">
+                    </div>
+                    <div class="setting-group">
+                        <label class="setting-label">Email Address</label>
+                        <input type="email" class="setting-input" value="cyberninja@gamehub.com">
+                    </div>
+                    <div class="setting-group">
+                        <label class="setting-label">Bio</label>
+                        <textarea class="setting-textarea" rows="3">Passionate gamer who loves competitive play and helping the community. Always up for a good match!</textarea>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Privacy Settings</h3>
+                    <div class="setting-group">
+                        <label class="setting-label">Profile Visibility</label>
+                        <select class="setting-input">
+                            <option value="public">Public</option>
+                            <option value="friends">Friends Only</option>
+                            <option value="private">Private</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label class="setting-label">Show Online Status</label>
+                        <select class="setting-input">
+                            <option value="everyone">Everyone</option>
+                            <option value="friends">Friends Only</option>
+                            <option value="nobody">Nobody</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Notification Preferences</h3>
+                    <div class="setting-group">
+                        <label class="setting-label">Email Notifications</label>
+                        <select class="setting-input">
+                            <option value="all">All notifications</option>
+                            <option value="important">Important only</option>
+                            <option value="none">None</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label class="setting-label">Friend Requests</label>
+                        <select class="setting-input">
+                            <option value="auto">Auto-accept from community</option>
+                            <option value="manual">Manual approval</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-actions">
+                <button class="settings-btn cancel" onclick="closeSettingsModal()">Cancel</button>
+                <button class="settings-btn save" onclick="saveSettings()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-user-circle"></i> GameHub Profile</h3>
+                <p>Your personal gaming dashboard where you can track progress, manage achievements, and connect with friends in the ultimate gaming community.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitch"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Profile Features</h4>
+                <ul>
+                    <li><a href="#overview">Profile Overview</a></li>
+                    <li><a href="#activity">Recent Activity</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#friends">Friends List</a></li>
+                    <li><a href="#games">Game Library</a></li>
+                    <li><a href="#settings">Account Settings</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Gaming Stats</h4>
+                <ul>
+                    <li><a href="#">Level Progress</a></li>
+                    <li><a href="#">Achievement Tracker</a></li>
+                    <li><a href="#">Game Statistics</a></li>
+                    <li><a href="#">Tournament History</a></li>
+                    <li><a href="#">Friend Activity</a></li>
+                    <li><a href="#">Profile Customization</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Account Management</h4>
+                <ul>
+                    <li><a href="#">Privacy Settings</a></li>
+                    <li><a href="#">Security Options</a></li>
+                    <li><a href="#">Notification Preferences</a></li>
+                    <li><a href="#">Data Export</a></li>
+                    <li><a href="#">Account Deletion</a></li>
+                    <li><a href="#">Support Center</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 GameHub Profile System. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="#">Profile Guidelines</a>
+                <a href="#">Community Standards</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Profile section navigation
+        function showProfileSection(sectionName) {
+            // Hide all sections
+            const sections = ['overview', 'activity', 'achievements', 'friends', 'games', 'settings'];
+            sections.forEach(section => {
+                const element = document.getElementById(section + '-section');
+                if (element) {
+                    element.style.display = 'none';
+                }
+            });
+
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Show selected section
+            const targetSection = document.getElementById(sectionName + '-section');
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+
+            // Add active class to clicked nav item
+            event.target.closest('.nav-item').classList.add('active');
+        }
+
+        // Settings modal functions
+        function openSettingsModal() {
+            document.getElementById('settingsModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSettingsModal() {
+            document.getElementById('settingsModal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        function saveSettings() {
+            // Simulate saving settings
+            alert('Settings saved successfully!');
+            closeSettingsModal();
+        }
+
+        // Avatar upload simulation
+        document.querySelector('.profile-avatar').addEventListener('click', function() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.querySelector('.profile-avatar img').src = e.target.result;
+                        alert('Profile picture updated successfully!');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            input.click();
+        });
+
+        // Initialize profile
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial active section
+            showProfileSection('overview');
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Close modal when clicking outside
+            document.getElementById('settingsModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeSettingsModal();
+                }
+            });
+
+            // Keyboard navigation for modal
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && document.getElementById('settingsModal').style.display === 'flex') {
+                    closeSettingsModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+        <div class="footer-main">
+            <div class="footer-container">
+                <div class="footer-section footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>GameHub</h3>
+                    </div>
+                    <p class="footer-description">
+                        The ultimate gaming ecosystem where players connect, compete, and create memories.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link twitch"><i class="fab fa-twitch"></i></a>
+                        <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html"><i class="fas fa-arrow-right"></i> Home</a></li>
+                        <li><a href="games.html"><i class="fas fa-arrow-right"></i> Games Library</a></li>
+                        <li><a href="tournaments.html"><i class="fas fa-arrow-right"></i> Tournaments</a></li>
+                        <li><a href="community.html"><i class="fas fa-arrow-right"></i> Community</a></li>
+                        <li><a href="store.html"><i class="fas fa-arrow-right"></i> Game Store</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html"><i class="fas fa-comments"></i> Forums</a></li>
+                        <li><a href="community.html"><i class="fas fa-users"></i> Teams</a></li>
+                        <li><a href="reviews.html"><i class="fas fa-chart-line"></i> Leaderboards</a></li>
+                        <li><a href="tournaments.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                        <li><a href="community.html"><i class="fas fa-shield-alt"></i> Clans</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section newsletter">
+                    <h4>Weekly Newsletter</h4>
+                    <p>Get gaming news, updates, and exclusive content delivered weekly.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your gaming email" required>
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div class="copyright">
+                    <p>&copy; 2025 GameHub. All rights reserved. <span class="age-rating">18+</span></p>
+                    <div class="legal-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Safety Guidelines</a>
+                    </div>
+                </div>
+                
+                <div class="footer-features">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Gaming</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <span>Low Latency</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-globe"></i>
+                        <span>Global Servers</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="theme-changer">
+            <button class="theme-btn" data-theme="blue">
+                <i class="fas fa-water"></i>
+            </button>
+            <button class="theme-btn active" data-theme="red">
+                <i class="fas fa-fire"></i>
+            </button>
+            <button class="theme-btn" data-theme="green">
+                <i class="fas fa-leaf"></i>
+            </button>
+            <button class="theme-btn" data-theme="purple">
+                <i class="fas fa-crown"></i>
+            </button>
+            <button class="theme-btn" data-theme="cyber">
+                <i class="fas fa-robot"></i>
+            </button>
+        </div>
+        
+        <div class="scroll-top" id="scrollTop">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+    </footer>
 </body>
 </html>

@@ -1,292 +1,311 @@
+// Simple dynamic script for GameHub
+
+// Theme changer
 document.addEventListener('DOMContentLoaded', function() {
-    
-    const userProfile = document.getElementById('userProfile');
-    const dropdownMenu = userProfile.querySelector('.dropdown-menu');
-    
-    userProfile.addEventListener('click', function(e) {
-        e.stopPropagation();
-        dropdownMenu.classList.toggle('active');
-    });
-    
-    document.addEventListener('click', function(e) {
-        if (!userProfile.contains(e.target)) {
-            dropdownMenu.classList.remove('active');
-        }
-    });
-    
-    const themeToggle = document.querySelector('.theme-toggle');
-    themeToggle.addEventListener('click', function() {
-        document.body.classList.toggle('light-mode');
-        const icon = this.querySelector('i');
-        if (document.body.classList.contains('light-mode')) {
-            icon.classList.remove('fa-palette');
-            icon.classList.add('fa-sun');
-        } else {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-palette');
-        }
-    });
-    
-    const notificationBtn = document.querySelector('.notification-btn');
-    notificationBtn.addEventListener('click', function() {
-        this.style.transform = 'scale(0.9) rotate(360deg)';
-        setTimeout(() => {
-            this.style.transform = '';
-            const count = this.querySelector('.notification-count');
-            if (parseInt(count.textContent) > 0) {
-                count.textContent = '0';
-                count.style.background = 'linear-gradient(135deg, #333, #666)';
-            }
-        }, 300);
-    });
-    
-    
-    const statValues = document.querySelectorAll('.stat-value');
-    statValues.forEach(stat => {
-        const target = parseInt(stat.textContent.replace(/[^0-9]/g, ''));
-        let current = 0;
-        const increment = target / 50;
-        
-        const updateStat = () => {
-            if (current < target) {
-                current += increment;
-                if (current > target) current = target;
-                
-                if (stat.textContent.includes('$')) {
-                    stat.textContent = '$' + Math.floor(current).toLocaleString() + (stat.textContent.includes('M') ? 'M' : '');
-                } else {
-                    stat.textContent = Math.floor(current).toLocaleString();
-                }
-                setTimeout(updateStat, 30);
-            }
-        };
-        updateStat();
-    });
-    
-    const statCards = document.querySelectorAll('.stat-card');
-    statCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const stat = this.dataset.stat;
-            alert(`Viewing detailed stats for ${stat}!`);
-        });
-    });
-    
-    const gameCards = document.querySelectorAll('.game-card');
-    gameCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const game = this.dataset.game;
-            const gameName = this.querySelector('.game-name').textContent;
-            alert(`Launching ${gameName}...`);
-            
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 200);
-        });
-    });
-
-    const streamCards = document.querySelectorAll('.stream-card');
-    streamCards.forEach(card => {
-        card.addEventListener('click', function() {
-            alert('Opening stream...');
-        });
-    });
-    
-    const viewAllBtn = document.querySelector('.view-all');
-    viewAllBtn.addEventListener('click', function() {
-        alert('Showing all live streams!');
-    });
-    
-    const ctaButtons = document.querySelectorAll('.cta-btn');
-    ctaButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const action = this.classList.contains('explore') ? 'exploring games' : 
-                         this.classList.contains('join') ? 'joining community' : 'starting stream';
-            alert(`You are now ${action}!`);
-        });
-    });
-    
     const themeButtons = document.querySelectorAll('.theme-btn');
-    themeButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            themeButtons.forEach(b => b.classList.remove('active'));
+    themeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const theme = this.getAttribute('data-theme');
+            document.body.className = theme;
+            themeButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
-            
-            const theme = this.dataset.theme;
-            changeTheme(theme);
         });
     });
-    
-    function changeTheme(theme) {
-        const root = document.documentElement;
-        
-        document.body.className = document.body.className.replace(/theme-\w+/g, '');
-        
-        document.body.classList.add(`theme-${theme}`);
 
-        switch(theme) {
-            case 'blue':
-                updateColors('#0099ff', '#0066cc');
-                break;
-            case 'red':
-                updateColors('#ff2d75', '#ff5a3d');
-                break;
-            case 'green':
-                updateColors('#00ff9d', '#00cc7a');
-                break;
-            case 'purple':
-                updateColors('#9146ff', '#a970ff');
-                break;
-            case 'cyber':
-                updateColors('#00ffea', '#0099ff');
-                break;
-        }
-    }
-    
-    function updateColors(primary, secondary) {
-        document.documentElement.style.setProperty('--primary-color', primary);
-        document.documentElement.style.setProperty('--secondary-color', secondary);
-    }
-    
+    // Scroll to top
     const scrollTopBtn = document.getElementById('scrollTop');
-    
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            scrollTopBtn.classList.add('visible');
-        } else {
-            scrollTopBtn.classList.remove('visible');
-        }
-    });
-    
-    scrollTopBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
         });
-    });
-    
-    const newsletterForm = document.querySelector('.newsletter-form');
-    newsletterForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = this.querySelector('input').value;
-        if (email) {
-            const btn = this.querySelector('button');
-            const originalHTML = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-check"></i>';
-            btn.style.background = 'linear-gradient(135deg, #00ff00, #00cc00)';
-            
-            setTimeout(() => {
-                alert(`Welcome to GameHub newsletter! Confirmation sent to ${email}`);
-                btn.innerHTML = originalHTML;
-                btn.style.background = 'linear-gradient(135deg, #ff2d75, #ff5a3d)';
-                this.reset();
-            }, 1000);
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // Hero Slider
+    const heroSlider = document.getElementById('heroSlider');
+    if (heroSlider) {
+        const track = heroSlider.querySelector('.hero-track');
+        const slides = track.querySelectorAll('.slide-card');
+        const prevBtn = heroSlider.querySelector('.prev-slide');
+        const nextBtn = heroSlider.querySelector('.next-slide');
+        const indicators = heroSlider.querySelector('.slide-indicators');
+        const progressBar = heroSlider.querySelector('.progress-bar');
+
+        let currentSlide = 0;
+        let autoSlideInterval;
+
+        // Create indicators
+        slides.forEach((_, index) => {
+            const indicator = document.createElement('button');
+            indicator.className = `indicator ${index === 0 ? 'active' : ''}`;
+            indicator.addEventListener('click', () => goToSlide(index));
+            indicators.appendChild(indicator);
+        });
+
+        function updateIndicators() {
+            indicators.querySelectorAll('.indicator').forEach((ind, index) => {
+                ind.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateIndicators();
+            resetAutoSlide();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            goToSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            goToSlide(currentSlide);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(nextSlide, 5000);
+        }
+
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+
+        // Auto slide
+        resetAutoSlide();
+
+        // Progress bar animation
+        let progress = 0;
+        setInterval(() => {
+            progress = (progress + 1) % 100;
+            progressBar.style.width = `${progress}%`;
+        }, 50);
+    }
+
+    // Games page functionality
+    const gamesGrid = document.getElementById('gamesGrid');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const categoryItems = document.querySelectorAll('.category-item');
+
+    if (gamesGrid && loadMoreBtn) {
+        let gamesLoaded = 6; // Initial games loaded
+        const gamesPerLoad = 6;
+
+        // Sample additional games data
+        const additionalGames = [
+            {
+                title: "Space Warriors",
+                image: "https://via.placeholder.com/300x200/2d3748/ffffff?text=Space+Warriors",
+                category: "action",
+                rating: 4.6,
+                players: "1.8M",
+                description: "Epic space battles await.",
+                tags: ["Action", "Sci-Fi"]
+            },
+            {
+                title: "Medieval Quest",
+                image: "https://via.placeholder.com/300x200/4a5568/ffffff?text=Medieval+Quest",
+                category: "rpg",
+                rating: 4.4,
+                players: "3.2M",
+                description: "Journey through medieval lands.",
+                tags: ["RPG", "Fantasy"]
+            },
+            {
+                title: "Racing Thunder",
+                image: "https://via.placeholder.com/300x200/805ad5/ffffff?text=Racing+Thunder",
+                category: "racing",
+                rating: 4.7,
+                players: "2.1M",
+                description: "High-speed racing action.",
+                tags: ["Racing", "Sports"]
+            },
+            {
+                title: "Strategy Empire",
+                image: "https://via.placeholder.com/300x200/e53e3e/ffffff?text=Strategy+Empire",
+                category: "strategy",
+                rating: 4.5,
+                players: "950K",
+                description: "Build your empire to victory.",
+                tags: ["Strategy", "Simulation"]
+            },
+            {
+                title: "Basketball Legends",
+                image: "https://via.placeholder.com/300x200/38a169/ffffff?text=Basketball+Legends",
+                category: "sports",
+                rating: 4.3,
+                players: "4.1M",
+                description: "Become a basketball legend.",
+                tags: ["Sports", "Simulation"]
+            },
+            {
+                title: "Puzzle Master",
+                image: "https://via.placeholder.com/300x200/d69e2e/ffffff?text=Puzzle+Master",
+                category: "strategy",
+                rating: 4.8,
+                players: "2.9M",
+                description: "Challenge your mind with puzzles.",
+                tags: ["Puzzle", "Strategy"]
+            }
+        ];
+
+        // Load more games function
+        function loadMoreGames() {
+            const startIndex = gamesLoaded;
+            const endIndex = Math.min(gamesLoaded + gamesPerLoad, additionalGames.length);
+
+            for (let i = startIndex; i < endIndex; i++) {
+                const game = additionalGames[i];
+                const gameCard = createGameCard(game);
+                gamesGrid.appendChild(gameCard);
+            }
+
+            gamesLoaded += gamesPerLoad;
+
+            // Hide load more button if all games are loaded
+            if (gamesLoaded >= additionalGames.length) {
+                loadMoreBtn.style.display = 'none';
+            }
+        }
+
+        // Create game card element
+        function createGameCard(game) {
+            const gameCard = document.createElement('div');
+            gameCard.className = 'game-card';
+            gameCard.setAttribute('data-category', game.category);
+            gameCard.innerHTML = `
+                <div class="game-image">
+                    <img src="${game.image}" alt="${game.title}">
+                    <div class="game-overlay">
+                        <button class="play-btn">Play Now</button>
+                        <button class="wishlist-btn"><i class="fas fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="game-info">
+                    <h3>${game.title}</h3>
+                    <div class="game-meta">
+                        <span class="rating"><i class="fas fa-star"></i> ${game.rating}</span>
+                        <span class="players">${game.players} players</span>
+                    </div>
+                    <p>${game.description}</p>
+                    <div class="game-tags">
+                        ${game.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+            return gameCard;
+        }
+
+        // Load more button event listener
+        loadMoreBtn.addEventListener('click', loadMoreGames);
+    }
+
+    // Category filtering
+    if (categoryItems.length > 0) {
+        categoryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+
+                // Remove active class from all items
+                categoryItems.forEach(cat => cat.classList.remove('active'));
+                // Add active class to clicked item
+                this.classList.add('active');
+
+                // Filter games
+                const gameCards = document.querySelectorAll('.game-card');
+                gameCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeInUp 0.5s ease forwards';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+
+    // Tournament filtering functionality
+    const gameFilter = document.getElementById('game-filter');
+    const typeFilter = document.getElementById('type-filter');
+    const statusFilter = document.getElementById('status-filter');
+    const prizeFilter = document.getElementById('prize-filter');
+    const tournamentCards = document.querySelectorAll('.tournament-card');
+    const filterResults = document.querySelector('.filter-results');
+
+    function filterTournaments() {
+        const gameValue = gameFilter ? gameFilter.value : '';
+        const typeValue = typeFilter ? typeFilter.value : '';
+        const statusValue = statusFilter ? statusFilter.value : '';
+        const prizeValue = prizeFilter ? prizeFilter.value : '';
+
+        let visibleCount = 0;
+
+        tournamentCards.forEach(card => {
+            const game = card.querySelector('.tournament-game').textContent.toLowerCase();
+            const status = card.querySelector('.tournament-status').textContent.toLowerCase();
+            const prize = parseInt(card.querySelector('.tournament-prize').textContent.replace(/[$,]/g, ''));
+
+            let showCard = true;
+
+            if (gameValue && !game.includes(gameValue)) showCard = false;
+            if (statusValue && !status.includes(statusValue)) showCard = false;
+            if (prizeValue && prize < parseInt(prizeValue)) showCard = false;
+
+            // Type filtering would need additional data attributes on cards
+            // For now, we'll skip type filtering as it requires more complex implementation
+
+            if (showCard) {
+                card.style.display = 'block';
+                card.style.animation = 'fadeInUp 0.5s ease forwards';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        if (filterResults) {
+            filterResults.textContent = `Showing ${visibleCount} tournament${visibleCount !== 1 ? 's' : ''}`;
+        }
+    }
+
+    // Add event listeners for filters
+    if (gameFilter) gameFilter.addEventListener('change', filterTournaments);
+    if (typeFilter) typeFilter.addEventListener('change', filterTournaments);
+    if (statusFilter) statusFilter.addEventListener('change', filterTournaments);
+    if (prizeFilter) prizeFilter.addEventListener('change', filterTournaments);
+
+    // Community join form handling
+    const joinForm = document.querySelector('.join-form');
+    if (joinForm) {
+        joinForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            // Simulate form submission
+            alert('Thank you for joining the community! We\'ll review your application and get back to you soon.');
+            this.reset();
+        });
+    }
+
+    // Tournament registration simulation
+    const registerButtons = document.querySelectorAll('.tournament-btn.primary');
+    registerButtons.forEach(button => {
+        if (button.textContent.includes('Register')) {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const tournamentName = this.closest('.tournament-card').querySelector('.tournament-title').textContent;
+                alert(`Registration opened for ${tournamentName}! You'll be redirected to the registration page.`);
+            });
         }
     });
-    
-    
-    const xpFill = document.querySelector('.xp-fill');
-    let xpWidth = 62;
-    
-    setInterval(() => {
-        xpWidth = (xpWidth + 0.1) % 100;
-        xpFill.style.width = `${xpWidth}%`;
-    }, 1000);
- 
-    createChatParticles();
 });
-
-function createChatParticles() {
-    const particlesContainer = document.createElement('div');
-    particlesContainer.className = 'chat-particles';
-    particlesContainer.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 9999;
-    `;
-    document.body.appendChild(particlesContainer);
-    
-    for (let i = 0; i < 20; i++) {
-        createParticle(particlesContainer);
-    }
-}
-
-function createParticle(container) {
-    const particle = document.createElement('div');
-    const colors = ['#ff2d75', '#ff5a3d', '#00ffea', '#9146ff', '#0099ff'];
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    
-    particle.style.cssText = `
-        position: absolute;
-        width: 2px;
-        height: 2px;
-        background: ${color};
-        border-radius: 50%;
-        left: ${Math.random() * 100}%;
-        top: ${Math.random() * 100}%;
-        box-shadow: 0 0 10px ${color};
-        opacity: 0;
-        animation: chatFloat ${Math.random() * 10 + 5}s linear infinite;
-    `;
-    
-    container.appendChild(particle);
-    
-    setTimeout(() => {
-        particle.remove();
-        createParticle(container);
-    }, (Math.random() * 10000 + 5000));
-}
-
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes chatFloat {
-        0% {
-            transform: translateY(100vh) translateX(0) scale(0);
-            opacity: 0;
-        }
-        10% {
-            opacity: 1;
-        }
-        90% {
-            opacity: 1;
-        }
-        100% {
-            transform: translateY(-100px) translateX(${Math.random() * 200 - 100}px) scale(1);
-            opacity: 0;
-        }
-    }
-    
-    .light-mode {
-        --bg-color: #f5f7fa;
-        --text-color: #333333;
-        --card-bg: rgba(255, 255, 255, 0.9);
-    }
-    
-    body.light-mode {
-        background: var(--bg-color);
-        color: var(--text-color);
-    }
-    
-    body.light-mode .live-stats {
-        background: linear-gradient(90deg, #ff7eb3 0%, #ffb3a7 100%);
-    }
-    
-    body.light-mode .stat-card,
-    body.light-mode .game-card,
-    body.light-mode .stream-card {
-        background: var(--card-bg);
-        border-color: rgba(0, 0, 0, 0.1);
-        color: var(--text-color);
-    }
-    
-    body.light-mode .footer-section a,
-    body.light-mode .footer-section p,
-    body.light-mode .copyright {
-        color: #666666;
-    }
-`;
-document.head.appendChild(style);

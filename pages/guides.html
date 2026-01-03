@@ -3,14 +3,833 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guides</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>Gaming Guides - GameHub</title>
+    <link rel="stylesheet" href="../assets/css/guides.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header></header>
-    <main><h1>Guides Page</h1></main>
-    <footer></footer>
-    <script src="../assets/js/header.js"></script>
-    <script src="../script.js"></script>
+    <!-- Enhanced Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1><i class="fas fa-gamepad"></i> GameHub</h1>
+                <div class="logo-subtitle">Play. Connect. Conquer.</div>
+            </div>
+
+            <div class="xp-progress">
+                <div class="xp-info">
+                    <span class="xp-level">Level 42</span>
+                    <span class="xp-text">62% to next level</span>
+                </div>
+                <div class="xp-bar">
+                    <div class="xp-fill"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=gamer&background=%2300a8ff" alt="User Avatar">
+                        <div class="online-status"></div>
+                    </div>
+                    <div class="user-info">
+                        <span class="username">CyberNinja</span>
+                        <div class="user-badges">
+                            <span class="badge premium"><i class="fas fa-crown"></i></span>
+                            <span class="badge streamer"><i class="fas fa-broadcast-tower"></i></span>
+                            <span class="badge elite"><i class="fas fa-star"></i></span>
+                        </div>
+                    </div>
+                    <button class="profile-dropdown">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-trophy"></i> Achievements</a>
+                        <a href="#"><i class="fas fa-gamepad"></i> My Games</a>
+                        <a href="#"><i class="fas fa-friends"></i> Friends</a>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <button class="theme-toggle">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <nav>
+            <div class="nav-container">
+                <ul class="main-nav">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="games.html"><i class="fas fa-gamepad"></i> <span>Games</span></a></li>
+                    <li><a href="news.html"><i class="fas fa-newspaper"></i> <span>News</span></a></li>
+                    <li><a href="community.html"><i class="fas fa-users"></i> <span>Community</span></a></li>
+                    <li><a href="tournaments.html"><i class="fas fa-trophy"></i> <span>Tournaments</span></a></li>
+                    <li><a href="reviews.html"><i class="fas fa-broadcast-tower"></i> <span>Reviews</span></a></li>
+                    <li><a href="store.html"><i class="fas fa-shopping-cart"></i> <span>Shop</span></a></li>
+                    <li><a href="support.html"><i class="fas fa-headset"></i> <span>Support</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Enhanced Hero Section -->
+        <section class="guides-hero">
+            <div class="hero-content">
+                <h1><i class="fas fa-book-open"></i> Gaming Guides</h1>
+                <p>Master your favorite games with expert tips, strategies, and comprehensive tutorials from our community</p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-value">500+</span>
+                        <span class="stat-label">Expert Guides</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-value">50K+</span>
+                        <span class="stat-label">Gamers Helped</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-value">4.9</span>
+                        <span class="stat-label">Average Rating</span>
+                    </div>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#featured-guides" class="btn-primary">
+                        <i class="fas fa-star"></i> Featured Guides
+                    </a>
+                    <a href="#categories" class="btn-secondary">
+                        <i class="fas fa-th-large"></i> Browse Categories
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search and Filters -->
+        <section class="guides-search">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search guides, tips, strategies..." id="guideSearch">
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+            <div class="filters">
+                <div class="filter-group">
+                    <label class="filter-label">Difficulty</label>
+                    <select class="filter-select" id="difficultyFilter">
+                        <option value="">All Levels</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Game Category</label>
+                    <select class="filter-select" id="categoryFilter">
+                        <option value="">All Games</option>
+                        <option value="action">Action</option>
+                        <option value="rpg">RPG</option>
+                        <option value="strategy">Strategy</option>
+                        <option value="fps">FPS</option>
+                        <option value="moba">MOBA</option>
+                        <option value="sports">Sports</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Sort By</label>
+                    <select class="filter-select" id="sortFilter">
+                        <option value="newest">Newest First</option>
+                        <option value="popular">Most Popular</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="views">Most Viewed</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Categories -->
+        <section class="categories-section" id="categories">
+            <div class="categories-header">
+                <h2>Guide Categories</h2>
+                <p>Find the perfect guide for your gaming needs</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" data-category="beginners">
+                    <div class="category-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Beginner's Guides</h3>
+                    <p>Perfect for new players looking to learn the basics and get started on the right foot.</p>
+                    <div class="category-stats">
+                        <span class="category-stat"><i class="fas fa-book"></i> 150 guides</span>
+                        <span class="category-stat"><i class="fas fa-users"></i> 25K learners</span>
+                    </div>
+                </div>
+                <div class="category-card" data-category="advanced">
+                    <div class="category-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Advanced Strategies</h3>
+                    <p>Master-level tactics, competitive strategies, and pro techniques for serious gamers.</p>
+                    <div class="category-stats">
+                        <span class="category-stat"><i class="fas fa-book"></i> 120 guides</span>
+                        <span class="category-stat"><i class="fas fa-users"></i> 18K pros</span>
+                    </div>
+                </div>
+                <div class="category-card" data-category="tips">
+                    <div class="category-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Quick Tips</h3>
+                    <p>Short, actionable tips and tricks to improve your gameplay instantly.</p>
+                    <div class="category-stats">
+                        <span class="category-stat"><i class="fas fa-book"></i> 200 guides</span>
+                        <span class="category-stat"><i class="fas fa-users"></i> 45K readers</span>
+                    </div>
+                </div>
+                <div class="category-card" data-category="walkthroughs">
+                    <div class="category-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>Walkthroughs</h3>
+                    <p>Complete game walkthroughs, quest guides, and achievement hunting tips.</p>
+                    <div class="category-stats">
+                        <span class="category-stat"><i class="fas fa-book"></i> 80 guides</span>
+                        <span class="category-stat"><i class="fas fa-users"></i> 30K explorers</span>
+                    </div>
+                </div>
+                <div class="category-card" data-category="esports">
+                    <div class="category-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Esports Training</h3>
+                    <p>Professional training guides, team coordination, and tournament preparation.</p>
+                    <div class="category-stats">
+                        <span class="category-stat"><i class="fas fa-book"></i> 60 guides</span>
+                        <span class="category-stat"><i class="fas fa-users"></i> 12K athletes</span>
+                    </div>
+                </div>
+                <div class="category-card" data-category="community">
+                    <div class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Guides</h3>
+                    <p>Player-created content, fan theories, and community-driven strategies.</p>
+                    <div class="category-stats">
+                        <span class="category-stat"><i class="fas fa-book"></i> 90 guides</span>
+                        <span class="category-stat"><i class="fas fa-users"></i> 22K creators</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Guides -->
+        <section class="featured-guides" id="featured-guides">
+            <div class="featured-header">
+                <h2><i class="fas fa-star"></i> Featured Guides</h2>
+                <p>Handpicked by our expert writers and community moderators</p>
+            </div>
+            <div class="featured-grid">
+                <div class="featured-card" data-guide-id="1">
+                    <div class="featured-image">
+                        <img src="../assets/images/rpg game.jfif" alt="Mastering Cyberpunk 2077">
+                        <div class="featured-badge">Editor's Pick</div>
+                    </div>
+                    <div class="featured-content">
+                        <h3>Mastering Cyberpunk 2077: Complete Combat Guide</h3>
+                        <p>Learn advanced combat techniques, weapon modifications, and build strategies to dominate Night City.</p>
+                        <div class="featured-meta">
+                            <div class="featured-author">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=expert1" alt="Author" class="author-avatar">
+                                <div class="author-info">
+                                    <span class="author-name">NightRunner</span>
+                                    <span class="author-title">Cyberpunk Expert</span>
+                                </div>
+                            </div>
+                            <div class="featured-stats">
+                                <span class="stat"><i class="fas fa-eye"></i> 15.2K</span>
+                                <span class="stat"><i class="fas fa-heart"></i> 2.8K</span>
+                                <span class="stat"><i class="fas fa-star"></i> 4.9</span>
+                            </div>
+                        </div>
+                        <button class="featured-btn" onclick="openGuideModal(1)">
+                            <i class="fas fa-book-open"></i> Read Guide
+                        </button>
+                    </div>
+                </div>
+
+                <div class="featured-card" data-guide-id="2">
+                    <div class="featured-image">
+                        <img src="../assets/images/rpg game.jfif" alt="Valorant Tactics">
+                        <div class="featured-badge">Trending</div>
+                    </div>
+                    <div class="featured-content">
+                        <h3>Valorant Pro Tips: Agent Selection & Positioning</h3>
+                        <p>Strategic agent picking, optimal positioning, and map control techniques used by professional players.</p>
+                        <div class="featured-meta">
+                            <div class="featured-author">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=expert2" alt="Author" class="author-avatar">
+                                <div class="author-info">
+                                    <span class="author-name">TacticalGamer</span>
+                                    <span class="author-title">Esports Analyst</span>
+                                </div>
+                            </div>
+                            <div class="featured-stats">
+                                <span class="stat"><i class="fas fa-eye"></i> 22.1K</span>
+                                <span class="stat"><i class="fas fa-heart"></i> 4.2K</span>
+                                <span class="stat"><i class="fas fa-star"></i> 4.8</span>
+                            </div>
+                        </div>
+                        <button class="featured-btn" onclick="openGuideModal(2)">
+                            <i class="fas fa-book-open"></i> Read Guide
+                        </button>
+                    </div>
+                </div>
+
+                <div class="featured-card" data-guide-id="3">
+                    <div class="featured-image">
+                        <img src="../assets/images/rpg game.jfif" alt="League of Legends">
+                        <div class="featured-badge">Beginner Friendly</div>
+                    </div>
+                    <div class="featured-content">
+                        <h3>League of Legends: From Bronze to Silver</h3>
+                        <p>Complete guide for improving from Bronze to Silver rank with fundamental strategies and mindset tips.</p>
+                        <div class="featured-meta">
+                            <div class="featured-author">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=expert3" alt="Author" class="author-avatar">
+                                <div class="author-info">
+                                    <span class="author-name">RankClimber</span>
+                                    <span class="author-title">MOBA Coach</span>
+                                </div>
+                            </div>
+                            <div class="featured-stats">
+                                <span class="stat"><i class="fas fa-eye"></i> 18.7K</span>
+                                <span class="stat"><i class="fas fa-heart"></i> 3.1K</span>
+                                <span class="stat"><i class="fas fa-star"></i> 4.7</span>
+                            </div>
+                        </div>
+                        <button class="featured-btn" onclick="openGuideModal(3)">
+                            <i class="fas fa-book-open"></i> Read Guide
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guides Grid -->
+        <section class="guides-section">
+            <div class="guides-grid" id="guidesGrid">
+                <!-- Guides will be populated by JavaScript -->
+            </div>
+
+            <div class="load-more">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <i class="fas fa-sync-alt"></i> Load More Guides
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Guide Detail Modal -->
+    <div class="guide-modal" id="guideModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Guide Title</h2>
+                <button class="close-modal" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="" alt="" class="guide-detail-image" id="modalImage">
+                <div class="guide-detail-meta" id="modalMeta">
+                    <!-- Meta information will be populated here -->
+                </div>
+                <div class="guide-detail-content" id="modalContent">
+                    <!-- Guide content will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-book-open"></i> Gaming Guides</h3>
+                <p>Master your favorite games with expert tips, strategies, and comprehensive tutorials from our community of passionate gamers.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitch"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Guide Categories</h4>
+                <ul>
+                    <li><a href="#beginners">Beginner's Guides</a></li>
+                    <li><a href="#advanced">Advanced Strategies</a></li>
+                    <li><a href="#tips">Quick Tips</a></li>
+                    <li><a href="#walkthroughs">Walkthroughs</a></li>
+                    <li><a href="#esports">Esports Training</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Popular Games</h4>
+                <ul>
+                    <li><a href="#">Cyberpunk 2077</a></li>
+                    <li><a href="#">Valorant</a></li>
+                    <li><a href="#">League of Legends</a></li>
+                    <li><a href="#">Apex Legends</a></li>
+                    <li><a href="#">Call of Duty</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="support.html">Help Center</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Submit Guide</a></li>
+                    <li><a href="#">Become a Writer</a></li>
+                    <li><a href="#">Guide Guidelines</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 GameHub Guides. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample guides data
+        const guides = [
+            {
+                id: 1,
+                title: "Mastering Cyberpunk 2077: Complete Combat Guide",
+                category: "action",
+                difficulty: "advanced",
+                image: "../assets/images/rpg game.jfif",
+                author: "NightRunner",
+                authorTitle: "Cyberpunk Expert",
+                authorAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=expert1",
+                rating: 4.9,
+                views: 15200,
+                likes: 2800,
+                readTime: "15 min",
+                tags: ["combat", "weapons", "builds"],
+                excerpt: "Learn advanced combat techniques, weapon modifications, and build strategies to dominate Night City.",
+                content: `
+                    <h2>Introduction to Cyberpunk Combat</h2>
+                    <p>Cyberpunk 2077 offers one of the most dynamic combat systems in modern gaming. This comprehensive guide will teach you everything you need to know about mastering combat in Night City.</p>
+
+                    <h3>Weapon Selection and Modifications</h3>
+                    <p>Choosing the right weapon for each situation is crucial. Here's what you need to know:</p>
+                    <ul>
+                        <li><strong>Power Weapons:</strong> High damage, slow fire rate. Perfect for tough enemies.</li>
+                        <li><strong>Smart Weapons:</strong> Moderate damage with homing capabilities. Great for crowd control.</li>
+                        <li><strong>Tech Weapons:</strong> EMP effects and system disruption. Ideal against robotic enemies.</li>
+                    </ul>
+
+                    <h3>Combat Strategies</h3>
+                    <p>Master these techniques to become unstoppable:</p>
+                    <ol>
+                        <li>Use cover effectively and peek around corners</li>
+                        <li>Combine quickhacks with traditional combat</li>
+                        <li>Position yourself to control the battlefield</li>
+                        <li>Upgrade your cyberware for maximum effectiveness</li>
+                    </ol>
+
+                    <h2>Advanced Techniques</h2>
+                    <p>Once you've mastered the basics, try these pro-level strategies:</p>
+                    <p>The key to advanced combat is understanding synergy between your weapons, cyberware, and quickhacks. Practice combining different elements to create devastating attack combinations.</p>
+                `
+            },
+            {
+                id: 2,
+                title: "Valorant Pro Tips: Agent Selection & Positioning",
+                category: "fps",
+                difficulty: "intermediate",
+                image: "../assets/images/rpg game.jfif",
+                author: "TacticalGamer",
+                authorTitle: "Esports Analyst",
+                authorAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=expert2",
+                rating: 4.8,
+                views: 22100,
+                likes: 4200,
+                readTime: "12 min",
+                tags: ["tactics", "agents", "positioning"],
+                excerpt: "Strategic agent picking, optimal positioning, and map control techniques used by professional players.",
+                content: `
+                    <h2>Understanding Agent Roles</h2>
+                    <p>Valorant's agent system is designed around five distinct roles, each serving a specific purpose in team composition.</p>
+
+                    <h3>Duelists</h3>
+                    <p>Duelists are your entry fraggers - the players who create opportunities for the team.</p>
+                    <ul>
+                        <li><strong>Phoenix:</strong> Flash-heavy duelist with self-sustain</li>
+                        <li><strong>Jett:</strong> Mobile duelist with dash and smokes</li>
+                        <li><strong>Raze:</strong> Area denial with grenades and mobility</li>
+                    </ul>
+
+                    <h3>Controllers</h3>
+                    <p>Controllers provide vision control and area denial to give your team map control.</p>
+                    <ul>
+                        <li><strong>Omen:</strong> Versatile teleporter with smokes</li>
+                        <li><strong>Viper:</strong> Poison cloud controller</li>
+                        <li><strong>Clove:</strong> Unique cloud manipulation</li>
+                    </ul>
+                `
+            },
+            {
+                id: 3,
+                title: "League of Legends: From Bronze to Silver",
+                category: "moba",
+                difficulty: "beginner",
+                image: "../assets/images/rpg game.jfif",
+                author: "RankClimber",
+                authorTitle: "MOBA Coach",
+                authorAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=expert3",
+                rating: 4.7,
+                views: 18700,
+                likes: 3100,
+                readTime: "20 min",
+                tags: ["ranking", "fundamentals", "mindset"],
+                excerpt: "Complete guide for improving from Bronze to Silver rank with fundamental strategies and mindset tips.",
+                content: `
+                    <h2>The Bronze to Silver Journey</h2>
+                    <p>Making the jump from Bronze to Silver requires consistent improvement in several key areas. This guide will help you develop the habits and skills needed for higher ranks.</p>
+
+                    <h3>Mindset and Mental Game</h3>
+                    <p>The most important factor in climbing ranks is your mental approach to the game.</p>
+                    <ul>
+                        <li><strong>Accept Losses:</strong> Every player loses games. Focus on learning from each match.</li>
+                        <li><strong>Stay Positive:</strong> Tilt is the enemy. Take breaks when you're frustrated.</li>
+                        <li><strong>Set Goals:</strong> Focus on small, achievable improvements each game.</li>
+                    </ul>
+
+                    <h3>Fundamental Skills</h3>
+                    <p>Master these core skills before worrying about advanced strategies:</p>
+                    <ol>
+                        <li><strong>Last Hitting:</strong> The foundation of farming and gold management</li>
+                        <li><strong>Positioning:</strong> Stay safe while maximizing your impact</li>
+                        <li><strong>Objective Control:</strong> Dragons, towers, and inhibitors win games</li>
+                        <li><strong>Team Communication:</strong> Ping, call out objectives, and coordinate with your team</li>
+                    </ol>
+                `
+            },
+            {
+                id: 4,
+                title: "Apex Legends: Squad Coordination Guide",
+                category: "battle-royale",
+                difficulty: "intermediate",
+                image: "../assets/images/rpg game.jfif",
+                author: "SquadLeader",
+                authorTitle: "BR Specialist",
+                authorAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=expert4",
+                rating: 4.6,
+                views: 13400,
+                likes: 2100,
+                readTime: "18 min",
+                tags: ["teamwork", "communication", "strategy"],
+                excerpt: "Learn how to coordinate with your squad effectively and dominate the Apex Games.",
+                content: `
+                    <h2>Squad Communication</h2>
+                    <p>Effective communication is the difference between winning and losing in Apex Legends. Here are the key principles:</p>
+
+                    <h3>Callouts and Rotations</h3>
+                    <p>Use clear, concise callouts to keep your team informed:</p>
+                    <ul>
+                        <li>"Enemy squad at [location]" - Alert your team to threats</li>
+                        <li>"Rotating to [location]" - Let teammates know your movement</li>
+                        <li>"Need help at [location]" - Request backup when in trouble</li>
+                    </ul>
+                `
+            },
+            {
+                id: 5,
+                title: "CS2 Economy Management: Complete Guide",
+                category: "fps",
+                difficulty: "advanced",
+                image: "../assets/images/rpg game.jfif",
+                author: "EcoMaster",
+                authorTitle: "Competitive Player",
+                authorAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=expert5",
+                rating: 4.8,
+                views: 16800,
+                likes: 2900,
+                readTime: "25 min",
+                tags: ["economy", "strategy", "competitive"],
+                excerpt: "Master the complex economy system of Counter-Strike 2 and gain a competitive advantage.",
+                content: `
+                    <h2>Understanding CS2 Economy</h2>
+                    <p>The economy system in Counter-Strike 2 is one of the most complex in esports. Mastering it can give you a significant advantage.</p>
+
+                    <h3>Buy Rounds vs Save Rounds</h3>
+                    <p>Knowing when to spend and when to save is crucial:</p>
+                    <ul>
+                        <li><strong>Full Buy:</strong> $4700+ - Complete loadout for aggressive play</li>
+                        <li><strong>Half Buy:</strong> $2700-$3500 - Balanced approach</li>
+                        <li><strong>Eco Round:</strong> Under $2700 - Minimal spending to save for next round</li>
+                    </ul>
+                `
+            },
+            {
+                id: 6,
+                title: "Genshin Impact: Artifact Farming Guide",
+                category: "rpg",
+                difficulty: "intermediate",
+                image: "../assets/images/rpg game.jfif",
+                author: "ArtifactHunter",
+                authorTitle: "Gacha Expert",
+                authorAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=expert6",
+                rating: 4.5,
+                views: 12100,
+                likes: 1800,
+                readTime: "14 min",
+                tags: ["farming", "artifacts", "optimization"],
+                excerpt: "Optimize your artifact farming strategy and build the best gear for your characters.",
+                content: `
+                    <h2>Artifact Farming Fundamentals</h2>
+                    <p>Artifacts are the lifeblood of character progression in Genshin Impact. This guide will help you farm efficiently.</p>
+
+                    <h3>Domain Priority</h3>
+                    <p>Focus on domains that give the best artifacts for your needs:</p>
+                    <ul>
+                        <li><strong>Midsummer Courtyard:</strong> Best for ATK% and CRIT artifacts</li>
+                        <li><strong>Domain of Guyun:</strong> Excellent for DEF and HP artifacts</li>
+                        <li><strong>Hidden Palace of Zhou Formula:</strong> Great for EM and ER artifacts</li>
+                    </ul>
+                `
+            }
+        ];
+
+        let currentPage = 1;
+        const guidesPerPage = 6;
+        let filteredGuides = [...guides];
+
+        // Initialize guides
+        function initializeGuides() {
+            displayGuides(filteredGuides.slice(0, guidesPerPage));
+        }
+
+        function createGuideCard(guide) {
+            const card = document.createElement('div');
+            card.className = 'guide-card';
+            card.dataset.guideId = guide.id;
+
+            const difficultyClass = `difficulty-${guide.difficulty}`;
+
+            card.innerHTML = `
+                <div class="guide-image">
+                    <img src="${guide.image}" alt="${guide.title}">
+                    <div class="guide-difficulty ${difficultyClass}">${guide.difficulty.charAt(0).toUpperCase() + guide.difficulty.slice(1)}</div>
+                </div>
+                <div class="guide-content">
+                    <h3>${guide.title}</h3>
+                    <p>${guide.excerpt}</p>
+                    <div class="guide-meta">
+                        <span class="guide-category">${guide.category.charAt(0).toUpperCase() + guide.category.slice(1)}</span>
+                        <div class="guide-stats">
+                            <span class="guide-stat"><i class="fas fa-eye"></i> ${guide.views.toLocaleString()}</span>
+                            <span class="guide-stat"><i class="fas fa-heart"></i> ${guide.likes.toLocaleString()}</span>
+                            <span class="guide-stat"><i class="fas fa-star"></i> ${guide.rating}</span>
+                        </div>
+                    </div>
+                    <div class="guide-actions">
+                        <button class="action-btn" onclick="openGuideModal(${guide.id})">
+                            <i class="fas fa-book-open"></i> Read
+                        </button>
+                        <button class="action-btn bookmark">
+                            <i class="fas fa-bookmark"></i> Save
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        function displayGuides(guidesToShow) {
+            const guidesGrid = document.getElementById('guidesGrid');
+            guidesToShow.forEach(guide => {
+                const guideCard = createGuideCard(guide);
+                guidesGrid.appendChild(guideCard);
+            });
+        }
+
+        // Modal functionality
+        function openGuideModal(guideId) {
+            const guide = guides.find(g => g.id === guideId);
+            if (!guide) return;
+
+            document.getElementById('modalTitle').textContent = guide.title;
+            document.getElementById('modalImage').src = guide.image;
+            document.getElementById('modalImage').alt = guide.title;
+
+            const modalMeta = document.getElementById('modalMeta');
+            modalMeta.innerHTML = `
+                <div class="detail-meta-item">
+                    <i class="fas fa-user"></i>
+                    <span>${guide.author} (${guide.authorTitle})</span>
+                </div>
+                <div class="detail-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>${guide.readTime} read</span>
+                </div>
+                <div class="detail-meta-item">
+                    <i class="fas fa-eye"></i>
+                    <span>${guide.views.toLocaleString()} views</span>
+                </div>
+                <div class="detail-meta-item">
+                    <i class="fas fa-star"></i>
+                    <span>${guide.rating} rating</span>
+                </div>
+            `;
+
+            document.getElementById('modalContent').innerHTML = guide.content;
+            document.getElementById('guideModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGuideModal() {
+            document.getElementById('guideModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Filter functionality
+        function filterGuides() {
+            const searchTerm = document.getElementById('guideSearch').value.toLowerCase();
+            const difficulty = document.getElementById('difficultyFilter').value;
+            const category = document.getElementById('categoryFilter').value;
+            const sortBy = document.getElementById('sortFilter').value;
+
+            filteredGuides = guides.filter(guide => {
+                const matchesSearch = guide.title.toLowerCase().includes(searchTerm) ||
+                                    guide.excerpt.toLowerCase().includes(searchTerm) ||
+                                    guide.tags.some(tag => tag.toLowerCase().includes(searchTerm));
+                const matchesDifficulty = !difficulty || guide.difficulty === difficulty;
+                const matchesCategory = !category || guide.category === category;
+
+                return matchesSearch && matchesDifficulty && matchesCategory;
+            });
+
+            // Sort guides
+            filteredGuides.sort((a, b) => {
+                switch (sortBy) {
+                    case 'popular':
+                        return b.likes - a.likes;
+                    case 'rating':
+                        return b.rating - a.rating;
+                    case 'views':
+                        return b.views - a.views;
+                    case 'newest':
+                    default:
+                        return b.id - a.id;
+                }
+            });
+
+            // Reset and display filtered guides
+            document.getElementById('guidesGrid').innerHTML = '';
+            displayGuides(filteredGuides.slice(0, guidesPerPage));
+            currentPage = 1;
+        }
+
+        // Load more functionality
+        function loadMoreGuides() {
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            loadMoreBtn.classList.add('loading');
+            loadMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+
+            setTimeout(() => {
+                currentPage++;
+                const startIndex = (currentPage - 1) * guidesPerPage;
+                const endIndex = startIndex + guidesPerPage;
+                const newGuides = filteredGuides.slice(startIndex, endIndex);
+
+                if (newGuides.length > 0) {
+                    displayGuides(newGuides);
+                }
+
+                loadMoreBtn.classList.remove('loading');
+                loadMoreBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Load More Guides';
+
+                if (endIndex >= filteredGuides.length) {
+                    loadMoreBtn.style.display = 'none';
+                }
+            }, 1000);
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeGuides();
+
+            // Modal events
+            document.getElementById('closeModal').addEventListener('click', closeGuideModal);
+            document.getElementById('guideModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeGuideModal();
+                }
+            });
+
+            // Search and filter events
+            document.getElementById('guideSearch').addEventListener('input', filterGuides);
+            document.getElementById('difficultyFilter').addEventListener('change', filterGuides);
+            document.getElementById('categoryFilter').addEventListener('change', filterGuides);
+            document.getElementById('sortFilter').addEventListener('change', filterGuides);
+
+            // Load more button
+            document.getElementById('loadMoreBtn').addEventListener('click', loadMoreGuides);
+
+            // Category cards
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const category = this.dataset.category;
+                    document.getElementById('categoryFilter').value = category;
+                    filterGuides();
+                    this.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Keyboard navigation for modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('guideModal').classList.contains('active')) {
+                closeGuideModal();
+            }
+        });
+    </script>
 </body>
 </html>

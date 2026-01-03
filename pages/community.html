@@ -2,178 +2,470 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GameStore Community</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #0f172a;
-            color: #ffffff;
-        }
-
-        header {
-            background-color: #020617;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            color: #38bdf8;
-        }
-
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #38bdf8;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(to right, #020617, #1e293b);
-        }
-
-        .hero h2 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            color: #cbd5f5;
-            font-size: 18px;
-        }
-
-        .section {
-            padding: 50px 40px;
-        }
-
-        .section h2 {
-            color: #38bdf8;
-            margin-bottom: 20px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background-color: #1e293b;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: #cbd5f5;
-        }
-
-        .join {
-            background-color: #020617;
-            padding: 50px 40px;
-        }
-
-        .join form {
-            max-width: 400px;
-            margin: auto;
-            background-color: #1e293b;
-            padding: 30px;
-            border-radius: 10px;
-        }
-
-        .join input, .join textarea, .join button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: none;
-        }
-
-        .join button {
-            background-color: #38bdf8;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .join button:hover {
-            background-color: #0ea5e9;
-        }
-
-        footer {
-            background-color: #020617;
-            text-align: center;
-            padding: 20px;
-            color: #94a3b8;
-        }
-    </style>
+    <title>Community - GameHub</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/hero.css">
+    <link rel="stylesheet" href="../assets/css/community.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-<header>
-    <h1>GAMESTORE</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="store.html">Store</a>
-        <a href="tournaments.html">Tournaments</a>
-        <a href="community.html">Community</a>
-        <a href="profile.html">Profile</a>
-    </nav>
-</header>
+    <header>
+        <div class="header-bg">
+            <div class="header-gradient"></div>
+            <div class="header-particles"></div>
+        </div>
+        
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <h1><i class="fas fa-gamepad"></i> GameHub</h1>
+                    <div class="logo-subtitle">Play. Connect. Conquer.</div>
+                </a>
+            </div>
+            
+            <div class="xp-progress">
+                <div class="xp-info">
+                    <span class="xp-level">Level 42</span>
+                    <span class="xp-text">62% to next level</span>
+                </div>
+                <div class="xp-bar">
+                    <div class="xp-fill"></div>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=gamer&background=%2300a8ff" alt="User Avatar">
+                        <div class="online-status"></div>
+                    </div>
+                    <div class="user-info">
+                        <span class="username">CyberNinja</span>
+                        <div class="user-badges">
+                            <span class="badge premium"><i class="fas fa-crown"></i></span>
+                            <span class="badge streamer"><i class="fas fa-broadcast-tower"></i></span>
+                            <span class="badge elite"><i class="fas fa-star"></i></span>
+                        </div>
+                    </div>
+                    <button class="profile-dropdown">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-trophy"></i> Achievements</a>
+                        <a href="#"><i class="fas fa-gamepad"></i> My Games</a>
+                        <a href="#"><i class="fas fa-friends"></i> Friends</a>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+                
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <button class="theme-toggle">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <nav>
+            <div class="nav-container">
+                <ul class="main-nav">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="games.html"><i class="fas fa-gamepad"></i> <span>Games</span></a></li>
+                    <li><a href="news.html"><i class="fas fa-newspaper"></i> <span>News</span></a></li>
+                    <li><a href="community.html" class="nav-active"><i class="fas fa-users"></i> <span>Community</span></a></li>
+                    <li><a href="tournaments.html"><i class="fas fa-trophy"></i> <span>Tournaments</span></a></li>
+                    <li><a href="reviews.html"><i class="fas fa-broadcast-tower"></i> <span>Reviews</span></a></li>
+                    <li><a href="store.html"><i class="fas fa-shopping-cart"></i> <span>Shop</span></a></li>
+                    <li><a href="support.html"><i class="fas fa-headset"></i> <span>Support</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
 <section class="hero">
     <h2>Gaming Community</h2>
     <p>Connect • Compete • Share • Level Up Together</p>
 </section>
 
-<section class="section">
-    <h2> Community Highlights</h2>
-    <div class="cards">
-        <div class="card">
-            <h3> Player Forums</h3>
-            <p>Discuss games, share tips, strategies, and gameplay experiences with other players.</p>
+<main class="community-container">
+    <!-- Community Hero -->
+    <section class="community-hero">
+        <h1>Join the Ultimate Gaming Community</h1>
+        <p>Connect with millions of gamers worldwide, form teams, participate in tournaments, and share your gaming journey.</p>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">2.5M+</span>
+                <span class="stat-label">Active Members</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">50K+</span>
+                <span class="stat-label">Daily Discussions</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">15K+</span>
+                <span class="stat-label">Active Tournaments</span>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-            <h3> Clan & Teams</h3>
-            <p>Join clans, form teams, and compete together in online tournaments.</p>
+    <!-- Community Features -->
+    <section class="community-section">
+        <div class="section-header">
+            <h2>Community Features</h2>
+            <p>Discover everything our gaming community has to offer</p>
         </div>
-
-        <div class="card">
-            <h3> Game Events</h3>
-            <p>Participate in weekly challenges, live streams, and special community events.</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Team Formation</h3>
+                <p>Find teammates, create clans, and build competitive squads for tournaments and casual gaming.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>Tournament Hub</h3>
+                <p>Participate in daily, weekly, and seasonal tournaments with prizes and rankings.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h3>Discussion Forums</h3>
+                <p>Share strategies, discuss games, get help, and connect with players worldwide.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-stream"></i>
+                </div>
+                <h3>Live Streaming</h3>
+                <p>Watch live streams, share your gameplay, and build your audience.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Leaderboards</h3>
+                <p>Track your progress, compare with friends, and climb the global rankings.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h3>Rewards System</h3>
+                <p>Earn points, unlock achievements, and redeem exclusive rewards.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-            <h3> Announcements</h3>
-            <p>Stay updated with game updates, patch notes, and upcoming tournaments.</p>
+    <!-- Forums Section -->
+    <section class="community-section">
+        <div class="section-header">
+            <h2>Discussion Forums</h2>
+            <p>Join conversations about your favorite games</p>
         </div>
-    </div>
-</section>
+        <div class="forums-section">
+            <div class="forum-categories">
+                <div class="forum-category">
+                    <div class="forum-category-header">
+                        <div class="forum-category-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="forum-category-info">
+                            <h4>General Gaming</h4>
+                            <div class="forum-category-stats">
+                                <span><i class="fas fa-users"></i> 125K members</span>
+                                <span><i class="fas fa-comment"></i> 2.3K posts</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Discuss gaming news, hardware, and general gaming topics.</p>
+                </div>
+                <div class="forum-category">
+                    <div class="forum-category-header">
+                        <div class="forum-category-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="forum-category-info">
+                            <h4>Competitive Gaming</h4>
+                            <div class="forum-category-stats">
+                                <span><i class="fas fa-users"></i> 89K members</span>
+                                <span><i class="fas fa-comment"></i> 1.8K posts</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Tournament strategies, team recruitment, and competitive discussions.</p>
+                </div>
+                <div class="forum-category">
+                    <div class="forum-category-header">
+                        <div class="forum-category-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <div class="forum-category-info">
+                            <h4>Game Strategies</h4>
+                            <div class="forum-category-stats">
+                                <span><i class="fas fa-users"></i> 156K members</span>
+                                <span><i class="fas fa-comment"></i> 3.1K posts</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Share tips, guides, and strategies for all your favorite games.</p>
+                </div>
+                <div class="forum-category">
+                    <div class="forum-category-header">
+                        <div class="forum-category-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="forum-category-info">
+                            <h4>Tech Support</h4>
+                            <div class="forum-category-stats">
+                                <span><i class="fas fa-users"></i> 67K members</span>
+                                <span><i class="fas fa-comment"></i> 945 posts</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Get help with technical issues, bugs, and game optimization.</p>
+                </div>
+            </div>
 
-<section class="join">
-    <h2 style="text-align:center; color:#38bdf8;">Join the Community</h2>
-    <form>
-        <input type="text" placeholder="Gamer Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <textarea rows="4" placeholder="Why do you want to join?"></textarea>
-        <button type="submit">Join Now</button>
-    </form>
-</section>
+            <div class="recent-discussions">
+                <h3><i class="fas fa-clock"></i> Recent Discussions</h3>
+                <div class="discussion-item">
+                    <div class="discussion-avatar">JD</div>
+                    <div class="discussion-content">
+                        <h5>Best strategies for Cyber Punk 2077 tournament?</h5>
+                        <p>Looking for team compositions and build recommendations...</p>
+                        <div class="discussion-meta">
+                            <span><i class="fas fa-users"></i> Competitive Gaming</span>
+                            <span><i class="fas fa-clock"></i> 2 hours ago</span>
+                            <span><i class="fas fa-reply"></i> 23 replies</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="discussion-item">
+                    <div class="discussion-avatar">SG</div>
+                    <div class="discussion-content">
+                        <h5>New patch notes for Battle Arena</h5>
+                        <p>The latest update brings major balance changes...</p>
+                        <div class="discussion-meta">
+                            <span><i class="fas fa-users"></i> General Gaming</span>
+                            <span><i class="fas fa-clock"></i> 4 hours ago</span>
+                            <span><i class="fas fa-reply"></i> 45 replies</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="discussion-item">
+                    <div class="discussion-avatar">MK</div>
+                    <div class="discussion-content">
+                        <h5>Looking for teammates - RPG Adventure</h5>
+                        <p>Experienced player seeking casual team for weekend play...</p>
+                        <div class="discussion-meta">
+                            <span><i class="fas fa-users"></i> Team Recruitment</span>
+                            <span><i class="fas fa-clock"></i> 6 hours ago</span>
+                            <span><i class="fas fa-reply"></i> 12 replies</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>
-    <p>© 2025 GameStore Community | Play Together. Win Together.</p>
-</footer>
+    <!-- Community Guidelines -->
+    <section class="community-section">
+        <div class="section-header">
+            <h2>Community Guidelines</h2>
+            <p>Help us maintain a positive and respectful gaming environment</p>
+        </div>
+        <div class="community-guidelines">
+            <div class="guidelines-grid">
+                <div class="guideline-item">
+                    <div class="guideline-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="guideline-content">
+                        <h4>Be Respectful</h4>
+                        <p>Treat all community members with respect. No harassment, hate speech, or discriminatory behavior.</p>
+                    </div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="guideline-content">
+                        <h4>Fair Play</h4>
+                        <p>Compete fairly in all tournaments and matches. Cheating and exploits are strictly prohibited.</p>
+                    </div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="guideline-content">
+                        <h4>Team Spirit</h4>
+                        <p>Support your teammates and maintain good sportsmanship in victory and defeat.</p>
+                    </div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="guideline-content">
+                        <h4>Report Issues</h4>
+                        <p>Report bugs, inappropriate behavior, and technical issues to help improve the community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Community -->
+    <section class="join-community">
+        <h2>Ready to Join the Community?</h2>
+        <p>Become part of the world's largest gaming community and start your journey today.</p>
+        <form class="join-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="text" placeholder="Gamer Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <textarea rows="4" placeholder="Tell us about your gaming interests and what you're looking for in the community..."></textarea>
+            </div>
+            <button type="submit" class="join-btn">
+                <i class="fas fa-rocket"></i> Join Community
+            </button>
+        </form>
+    </section>
+</main>
+
+    <footer class="dynamic-footer">
+
+        <div class="footer-main">
+            <div class="footer-container">
+                <div class="footer-section footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>GameHub</h3>
+                    </div>
+                    <p class="footer-description">
+                        The ultimate gaming ecosystem where players connect, compete, and create memories.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link twitch"><i class="fab fa-twitch"></i></a>
+                        <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html"><i class="fas fa-arrow-right"></i> Home</a></li>
+                        <li><a href="games.html"><i class="fas fa-arrow-right"></i> Games Library</a></li>
+                        <li><a href="tournaments.html"><i class="fas fa-arrow-right"></i> Tournaments</a></li>
+                        <li><a href="community.html"><i class="fas fa-arrow-right"></i> Community</a></li>
+                        <li><a href="store.html"><i class="fas fa-arrow-right"></i> Game Store</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html"><i class="fas fa-comments"></i> Forums</a></li>
+                        <li><a href="community.html"><i class="fas fa-users"></i> Teams</a></li>
+                        <li><a href="reviews.html"><i class="fas fa-chart-line"></i> Leaderboards</a></li>
+                        <li><a href="tournaments.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                        <li><a href="community.html"><i class="fas fa-shield-alt"></i> Clans</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section newsletter">
+                    <h4>Weekly Newsletter</h4>
+                    <p>Get gaming news, updates, and exclusive content delivered weekly.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your gaming email" required>
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div class="copyright">
+                    <p>&copy; 2025 GameHub. All rights reserved. <span class="age-rating">18+</span></p>
+                    <div class="legal-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Safety Guidelines</a>
+                    </div>
+                </div>
+                
+                <div class="footer-features">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Gaming</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <span>Low Latency</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-globe"></i>
+                        <span>Global Servers</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="theme-changer">
+            <button class="theme-btn" data-theme="blue">
+                <i class="fas fa-water"></i>
+            </button>
+            <button class="theme-btn active" data-theme="red">
+                <i class="fas fa-fire"></i>
+            </button>
+            <button class="theme-btn" data-theme="green">
+                <i class="fas fa-leaf"></i>
+            </button>
+            <button class="theme-btn" data-theme="purple">
+                <i class="fas fa-crown"></i>
+            </button>
+            <button class="theme-btn" data-theme="cyber">
+                <i class="fas fa-robot"></i>
+            </button>
+        </div>
+        
+        <div class="scroll-top" id="scrollTop">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+    </footer>
 
 </body>
 </html>

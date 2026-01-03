@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming News - GameHub</title>
+    <link rel="stylesheet" href="../assets/css/news.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Enhanced Header -->
+    <header>
+        <div class="header-bg">
+            <div class="header-gradient"></div>
+            <div class="header-particles"></div>
+        </div>
+
+        <div class="header-container">
+            <div class="logo">
+                <h1><i class="fas fa-gamepad"></i> GameHub</h1>
+                <div class="logo-subtitle">Play. Connect. Conquer.</div>
+            </div>
+
+            <div class="xp-progress">
+                <div class="xp-info">
+                    <span class="xp-level">Level 42</span>
+                    <span class="xp-text">62% to next level</span>
+                </div>
+                <div class="xp-bar">
+                    <div class="xp-fill"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=gamer&background=%2300a8ff" alt="User Avatar">
+                        <div class="online-status"></div>
+                    </div>
+                    <div class="user-info">
+                        <span class="username">CyberNinja</span>
+                        <div class="user-badges">
+                            <span class="badge premium"><i class="fas fa-crown"></i></span>
+                            <span class="badge streamer"><i class="fas fa-broadcast-tower"></i></span>
+                            <span class="badge elite"><i class="fas fa-star"></i></span>
+                        </div>
+                    </div>
+                    <button class="profile-dropdown">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-trophy"></i> Achievements</a>
+                        <a href="#"><i class="fas fa-gamepad"></i> My Games</a>
+                        <a href="#"><i class="fas fa-friends"></i> Friends</a>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <button class="theme-toggle">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <nav>
+            <div class="nav-container">
+                <ul class="main-nav">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="games.html"><i class="fas fa-gamepad"></i> <span>Games</span></a></li>
+                    <li><a href="news.html" class="active"><i class="fas fa-newspaper"></i> <span>News</span></a></li>
+                    <li><a href="community.html"><i class="fas fa-users"></i> <span>Community</span></a></li>
+                    <li><a href="tournaments.html"><i class="fas fa-trophy"></i> <span>Tournaments</span></a></li>
+                    <li><a href="reviews.html"><i class="fas fa-broadcast-tower"></i> <span>Reviews</span></a></li>
+                    <li><a href="store.html"><i class="fas fa-shopping-cart"></i> <span>Shop</span></a></li>
+                    <li><a href="support.html"><i class="fas fa-headset"></i> <span>Support</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- News Hero Section -->
+        <section class="news-hero">
+            <div class="hero-content">
+                <h1><i class="fas fa-newspaper"></i> Gaming News & Updates</h1>
+                <p class="hero-subtitle">Stay updated with the latest gaming news, releases, and industry insights</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">500+</span>
+                        <span class="stat-label">Articles</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">24/7</span>
+                        <span class="stat-label">Updates</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">50K+</span>
+                        <span class="stat-label">Readers</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Filters -->
+        <section class="news-filters">
+            <div class="filters-container">
+                <div class="search-bar">
+                    <input type="text" id="newsSearch" placeholder="Search news articles...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">All News</button>
+                    <button class="filter-btn" data-category="releases">Game Releases</button>
+                    <button class="filter-btn" data-category="updates">Updates</button>
+                    <button class="filter-btn" data-category="esports">Esports</button>
+                    <button class="filter-btn" data-category="reviews">Reviews</button>
+                    <button class="filter-btn" data-category="industry">Industry</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured News -->
+        <section class="featured-news">
+            <div class="featured-container">
+                <div class="featured-main">
+                    <article class="featured-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=400&fit=crop" alt="Featured Game">
+                            <div class="article-category">Game Release</div>
+                        </div>
+                        <div class="article-content">
+                            <h2>Cyberpunk 2077: Phantom Liberty Expansion Launches Today</h2>
+                            <p>The highly anticipated expansion brings new story content, characters, and gameplay mechanics to the cyberpunk universe...</p>
+                            <div class="article-meta">
+                                <span class="author"><i class="fas fa-user"></i> GameHub Staff</span>
+                                <span class="date"><i class="fas fa-calendar"></i> Jan 3, 2026</span>
+                                <span class="views"><i class="fas fa-eye"></i> 15.2K views</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="featured-sidebar">
+                    <div class="sidebar-article">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=300&h=200&fit=crop" alt="Sidebar">
+                        <div class="sidebar-content">
+                            <h4>League of Legends World Championship 2026</h4>
+                            <p>Teams prepare for the biggest tournament of the year...</p>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-article">
+                        <img src="https://images.unsplash.com/photo-1556438064-2d7646166914?w=300&h=200&fit=crop" alt="Sidebar">
+                        <div class="sidebar-content">
+                            <h4>New VR Headset Announced</h4>
+                            <p>Next-generation virtual reality technology revealed...</p>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-article">
+                        <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=300&h=200&fit=crop" alt="Sidebar">
+                        <div class="sidebar-content">
+                            <h4>Indie Game Spotlight</h4>
+                            <p>Discovering hidden gems in the indie gaming scene...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Grid -->
+        <section class="news-grid">
+            <div class="grid-container">
+                <article class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1556438064-2d7646166914?w=400&h=250&fit=crop" alt="News">
+                        <div class="card-category">Updates</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Valorant Patch 8.0 Brings Major Balance Changes</h3>
+                        <p>Riot Games releases comprehensive balance updates affecting all agents and maps...</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-user"></i> Esports Analyst</span>
+                            <span><i class="fas fa-calendar"></i> Dec 28, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop" alt="News">
+                        <div class="card-category">Esports</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Dota 2 International 2026 Teams Announced</h3>
+                        <p>The biggest teams in Dota 2 prepare for the prestigious tournament...</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-user"></i> Tournament Director</span>
+                            <span><i class="fas fa-calendar"></i> Dec 25, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400&h=250&fit=crop" alt="News">
+                        <div class="card-category">Industry</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Gaming Industry Revenue Reaches Record High</h3>
+                        <p>2025 marks another year of unprecedented growth for the gaming sector...</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-user"></i> Industry Analyst</span>
+                            <span><i class="fas fa-calendar"></i> Dec 20, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=250&fit=crop" alt="News">
+                        <div class="card-category">Reviews</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Alan Wake 2: A Masterpiece of Horror Gaming</h3>
+                        <p>Remedy Entertainment delivers a psychological thriller that redefines the genre...</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-user"></i> Senior Reviewer</span>
+                            <span><i class="fas fa-calendar"></i> Dec 18, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=250&fit=crop" alt="News">
+                        <div class="card-category">Releases</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Elden Ring DLC: Shadow of the Erdtree</h3>
+                        <p>FromSoftware announces the next chapter in the critically acclaimed souls-like series...</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-user"></i> Game Director</span>
+                            <span><i class="fas fa-calendar"></i> Dec 15, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1556438064-2d7646166914?w=400&h=250&fit=crop" alt="News">
+                        <div class="card-category">Technology</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Next-Gen Gaming Consoles Rumored for 2027</h3>
+                        <p>Industry insiders hint at revolutionary new hardware capabilities...</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-user"></i> Tech Reporter</span>
+                            <span><i class="fas fa-calendar"></i> Dec 12, 2025</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <i class="fas fa-plus"></i> Load More Articles
+                </button>
+            </div>
+        </section>
+
+        <!-- Newsletter Signup -->
+        <section class="newsletter-section">
+            <div class="newsletter-container">
+                <div class="newsletter-content">
+                    <h2><i class="fas fa-envelope"></i> Stay Updated</h2>
+                    <p>Get the latest gaming news delivered straight to your inbox</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" id="newsletterEmail">
+                        <button id="newsletterBtn">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-newspaper"></i> GameHub News</h3>
+                <p>Your ultimate source for gaming news, reviews, and industry insights. Stay informed about the latest developments in the gaming world.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitch"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>News Categories</h4>
+                <ul>
+                    <li><a href="#">Game Releases</a></li>
+                    <li><a href="#">Esports</a></li>
+                    <li><a href="#">Industry News</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Latest Updates</h4>
+                <ul>
+                    <li><a href="#">Breaking News</a></li>
+                    <li><a href="#">Patch Notes</a></li>
+                    <li><a href="#">Tournament Results</a></li>
+                    <li><a href="#">Developer Interviews</a></li>
+                    <li><a href="#">Gaming Trends</a></li>
+                    <li><a href="#">Hardware Reviews</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Press Kit</a></li>
+                    <li><a href="#">Advertise With Us</a></li>
+                    <li><a href="#">RSS Feeds</a></li>
+                    <li><a href="#">Newsletter Archive</a></li>
+                    <li><a href="#">Contact Editors</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 GameHub News. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="#">Editorial Standards</a>
+                <a href="#">Corrections</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // News filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const newsCards = document.querySelectorAll('.news-card');
+            const searchInput = document.getElementById('newsSearch');
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const newsletterBtn = document.getElementById('newsletterBtn');
+
+            // Filter functionality
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const category = button.dataset.category;
+
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Filter news cards
+                    newsCards.forEach(card => {
+                        if (category === 'all' || card.querySelector('.card-category').textContent.toLowerCase().includes(category)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+
+                newsCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const content = card.querySelector('p').textContent.toLowerCase();
+
+                    if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+
+            // Load more functionality
+            loadMoreBtn.addEventListener('click', function() {
+                // Simulate loading more articles
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+
+                setTimeout(() => {
+                    // In a real implementation, this would fetch more articles from an API
+                    alert('More articles would be loaded here in a real implementation!');
+                    this.innerHTML = '<i class="fas fa-plus"></i> Load More Articles';
+                }, 1500);
+            });
+
+            // Newsletter subscription
+            newsletterBtn.addEventListener('click', function() {
+                const email = document.getElementById('newsletterEmail').value;
+                if (email) {
+                    alert('Thank you for subscribing! You will receive our latest news updates.');
+                    document.getElementById('newsletterEmail').value = '';
+                } else {
+                    alert('Please enter a valid email address.');
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

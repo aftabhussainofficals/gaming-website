@@ -1,1 +1,0 @@
-// Games slider JavaScript

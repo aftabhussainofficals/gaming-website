@@ -3,14 +3,602 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tournaments</title>
+    <title>Tournaments - GameHub</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/hero.css">
+    <link rel="stylesheet" href="../assets/css/tournaments.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header></header>
-    <main><h1>Tournaments Page</h1></main>
-    <footer></footer>
-    <script src="../assets/js/header.js"></script>
-    <script src="../script.js"></script>
+    <!-- Enhanced Header -->
+    <header>
+        <div class="header-bg">
+            <div class="header-gradient"></div>
+            <div class="header-particles"></div>
+        </div>
+
+        <div class="header-container">
+            <div class="logo">
+                <h1><i class="fas fa-gamepad"></i> GameHub</h1>
+                <div class="logo-subtitle">Play. Connect. Conquer.</div>
+            </div>
+
+            <div class="xp-progress">
+                <div class="xp-info">
+                    <span class="xp-level">Level 42</span>
+                    <span class="xp-text">62% to next level</span>
+                </div>
+                <div class="xp-bar">
+                    <div class="xp-fill"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=gamer&background=%2300a8ff" alt="User Avatar">
+                        <div class="online-status"></div>
+                    </div>
+                    <div class="user-info">
+                        <span class="username">CyberNinja</span>
+                        <div class="user-badges">
+                            <span class="badge premium"><i class="fas fa-crown"></i></span>
+                            <span class="badge streamer"><i class="fas fa-broadcast-tower"></i></span>
+                            <span class="badge elite"><i class="fas fa-star"></i></span>
+                        </div>
+                    </div>
+                    <button class="profile-dropdown">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-trophy"></i> Achievements</a>
+                        <a href="#"><i class="fas fa-gamepad"></i> My Games</a>
+                        <a href="#"><i class="fas fa-friends"></i> Friends</a>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <button class="theme-toggle">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <nav>
+            <div class="nav-container">
+                <ul class="main-nav">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="games.html"><i class="fas fa-gamepad"></i> <span>Games</span></a></li>
+                    <li><a href="news.html"><i class="fas fa-newspaper"></i> <span>News</span></a></li>
+                    <li><a href="community.html"><i class="fas fa-users"></i> <span>Community</span></a></li>
+                    <li><a href="tournaments.html" class="active"><i class="fas fa-trophy"></i> <span>Tournaments</span></a></li>
+                    <li><a href="reviews.html"><i class="fas fa-broadcast-tower"></i> <span>Reviews</span></a></li>
+                    <li><a href="store.html"><i class="fas fa-shopping-cart"></i> <span>Shop</span></a></li>
+                    <li><a href="support.html"><i class="fas fa-headset"></i> <span>Support</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="tournaments-container">
+        <!-- Tournaments Hero -->
+        <section class="tournaments-hero">
+            <h1>Compete in Epic Tournaments</h1>
+            <p>Test your skills against the best players worldwide. Join tournaments, win prizes, and climb the leaderboards.</p>
+            <div class="hero-actions">
+                <a href="#tournaments" class="hero-btn primary">
+                    <i class="fas fa-play"></i> Browse Tournaments
+                </a>
+                <a href="#leaderboard" class="hero-btn secondary">
+                    <i class="fas fa-trophy"></i> View Leaderboard
+                </a>
+            </div>
+        </section>
+
+        <!-- Tournament Filters -->
+        <section class="tournament-filters">
+            <div class="filters-header">
+                <h3><i class="fas fa-filter"></i> Find Tournaments</h3>
+                <div class="filter-results">Showing 24 tournaments</div>
+            </div>
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label for="game-filter">Game</label>
+                    <select id="game-filter" class="filter-select">
+                        <option value="">All Games</option>
+                        <option value="cyberpunk">Cyber Punk 2077</option>
+                        <option value="battle-arena">Battle Arena</option>
+                        <option value="rpg-adventure">RPG Adventure</option>
+                        <option value="racing-thunder">Racing Thunder</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="type-filter">Tournament Type</label>
+                    <select id="type-filter" class="filter-select">
+                        <option value="">All Types</option>
+                        <option value="solo">Solo</option>
+                        <option value="duo">Duo</option>
+                        <option value="squad">Squad</option>
+                        <option value="clan">Clan War</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="status-filter">Status</label>
+                    <select id="status-filter" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="upcoming">Upcoming</option>
+                        <option value="live">Live Now</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="prize-filter">Prize Pool</label>
+                    <select id="prize-filter" class="filter-select">
+                        <option value="">Any Prize</option>
+                        <option value="1000">$1,000+</option>
+                        <option value="5000">$5,000+</option>
+                        <option value="10000">$10,000+</option>
+                        <option value="50000">$50,000+</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tournaments Grid -->
+        <section id="tournaments" class="tournaments-grid">
+            <div class="tournament-card">
+                <div class="tournament-image">
+                    <img src="https://via.placeholder.com/400x200/4a5568/ffffff?text=Cyber+Punk+Championship" alt="Cyber Punk Championship">
+                    <div class="tournament-status live">LIVE NOW</div>
+                </div>
+                <div class="tournament-content">
+                    <div class="tournament-header">
+                        <div>
+                            <h3 class="tournament-title">Cyber Punk Championship</h3>
+                            <div class="tournament-game">Cyber Punk 2077</div>
+                        </div>
+                        <div class="tournament-prize">$25,000</div>
+                    </div>
+                    <div class="tournament-meta">
+                        <span><i class="fas fa-users"></i> 128 teams</span>
+                        <span><i class="fas fa-calendar"></i> Jan 15, 2026</span>
+                        <span><i class="fas fa-clock"></i> 2 days left</span>
+                    </div>
+                    <p class="tournament-description">The ultimate Cyber Punk tournament featuring the world's best players competing for glory and massive prizes.</p>
+                    <div class="tournament-actions">
+                        <a href="#" class="tournament-btn primary">Register Now</a>
+                        <a href="#" class="tournament-btn secondary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tournament-card">
+                <div class="tournament-image">
+                    <img src="https://via.placeholder.com/400x200/2d3748/ffffff?text=Battle+Arena+Showdown" alt="Battle Arena Showdown">
+                    <div class="tournament-status upcoming">UPCOMING</div>
+                </div>
+                <div class="tournament-content">
+                    <div class="tournament-header">
+                        <div>
+                            <h3 class="tournament-title">Battle Arena Showdown</h3>
+                            <div class="tournament-game">Battle Arena</div>
+                        </div>
+                        <div class="tournament-prize">$15,000</div>
+                    </div>
+                    <div class="tournament-meta">
+                        <span><i class="fas fa-users"></i> 64 players</span>
+                        <span><i class="fas fa-calendar"></i> Feb 1, 2026</span>
+                        <span><i class="fas fa-clock"></i> 17 days</span>
+                    </div>
+                    <p class="tournament-description">Fast-paced competitive matches in the most popular battle royale game of the year.</p>
+                    <div class="tournament-actions">
+                        <a href="#" class="tournament-btn primary">Register Now</a>
+                        <a href="#" class="tournament-btn secondary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tournament-card">
+                <div class="tournament-image">
+                    <img src="https://via.placeholder.com/400x200/805ad5/ffffff?text=RPG+Adventure+Tournament" alt="RPG Adventure Tournament">
+                    <div class="tournament-status upcoming">UPCOMING</div>
+                </div>
+                <div class="tournament-content">
+                    <div class="tournament-header">
+                        <div>
+                            <h3 class="tournament-title">RPG Masters Cup</h3>
+                            <div class="tournament-game">RPG Adventure</div>
+                        </div>
+                        <div class="tournament-prize">$10,000</div>
+                    </div>
+                    <div class="tournament-meta">
+                        <span><i class="fas fa-users"></i> 32 teams</span>
+                        <span><i class="fas fa-calendar"></i> Feb 15, 2026</span>
+                        <span><i class="fas fa-clock"></i> 31 days</span>
+                    </div>
+                    <p class="tournament-description">Strategic RPG tournament where teams compete in epic battles and story-driven challenges.</p>
+                    <div class="tournament-actions">
+                        <a href="#" class="tournament-btn primary">Register Now</a>
+                        <a href="#" class="tournament-btn secondary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tournament-card">
+                <div class="tournament-image">
+                    <img src="https://via.placeholder.com/400x200/e53e3e/ffffff?text=Racing+Thunder+Championship" alt="Racing Thunder Championship">
+                    <div class="tournament-status completed">COMPLETED</div>
+                </div>
+                <div class="tournament-content">
+                    <div class="tournament-header">
+                        <div>
+                            <h3 class="tournament-title">Racing Thunder Grand Prix</h3>
+                            <div class="tournament-game">Racing Thunder</div>
+                        </div>
+                        <div class="tournament-prize">$8,000</div>
+                    </div>
+                    <div class="tournament-meta">
+                        <span><i class="fas fa-users"></i> 48 players</span>
+                        <span><i class="fas fa-calendar"></i> Dec 20, 2025</span>
+                        <span><i class="fas fa-trophy"></i> Finished</span>
+                    </div>
+                    <p class="tournament-description">High-octane racing competition featuring multiple tracks and vehicle classes.</p>
+                    <div class="tournament-actions">
+                        <a href="#" class="tournament-btn secondary">View Results</a>
+                        <a href="#" class="tournament-btn secondary">Watch VODs</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tournament Bracket -->
+        <section class="tournament-bracket">
+            <div class="bracket-header">
+                <h3><i class="fas fa-sitemap"></i> Live Tournament Bracket</h3>
+                <p>Follow the action in the Cyber Punk Championship</p>
+            </div>
+            <div class="bracket-rounds">
+                <div class="bracket-round">
+                    <div class="round-title">Quarter Finals</div>
+                    <div class="bracket-matches">
+                        <div class="bracket-match">
+                            <div class="match-teams">
+                                <div class="match-team">
+                                    <div class="team-avatar">TF</div>
+                                    <span class="team-name">Thunder Force</span>
+                                </div>
+                                <span class="match-score">2 - 1</span>
+                                <div class="match-team">
+                                    <span class="team-name">Shadow Hunters</span>
+                                    <div class="team-avatar">SH</div>
+                                </div>
+                            </div>
+                            <div class="match-time">Live - 45:23 remaining</div>
+                        </div>
+                        <div class="bracket-match">
+                            <div class="match-teams">
+                                <div class="match-team">
+                                    <div class="team-avatar">RG</div>
+                                    <span class="team-name">Red Guardians</span>
+                                </div>
+                                <span class="match-score">1 - 1</span>
+                                <div class="match-team">
+                                    <span class="team-name">Blue Lightning</span>
+                                    <div class="team-avatar">BL</div>
+                                </div>
+                            </div>
+                            <div class="match-time">Live - 12:08 remaining</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bracket-round">
+                    <div class="round-title">Semi Finals</div>
+                    <div class="bracket-matches">
+                        <div class="bracket-match">
+                            <div class="match-teams">
+                                <div class="match-team">
+                                    <div class="team-avatar">TF</div>
+                                    <span class="team-name">Thunder Force</span>
+                                </div>
+                                <span class="match-score">VS</span>
+                                <div class="match-team">
+                                    <span class="team-name">TBD</span>
+                                    <div class="team-avatar">?</div>
+                                </div>
+                            </div>
+                            <div class="match-time">Tomorrow 18:00</div>
+                        </div>
+                        <div class="bracket-match">
+                            <div class="match-teams">
+                                <div class="match-team">
+                                    <div class="team-avatar">?</div>
+                                    <span class="team-name">TBD</span>
+                                </div>
+                                <span class="match-score">VS</span>
+                                <div class="match-team">
+                                    <span class="team-name">TBD</span>
+                                    <div class="team-avatar">?</div>
+                                </div>
+                            </div>
+                            <div class="match-time">Tomorrow 20:00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bracket-round">
+                    <div class="round-title">Finals</div>
+                    <div class="bracket-matches">
+                        <div class="bracket-match">
+                            <div class="match-teams">
+                                <div class="match-team">
+                                    <div class="team-avatar">?</div>
+                                    <span class="team-name">TBD</span>
+                                </div>
+                                <span class="match-score">VS</span>
+                                <div class="match-team">
+                                    <span class="team-name">TBD</span>
+                                    <div class="team-avatar">?</div>
+                                </div>
+                            </div>
+                            <div class="match-time">Jan 20, 15:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leaderboard -->
+        <section id="leaderboard" class="leaderboard-section">
+            <div class="leaderboard-header">
+                <h3><i class="fas fa-crown"></i> Global Leaderboard</h3>
+                <p>Top performers across all tournaments</p>
+            </div>
+            <div class="leaderboard-table">
+                <div class="leaderboard-row header">
+                    <div class="rank">#</div>
+                    <div class="player-info">Player</div>
+                    <div class="player-stats">Rating</div>
+                    <div class="player-stats">Wins</div>
+                    <div class="player-stats">Prize Money</div>
+                </div>
+                <div class="leaderboard-row">
+                    <div class="rank gold">1</div>
+                    <div class="player-info">
+                        <div class="player-avatar">CP</div>
+                        <span class="player-name">CyberPhantom</span>
+                    </div>
+                    <div class="player-stats">2847</div>
+                    <div class="player-stats">156</div>
+                    <div class="player-stats">$127,500</div>
+                </div>
+                <div class="leaderboard-row">
+                    <div class="rank silver">2</div>
+                    <div class="player-info">
+                        <div class="player-avatar">SG</div>
+                        <span class="player-name">ShadowGamer</span>
+                    </div>
+                    <div class="player-stats">2791</div>
+                    <div class="player-stats">142</div>
+                    <div class="player-stats">$98,200</div>
+                </div>
+                <div class="leaderboard-row">
+                    <div class="rank bronze">3</div>
+                    <div class="player-info">
+                        <div class="player-avatar">TF</div>
+                        <span class="player-name">ThunderFlash</span>
+                    </div>
+                    <div class="player-stats">2756</div>
+                    <div class="player-stats">138</div>
+                    <div class="player-stats">$89,750</div>
+                </div>
+                <div class="leaderboard-row">
+                    <div class="rank">4</div>
+                    <div class="player-info">
+                        <div class="player-avatar">RG</div>
+                        <span class="player-name">RedGuardian</span>
+                    </div>
+                    <div class="player-stats">2723</div>
+                    <div class="player-stats">134</div>
+                    <div class="player-stats">$76,300</div>
+                </div>
+                <div class="leaderboard-row">
+                    <div class="rank">5</div>
+                    <div class="player-info">
+                        <div class="player-avatar">BL</div>
+                        <span class="player-name">BlueLightning</span>
+                    </div>
+                    <div class="player-stats">2689</div>
+                    <div class="player-stats">129</div>
+                    <div class="player-stats">$68,900</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tournament Rules -->
+        <section class="tournament-rules">
+            <div class="rules-header">
+                <h3><i class="fas fa-gavel"></i> Tournament Rules & Guidelines</h3>
+                <p>Ensure fair play and maintain the integrity of our competitions</p>
+            </div>
+            <div class="rules-grid">
+                <div class="rule-item">
+                    <div class="rule-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="rule-content">
+                        <h4>Fair Play Policy</h4>
+                        <p>All participants must compete fairly without cheating, exploits, or unauthorized third-party software.</p>
+                    </div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="rule-content">
+                        <h4>Match Scheduling</h4>
+                        <p>Be available during scheduled match times. Late arrivals may result in forfeit or penalties.</p>
+                    </div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="rule-content">
+                        <h4>Communication</h4>
+                        <p>Maintain respectful communication with opponents and tournament officials at all times.</p>
+                    </div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="rule-content">
+                        <h4>Dispute Resolution</h4>
+                        <p>Report issues immediately to tournament admins. All disputes will be reviewed fairly.</p>
+                    </div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="rule-content">
+                        <h4>Prize Distribution</h4>
+                        <p>Prizes are distributed within 48 hours of tournament completion to verified accounts.</p>
+                    </div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-icon">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <div class="rule-content">
+                        <h4>Penalties</h4>
+                        <p>Serious violations may result in disqualification, account suspension, or permanent bans.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="dynamic-footer">
+
+        <div class="footer-main">
+            <div class="footer-container">
+                <div class="footer-section footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>GameHub</h3>
+                    </div>
+                    <p class="footer-description">
+                        The ultimate gaming ecosystem where players connect, compete, and create memories.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link twitch"><i class="fab fa-twitch"></i></a>
+                        <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html"><i class="fas fa-arrow-right"></i> Home</a></li>
+                        <li><a href="games.html"><i class="fas fa-arrow-right"></i> Games Library</a></li>
+                        <li><a href="tournaments.html"><i class="fas fa-arrow-right"></i> Tournaments</a></li>
+                        <li><a href="community.html"><i class="fas fa-arrow-right"></i> Community</a></li>
+                        <li><a href="store.html"><i class="fas fa-arrow-right"></i> Game Store</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html"><i class="fas fa-comments"></i> Forums</a></li>
+                        <li><a href="community.html"><i class="fas fa-users"></i> Teams</a></li>
+                        <li><a href="reviews.html"><i class="fas fa-chart-line"></i> Leaderboards</a></li>
+                        <li><a href="tournaments.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                        <li><a href="community.html"><i class="fas fa-shield-alt"></i> Clans</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section newsletter">
+                    <h4>Weekly Newsletter</h4>
+                    <p>Get gaming news, updates, and exclusive content delivered weekly.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your gaming email" required>
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div class="copyright">
+                    <p>&copy; 2025 GameHub. All rights reserved. <span class="age-rating">18+</span></p>
+                    <div class="legal-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Safety Guidelines</a>
+                    </div>
+                </div>
+                
+                <div class="footer-features">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Gaming</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <span>Low Latency</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-globe"></i>
+                        <span>Global Servers</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="theme-changer">
+            <button class="theme-btn" data-theme="blue">
+                <i class="fas fa-water"></i>
+            </button>
+            <button class="theme-btn active" data-theme="red">
+                <i class="fas fa-fire"></i>
+            </button>
+            <button class="theme-btn" data-theme="green">
+                <i class="fas fa-leaf"></i>
+            </button>
+            <button class="theme-btn" data-theme="purple">
+                <i class="fas fa-crown"></i>
+            </button>
+            <button class="theme-btn" data-theme="cyber">
+                <i class="fas fa-robot"></i>
+            </button>
+        </div>
+        
+        <div class="scroll-top" id="scrollTop">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+    </footer>
 </body>
 </html>

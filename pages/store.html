@@ -3,626 +3,798 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Store - Upgrade Your Gear</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary: #6c5ce7;
-            --primary-dark: #5649c4;
-            --secondary: #00cec9;
-            --dark: #2d3436;
-            --light: #f9f9f9;
-            --gray: #636e72;
-            --danger: #e74c3c;
-            --success: #2ecc71;
-            --warning: #f39c12;
-        }
-
-        body {
-            background-color: #1a1a2e;
-            color: var(--light);
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: rgba(26, 26, 46, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid var(--primary);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo h1 {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        .logo i {
-            color: var(--primary);
-            font-size: 1.8rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            padding: 0.5rem 0;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        nav a:hover, nav a.active {
-            color: var(--secondary);
-        }
-
-        nav a.active::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            background-color: var(--secondary);
-            bottom: -5px;
-            left: 0;
-            border-radius: 2px;
-        }
-
-        .header-icons {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 1.2rem;
-        }
-
-        .header-icons i {
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .header-icons i:hover {
-            color: var(--secondary);
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: var(--danger);
-            color: white;
-            font-size: 0.7rem;
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .cart-icon {
-            position: relative;
-        }
-
-        .hero {
-            padding: 3rem 2rem;
-            text-align: center;
-            background: radial-gradient(circle at center, #2d2d4a 0%, #1a1a2e 100%);
-            margin-bottom: 2rem;
-        }
-
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #b0b0d0;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .categories {
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .category-btn {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: var(--light);
-            padding: 0.7rem 1.5rem;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .category-btn:hover {
-            background-color: rgba(108, 92, 231, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .category-btn.active {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .products {
-            padding: 0 2rem 3rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .product-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.8rem;
-            z-index: 2;
-        }
-
-        .hot {
-            background-color: var(--danger);
-        }
-
-        .new {
-            background-color: var(--success);
-        }
-
-        .product-image {
-            height: 200px;
-            background-color: #2d2d4a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--primary);
-            font-size: 3rem;
-        }
-
-        .product-content {
-            padding: 1.5rem;
-        }
-
-        .product-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-price {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-
-        .add-to-cart {
-            width: 100%;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.8rem;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .add-to-cart:hover {
-            background-color: var(--primary-dark);
-        }
-
-        .special-offer {
-            grid-column: span 2;
-            background: linear-gradient(135deg, #6c5ce7, #00cec9);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .offer-content {
-            padding: 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .offer-badge {
-            display: inline-block;
-            background-color: var(--warning);
-            color: var(--dark);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .offer-title {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .offer-description {
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-        }
-
-        .timer {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .timer-item {
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 0.8rem;
-            border-radius: 8px;
-            min-width: 70px;
-        }
-
-        .timer-value {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-
-        .timer-label {
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-
-        .offer-button {
-            background-color: white;
-            color: var(--primary);
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .offer-button:hover {
-            transform: scale(1.05);
-        }
-
-        footer {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 2rem;
-            text-align: center;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #b0b0d0;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-        }
-
-        .copyright {
-            color: #777;
-            font-size: 0.9rem;
-        }
-        @media (max-width: 992px) {
-            .special-offer {
-                grid-column: span 1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
-            }
-            
-            nav ul {
-                gap: 1rem;
-            }
-            
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-            
-            .products {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                padding: 0 1rem 2rem;
-            }
-            
-            .timer {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .products {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .category-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+    <title>Game Store - GameHub</title>
+    <link rel="stylesheet" href="../assets/css/store.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
+    <!-- Enhanced Header -->
     <header>
-        <div class="logo">
-            <i class="fas fa-gamepad"></i>
-            <h1>GAMESTORE</h1>
-        </div>
-        
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="store.html" class="active">Store</a></li>
-                <li><a href="tournaments.html">Tournaments</a></li>
-                <li><a href="community.html">Community</a></li>
-                <li><a href="profile.html">Profile</a></li>
-            </ul>
-        </nav>
-        
-        <div class="header-icons">
-            <i class="fas fa-search"></i>
-            <div class="cart-icon">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count">3</span>
-            </div>
-            <i class="fas fa-user"></i>
-        </div>
-    </header>
-
-    <section class="hero">
-        <h2>GAME STORE</h2>
-        <p>Upgrade your gear. Power up your play.</p>
-    </section>
-
-    <section class="categories">
-        <button class="category-btn active">All</button>
-        <button class="category-btn">Skins</button>
-        <button class="category-btn">Weapons</button>
-        <button class="category-btn">Characters</button>
-        <button class="category-btn">Accessories</button>
-        <button class="category-btn">Battle Pass</button>
-    </section>
-
-    <main class="products">
-        <div class="product-card">
-            <div class="product-badge hot">HOT</div>
-            <div class="product-image">
-                <i class="fas fa-headphones"></i>
-            </div>
-            <div class="product-content">
-                <h3 class="product-title">HyperX Cloud Alpha</h3>
-                <p class="product-description">Premium gaming headset with dual chamber drivers</p>
-                <div class="product-price">$129</div>
-                <button class="add-to-cart">
-                    <i class="fas fa-cart-plus"></i> Add to Cart
-                </button>
-            </div>
+        <div class="header-bg">
+            <div class="header-gradient"></div>
+            <div class="header-particles"></div>
         </div>
 
-        <div class="product-card">
-            <div class="product-badge new">NEW</div>
-            <div class="product-image">
-                <i class="fas fa-keyboard"></i>
+        <div class="header-container">
+            <div class="logo">
+                <h1><i class="fas fa-gamepad"></i> GameHub</h1>
+                <div class="logo-subtitle">Play. Connect. Conquer.</div>
             </div>
-            <div class="product-content">
-                <h3 class="product-title">Razer BlackWidow V3</h3>
-                <p class="product-description">Mechanical RGB keyboard with green switches</p>
-                <div class="product-price">$149</div>
-                <button class="add-to-cart">
-                    <i class="fas fa-cart-plus"></i> Add to Cart
-                </button>
-            </div>
-        </div>
 
-        <div class="product-card">
-            <div class="product-badge">BEST SELLER</div>
-            <div class="product-image">
-                <i class="fas fa-mouse"></i>
+            <div class="xp-progress">
+                <div class="xp-info">
+                    <span class="xp-level">Level 42</span>
+                    <span class="xp-text">62% to next level</span>
+                </div>
+                <div class="xp-bar">
+                    <div class="xp-fill"></div>
+                </div>
             </div>
-            <div class="product-content">
-                <h3 class="product-title">Logitech G502 HERO</h3>
-                <p class="product-description">High-performance gaming mouse with HERO sensor</p>
-                <div class="product-price">$79</div>
-                <button class="add-to-cart">
-                    <i class="fas fa-cart-plus"></i> Add to Cart
-                </button>
-            </div>
-        </div>
-        <div class="product-card">
-            <div class="product-badge hot">HOT</div>
-            <div class="product-image">
-                <i class="fas fa-gamepad"></i>
-            </div>
-            <div class="product-content">
-                <h3 class="product-title">Elite Battle Controller</h3>
-                <p class="product-description">Wireless pro controller with customizable buttons</p>
-                <div class="product-price">$99</div>
-                <button class="add-to-cart">
-                    <i class="fas fa-cart-plus"></i> Add to Cart
-                </button>
-            </div>
-        </div>
 
-        <div class="product-card special-offer">
-            <div class="offer-content">
-                <div class="offer-badge">LIMITED TIME OFFER</div>
-                <h3 class="offer-title">Ultimate Gaming Bundle</h3>
-                <p class="offer-description">Complete pro gaming setup. Save 40% today.</p>
-                
-                <div class="timer">
-                    <div class="timer-item">
-                        <div class="timer-value" id="hours">23</div>
-                        <div class="timer-label">HOURS</div>
+            <div class="header-right">
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=gamer&background=%2300a8ff" alt="User Avatar">
+                        <div class="online-status"></div>
                     </div>
-                    <div class="timer-item">
-                        <div class="timer-value" id="minutes">33</div>
-                        <div class="timer-label">MINUTES</div>
+                    <div class="user-info">
+                        <span class="username">CyberNinja</span>
+                        <div class="user-badges">
+                            <span class="badge premium"><i class="fas fa-crown"></i></span>
+                            <span class="badge streamer"><i class="fas fa-broadcast-tower"></i></span>
+                            <span class="badge elite"><i class="fas fa-star"></i></span>
+                        </div>
                     </div>
-                    <div class="timer-item">
-                        <div class="timer-value" id="seconds">51</div>
-                        <div class="timer-label">SECONDS</div>
+                    <button class="profile-dropdown">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-trophy"></i> Achievements</a>
+                        <a href="#"><i class="fas fa-gamepad"></i> My Games</a>
+                        <a href="#"><i class="fas fa-friends"></i> Friends</a>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     </div>
                 </div>
-                
-                <button class="offer-button">GET BUNDLE NOW</button>
+
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <button class="theme-toggle">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
             </div>
         </div>
-    </main>
 
-    <footer>
-        <div class="footer-links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
-            <a href="support.html">Support</a>
-            <a href="about.html">About Us</a>
-            <a href="contact.html">Contact</a>
+        <nav>
+            <div class="nav-container">
+                <ul class="main-nav">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="games.html"><i class="fas fa-gamepad"></i> <span>Games</span></a></li>
+                    <li><a href="news.html"><i class="fas fa-newspaper"></i> <span>News</span></a></li>
+                    <li><a href="community.html"><i class="fas fa-users"></i> <span>Community</span></a></li>
+                    <li><a href="tournaments.html"><i class="fas fa-trophy"></i> <span>Tournaments</span></a></li>
+                    <li><a href="reviews.html"><i class="fas fa-broadcast-tower"></i> <span>Reviews</span></a></li>
+                    <li><a href="store.html" class="active"><i class="fas fa-shopping-cart"></i> <span>Shop</span></a></li>
+                    <li><a href="support.html"><i class="fas fa-headset"></i> <span>Support</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Enhanced Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1><i class="fas fa-shopping-cart"></i> Game Store</h1>
+            <p>Level up your gaming experience with premium gear, exclusive content, and epic deals</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-value">50K+</span>
+                    <span class="stat-label">Products</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">98%</span>
+                    <span class="stat-label">Satisfaction</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">24/7</span>
+                    <span class="stat-label">Support</span>
+                </div>
+            </div>
+            <button class="cta-btn" onclick="scrollToProducts()">
+                <i class="fas fa-arrow-down"></i> Explore Store
+            </button>
         </div>
-        <p class="copyright">© 2023 GAMESTORE. All rights reserved. All trademarks are property of their respective owners.</p>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="categories-section">
+        <div class="categories-header">
+            <h2><i class="fas fa-th-large"></i> Shop by Category</h2>
+            <p>Find exactly what you're looking for</p>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card" data-category="headsets">
+                <div class="category-icon">
+                    <i class="fas fa-headphones"></i>
+                </div>
+                <h3>Gaming Headsets</h3>
+                <p>Immersive audio for competitive gaming</p>
+                <div class="category-stats">
+                    <span><i class="fas fa-box"></i> 250+ items</span>
+                </div>
+            </div>
+            <div class="category-card" data-category="keyboards">
+                <div class="category-icon">
+                    <i class="fas fa-keyboard"></i>
+                </div>
+                <h3>Mechanical Keyboards</h3>
+                <p>Precision and speed for every keystroke</p>
+                <div class="category-stats">
+                    <span><i class="fas fa-box"></i> 180+ items</span>
+                </div>
+            </div>
+            <div class="category-card" data-category="mice">
+                <div class="category-icon">
+                    <i class="fas fa-mouse"></i>
+                </div>
+                <h3>Gaming Mice</h3>
+                <p>Ergonomic design meets high-precision sensors</p>
+                <div class="category-stats">
+                    <span><i class="fas fa-box"></i> 320+ items</span>
+                </div>
+            </div>
+            <div class="category-card" data-category="controllers">
+                <div class="category-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h3>Controllers</h3>
+                <p>From classic to cutting-edge gaming controllers</p>
+                <div class="category-stats">
+                    <span><i class="fas fa-box"></i> 150+ items</span>
+                </div>
+            </div>
+            <div class="category-card" data-category="monitors">
+                <div class="category-icon">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <h3>Gaming Monitors</h3>
+                <p>High refresh rates and stunning visuals</p>
+                <div class="category-stats">
+                    <span><i class="fas fa-box"></i> 90+ items</span>
+                </div>
+            </div>
+            <div class="category-card" data-category="accessories">
+                <div class="category-icon">
+                    <i class="fas fa-plug"></i>
+                </div>
+                <h3>Accessories</h3>
+                <p>Complete your setup with essential gaming gear</p>
+                <div class="category-stats">
+                    <span><i class="fas fa-box"></i> 400+ items</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Filters -->
+    <section class="filters">
+        <h2><i class="fas fa-filter"></i> Filter Products</h2>
+        <div class="filter-options">
+            <button class="filter-btn active" data-filter="all">All Products</button>
+            <button class="filter-btn" data-filter="featured">Featured</button>
+            <button class="filter-btn" data-filter="bestseller">Best Sellers</button>
+            <button class="filter-btn" data-filter="new">New Arrivals</button>
+            <button class="filter-btn" data-filter="sale">On Sale</button>
+            <button class="filter-btn" data-filter="premium">Premium</button>
+        </div>
+        <div class="price-range">
+            <label>Price Range:</label>
+            <input type="number" placeholder="Min" id="minPrice">
+            <span>-</span>
+            <input type="number" placeholder="Max" id="maxPrice">
+            <button class="filter-btn" id="applyFilters">Apply</button>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-section">
+        <div class="featured-header">
+            <h2><i class="fas fa-star"></i> Featured Products</h2>
+            <p>Handpicked by our gaming experts</p>
+        </div>
+        <div class="featured-products">
+            <div class="featured-card">
+                <div class="featured-image">
+                    <img src="../assets/images/rpg game.jfif" alt="Premium Gaming Headset">
+                    <div class="featured-badge">Editor's Choice</div>
+                </div>
+                <div class="featured-content">
+                    <h3>HyperX Cloud Alpha S</h3>
+                    <p>Premium gaming headset with dual chamber drivers and advanced noise cancellation technology.</p>
+                    <div class="featured-price">
+                        <span class="featured-current-price">$149.99</span>
+                        <span class="featured-old-price">$179.99</span>
+                    </div>
+                    <div class="featured-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span>(4.8/5)</span>
+                    </div>
+                    <button class="featured-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="featured-card">
+                <div class="featured-image">
+                    <img src="../assets/images/rpg game.jfif" alt="Mechanical Keyboard">
+                    <div class="featured-badge">Best Seller</div>
+                </div>
+                <div class="featured-content">
+                    <h3>Razer BlackWidow V3 Pro</h3>
+                    <p>Wireless mechanical gaming keyboard with Razer Green switches and RGB Chroma lighting.</p>
+                    <div class="featured-price">
+                        <span class="featured-current-price">$229.99</span>
+                    </div>
+                    <div class="featured-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>(4.9/5)</span>
+                    </div>
+                    <button class="featured-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="featured-card">
+                <div class="featured-image">
+                    <img src="../assets/images/rpg game.jfif" alt="Gaming Mouse">
+                    <div class="featured-badge">Hot Deal</div>
+                </div>
+                <div class="featured-content">
+                    <h3>Logitech G Pro X Superlight</h3>
+                    <p>Ultra-lightweight wireless gaming mouse with HERO 25K sensor and 70-hour battery life.</p>
+                    <div class="featured-price">
+                        <span class="featured-current-price">$149.99</span>
+                        <span class="featured-old-price">$169.99</span>
+                    </div>
+                    <div class="featured-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span>(4.7/5)</span>
+                    </div>
+                    <button class="featured-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products" id="productsSection">
+        <!-- Products will be populated by JavaScript -->
+    </section>
+
+    <!-- Special Offer Banner -->
+    <section class="special-offer">
+        <div class="offer-content">
+            <div class="offer-badge">LIMITED TIME OFFER</div>
+            <h3>Ultimate Gaming Bundle</h3>
+            <p>Get the complete pro gaming setup with 40% off. Includes headset, keyboard, mouse, and mousepad.</p>
+
+            <div class="offer-features">
+                <div class="feature">
+                    <i class="fas fa-headphones"></i>
+                    <span>Premium Headset</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-keyboard"></i>
+                    <span>Mechanical Keyboard</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-mouse"></i>
+                    <span>Pro Gaming Mouse</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-square"></i>
+                    <span>XL Mousepad</span>
+                </div>
+            </div>
+
+            <div class="offer-price">
+                <span class="original-price">$497.96</span>
+                <span class="discounted-price">$298.78</span>
+                <span class="savings">Save $199.18 (40%)</span>
+            </div>
+
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">02</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">14</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">27</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">45</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+
+            <button class="offer-button" id="bundleBtn">
+                <i class="fas fa-shopping-cart"></i> Get Bundle Now - $298.78
+            </button>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2><i class="fas fa-envelope"></i> Stay in the Game</h2>
+            <p>Get exclusive deals, new product alerts, and gaming tips delivered to your inbox</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">
+                    <i class="fas fa-paper-plane"></i> Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-gamepad"></i> GameHub Store</h3>
+                <p>Your ultimate destination for gaming gear and accessories. Quality products, competitive prices, and exceptional service.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitch"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="tournaments.html">Tournaments</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#headsets">Gaming Headsets</a></li>
+                    <li><a href="#keyboards">Keyboards</a></li>
+                    <li><a href="#mice">Gaming Mice</a></li>
+                    <li><a href="#controllers">Controllers</a></li>
+                    <li><a href="#monitors">Monitors</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="support.html">Help Center</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Warranty</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 GameHub Store. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
     </footer>
 
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be populated here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">
+                <i class="fas fa-credit-card"></i> Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
     <script>
-        function updateTimer() {
-            const now = new Date();
-            const endTime = new Date();
-            endTime.setHours(23, 33, 51, 0);
-         
-            if (now > endTime) {
-                endTime.setDate(endTime.getDate() + 1);
+        // Sample products data
+        const products = [
+            {
+                id: 1,
+                name: "HyperX Cloud Alpha S",
+                category: "headsets",
+                price: 149.99,
+                oldPrice: 179.99,
+                rating: 4.8,
+                reviews: 1247,
+                image: "../assets/images/rpg game.jfif",
+                badges: ["hot", "bestseller"],
+                tags: ["wireless", "noise-cancelling", "rgb"],
+                description: "Premium gaming headset with dual chamber drivers and advanced active noise cancellation."
+            },
+            {
+                id: 2,
+                name: "Razer BlackWidow V3",
+                category: "keyboards",
+                price: 139.99,
+                rating: 4.9,
+                reviews: 2156,
+                image: "../assets/images/rpg game.jfif",
+                badges: ["new"],
+                tags: ["mechanical", "rgb", "wireless"],
+                description: "Mechanical gaming keyboard with Razer Green switches and customizable RGB lighting."
+            },
+            {
+                id: 3,
+                name: "Logitech G305",
+                category: "mice",
+                price: 49.99,
+                oldPrice: 59.99,
+                rating: 4.7,
+                reviews: 3421,
+                image: "../assets/images/rpg game.jfif",
+                badges: ["sale"],
+                tags: ["wireless", "lightweight", "long-battery"],
+                description: "Lightweight wireless gaming mouse with HERO sensor and 9-month battery life."
+            },
+            {
+                id: 4,
+                name: "Xbox Elite Controller",
+                category: "controllers",
+                price: 179.99,
+                rating: 4.6,
+                reviews: 987,
+                image: "../assets/images/rpg game.jfif",
+                badges: ["premium"],
+                tags: ["wireless", "customizable", "hall-effect"],
+                description: "Professional gaming controller with customizable components and advanced features."
+            },
+            {
+                id: 5,
+                name: "ASUS ROG Swift",
+                category: "monitors",
+                price: 699.99,
+                rating: 4.8,
+                reviews: 654,
+                image: "../assets/images/rpg game.jfif",
+                badges: ["featured"],
+                tags: ["144hz", "4k", "hdr"],
+                description: "27-inch 4K gaming monitor with 144Hz refresh rate and HDR technology."
+            },
+            {
+                id: 6,
+                name: "SteelSeries Arctis Pro",
+                category: "headsets",
+                price: 249.99,
+                rating: 4.9,
+                reviews: 1876,
+                image: "../assets/images/rpg game.jfif",
+                badges: ["premium", "bestseller"],
+                tags: ["wireless", "hi-res", "modular"],
+                description: "High-end gaming headset with Hi-Res audio and modular design."
             }
-            
-            const timeLeft = endTime - now;
-            
+        ];
+
+        let cart = [];
+        let cartCount = 0;
+
+        // Initialize products
+        function initializeProducts() {
+            const productsGrid = document.getElementById('productsSection');
+
+            products.forEach(product => {
+                const productCard = createProductCard(product);
+                productsGrid.appendChild(productCard);
+            });
+        }
+
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.dataset.category = product.category;
+            card.dataset.price = product.price;
+
+            const badgesHtml = product.badges.map(badge => {
+                let badgeClass = badge;
+                let badgeText = badge.charAt(0).toUpperCase() + badge.slice(1);
+                if (badge === 'bestseller') badgeText = 'Best Seller';
+                return `<div class="product-badge ${badgeClass}">${badgeText}</div>`;
+            }).join('');
+
+            const tagsHtml = product.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+
+            const starsHtml = generateStars(product.rating);
+
+            card.innerHTML = `
+                <div class="product-image">
+                    <img src="${product.image}" alt="${product.name}">
+                    ${badgesHtml}
+                    <div class="product-actions">
+                        <button class="action-btn wishlist-btn" data-id="${product.id}">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="action-btn quick-view-btn" data-id="${product.id}">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <div class="product-meta">
+                        <div class="product-price">
+                            ${product.oldPrice ? `<span class="old-price">$${product.oldPrice}</span>` : ''}
+                            <span class="current-price">$${product.price}</span>
+                            ${product.oldPrice ? `<span class="discount-badge">${Math.round((1 - product.price/product.oldPrice) * 100)}% OFF</span>` : ''}
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">${starsHtml}</div>
+                            <span class="rating-count">(${product.reviews})</span>
+                        </div>
+                    </div>
+                    <div class="product-tags">
+                        ${tagsHtml}
+                    </div>
+                    <button class="add-to-cart" data-id="${product.id}">
+                        <i class="fas fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            `;
+
+            return card;
+        }
+
+        function generateStars(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+
+            const emptyStars = 5 - Math.ceil(rating);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+
+            return stars;
+        }
+
+        // Cart functionality
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                const existingItem = cart.find(item => item.id === productId);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({ ...product, quantity: 1 });
+                }
+                updateCartUI();
+                showNotification(`${product.name} added to cart!`);
+            }
+        }
+
+        function updateCartUI() {
+            cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cartCount').textContent = cartCount;
+
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
+                cartTotal.textContent = '$0.00';
+                return;
+            }
+
+            let itemsHtml = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                itemsHtml += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <p>$${item.price} × ${item.quantity}</p>
+                        </div>
+                        <button class="remove-item" data-id="${item.id}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+            });
+
+            cartItems.innerHTML = itemsHtml;
+            cartTotal.textContent = `$${total.toFixed(2)}`;
+        }
+
+        function showNotification(message) {
+            // Simple notification - you can enhance this
+            alert(message);
+        }
+
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date();
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + 2);
+            endDate.setHours(14, 27, 45, 0);
+
+            const timeLeft = endDate - now;
+
+            if (timeLeft <= 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
             const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-            
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
             document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
             document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
             document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
         }
-        
-        setInterval(updateTimer, 1000);
-        updateTimer(); 
 
-        const categoryBtns = document.querySelectorAll('.category-btn');
-        categoryBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                categoryBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                if (btn.textContent !== 'All') {
-                    alert(`Filtering by ${btn.textContent} category`);
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeProducts();
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+
+            // Cart sidebar toggle
+            document.getElementById('cartBtn').addEventListener('click', function() {
+                document.getElementById('cartSidebar').classList.add('active');
+                document.getElementById('overlay').classList.add('active');
+            });
+
+            document.getElementById('closeCart').addEventListener('click', function() {
+                document.getElementById('cartSidebar').classList.remove('active');
+                document.getElementById('overlay').classList.remove('active');
+            });
+
+            document.getElementById('overlay').addEventListener('click', function() {
+                document.getElementById('cartSidebar').classList.remove('active');
+                document.getElementById('overlay').classList.remove('active');
+            });
+
+            // Add to cart buttons
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('add-to-cart') || e.target.closest('.add-to-cart')) {
+                    const button = e.target.classList.contains('add-to-cart') ? e.target : e.target.closest('.add-to-cart');
+                    const productId = parseInt(button.dataset.id);
+                    addToCart(productId);
                 }
             });
-        });
 
-        const addToCartBtns = document.querySelectorAll('.add-to-cart');
-        const cartCount = document.querySelector('.cart-count');
-        
-        addToCartBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const productTitle = this.parentElement.querySelector('.product-title').textContent;
-                const productPrice = this.parentElement.querySelector('.product-price').textContent;
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
 
-                let currentCount = parseInt(cartCount.textContent);
-                cartCount.textContent = currentCount + 1;
+                    const filter = this.dataset.filter;
+                    filterProducts(filter);
+                });
+            });
 
-                this.innerHTML = '<i class="fas fa-check"></i> Added to Cart';
-                this.style.backgroundColor = '#2ecc71';
-                setTimeout(() => {
-                    this.innerHTML = '<i class="fas fa-cart-plus"></i> Add to Cart';
-                    this.style.backgroundColor = '';
-                }, 2000);
-                
-                console.log(`Added to cart: ${productTitle} for ${productPrice}`);
+            // Category cards
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const category = this.dataset.category;
+                    filterProducts(category);
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                });
+            });
+
+            // Bundle button
+            document.getElementById('bundleBtn').addEventListener('click', function() {
+                showNotification('Ultimate Gaming Bundle added to cart!');
+                cartCount += 4; // Bundle contains 4 items
+                document.getElementById('cartCount').textContent = cartCount;
             });
         });
-        const offerBtn = document.querySelector('.offer-button');
-        offerBtn.addEventListener('click', () => {
-            alert('Special offer bundle added to cart!');
-            let currentCount = parseInt(cartCount.textContent);
-            cartCount.textContent = currentCount + 1;
-        });
+
+        function filterProducts(filter) {
+            const productCards = document.querySelectorAll('.product-card');
+
+            productCards.forEach(card => {
+                const category = card.dataset.category;
+                const price = parseFloat(card.dataset.price);
+
+                let show = true;
+
+                if (filter === 'all') {
+                    show = true;
+                } else if (filter === 'featured') {
+                    show = card.querySelector('.product-badge.featured') !== null;
+                } else if (filter === 'bestseller') {
+                    show = card.querySelector('.product-badge.bestseller') !== null;
+                } else if (filter === 'new') {
+                    show = card.querySelector('.product-badge.new') !== null;
+                } else if (filter === 'sale') {
+                    show = card.querySelector('.discount-badge') !== null;
+                } else if (filter === 'premium') {
+                    show = card.querySelector('.product-badge.premium') !== null;
+                } else {
+                    show = category === filter;
+                }
+
+                card.style.display = show ? 'block' : 'none';
+            });
+        }
+
+        function scrollToProducts() {
+            document.getElementById('productsSection').scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>

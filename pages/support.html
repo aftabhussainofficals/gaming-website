@@ -4,32 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameHubnkmm - Support Center</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>Support - GameHub</title>
     <link rel="stylesheet" href="../assets/css/support.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="bg-overlay"></div>
-    
+    <!-- Enhanced Header -->
     <header>
         <div class="header-bg">
             <div class="header-gradient"></div>
             <div class="header-particles"></div>
         </div>
-        
+
         <div class="header-container">
             <div class="logo">
-                <a href="../index.html" style="text-decoration: none; color: inherit;">
-                    <h1><i class="fas fa-gamepad"></i> GameHub</h1>
-                    <div class="logo-subtitle">Play. Connect. Conquer.</div>
-                </a>
+                <h1><i class="fas fa-gamepad"></i> GameHub</h1>
+                <div class="logo-subtitle">Play. Connect. Conquer.</div>
             </div>
-            
+
+            <div class="xp-progress">
+                <div class="xp-info">
+                    <span class="xp-level">Level 42</span>
+                    <span class="xp-text">62% to next level</span>
+                </div>
+                <div class="xp-bar">
+                    <div class="xp-fill"></div>
+                </div>
+            </div>
+
             <div class="header-right">
-                <a href="login.html" class="login-btn">
-                    <i class="fas fa-sign-in-alt"></i> Login
-                </a>
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=gamer&background=%2300a8ff" alt="User Avatar">
+                        <div class="online-status"></div>
+                    </div>
+                    <div class="user-info">
+                        <span class="username">CyberNinja</span>
+                        <div class="user-badges">
+                            <span class="badge premium"><i class="fas fa-crown"></i></span>
+                            <span class="badge streamer"><i class="fas fa-broadcast-tower"></i></span>
+                            <span class="badge elite"><i class="fas fa-star"></i></span>
+                        </div>
+                    </div>
+                    <button class="profile-dropdown">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-trophy"></i> Achievements</a>
+                        <a href="#"><i class="fas fa-gamepad"></i> My Games</a>
+                        <a href="#"><i class="fas fa-friends"></i> Friends</a>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <button class="theme-toggle">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -40,48 +81,441 @@
                     <li><a href="games.html"><i class="fas fa-gamepad"></i> <span>Games</span></a></li>
                     <li><a href="news.html"><i class="fas fa-newspaper"></i> <span>News</span></a></li>
                     <li><a href="community.html"><i class="fas fa-users"></i> <span>Community</span></a></li>
+                    <li><a href="tournaments.html"><i class="fas fa-trophy"></i> <span>Tournaments</span></a></li>
+                    <li><a href="reviews.html"><i class="fas fa-broadcast-tower"></i> <span>Reviews</span></a></li>
+                    <li><a href="store.html"><i class="fas fa-shopping-cart"></i> <span>Shop</span></a></li>
                     <li><a href="support.html" class="nav-active"><i class="fas fa-headset"></i> <span>Support</span></a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <main class="support-main">
-        <!-- Hero Section -->
+    <main>
+        <!-- Support Hero Section -->
         <section class="support-hero">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1><i class="fas fa-headset"></i> GameHub Support Center</h1>
-                    <p class="hero-subtitle">Get help, find answers, and level up your gaming experience</p>
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <i class="fas fa-clock"></i>
-                            <span>24/7 Support</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fas fa-users"></i>
-                            <span>Live Chat Available</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fas fa-check-circle"></i>
-                            <span>95% Resolution Rate</span>
-                        </div>
+                <h1><i class="fas fa-headset"></i> GameHub Support Center</h1>
+                <p class="hero-subtitle">Get help, find answers, and level up your gaming experience with our 24/7 support team</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>24/7 Support</span>
                     </div>
-                </div>
-                <div class="hero-illustration">
-                    <div class="support-robot">
-                        <i class="fas fa-robot"></i>
+                    <div class="stat">
+                        <i class="fas fa-users"></i>
+                        <span>Live Chat Available</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-check-circle"></i>
+                        <span>95% Resolution Rate</span>
                     </div>
                 </div>
             </div>
-            
-            <div class="search-container">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Search for help articles, guides, or common issues..." id="supportSearch">
-                    <button class="search-btn">Search</button>
+
+            <div class="support-search">
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search for help articles, guides, or common issues..." id="supportSearch">
+                        <button class="search-btn">Search</button>
+                    </div>
                 </div>
-                <div class="search-suggestions">
+            </div>
+        </section>
+
+        <!-- Support Categories -->
+        <section class="support-categories">
+            <div class="categories-header">
+                <h2>How can we help you today?</h2>
+                <p>Browse our support categories to find the help you need</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" onclick="showCategory('account')">
+                    <div class="category-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Account & Login</h3>
+                    <p>Password reset, account security, login issues, and account management</p>
+                </div>
+                <div class="category-card" onclick="showCategory('games')">
+                    <div class="category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Games & Gaming</h3>
+                    <p>Game installation, performance issues, bugs, and gameplay questions</p>
+                </div>
+                <div class="category-card" onclick="showCategory('billing')">
+                    <div class="category-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Billing & Payments</h3>
+                    <p>Subscriptions, refunds, payment methods, and billing inquiries</p>
+                </div>
+                <div class="category-card" onclick="showCategory('technical')">
+                    <div class="category-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Technical Support</h3>
+                    <p>System requirements, compatibility, and technical troubleshooting</p>
+                </div>
+                <div class="category-card" onclick="showCategory('community')">
+                    <div class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community & Moderation</h3>
+                    <p>Community guidelines, reporting issues, and moderation questions</p>
+                </div>
+                <div class="category-card" onclick="showCategory('esports')">
+                    <div class="category-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Esports & Tournaments</h3>
+                    <p>Tournament registration, rules, prizes, and competitive gaming</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="faq-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common questions and issues</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How do I reset my password?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>To reset your password, click on the "Forgot Password" link on the login page. Enter your email address, and we'll send you a password reset link. Make sure to check your spam folder if you don't see the email in your inbox.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Why can't I access my purchased games?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>If you can't access your purchased games, first ensure you're logged in with the correct account. Check your download history in your profile, and verify that your payment was processed successfully. If the issue persists, contact our billing support team.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How do I report a bug or technical issue?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>To report a bug, go to our bug report form in the support section. Include detailed information about the issue, your system specifications, and steps to reproduce the problem. Our technical team will investigate and provide updates on the status.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What are the system requirements for GameHub?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>GameHub requires Windows 10 or later, at least 8GB RAM, and a DirectX 11 compatible graphics card. For the best experience, we recommend 16GB RAM and a dedicated graphics card. Check individual game pages for specific requirements.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How do I cancel my subscription?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>To cancel your subscription, go to your account settings and navigate to the "Billing & Subscriptions" section. Click on "Cancel Subscription" and follow the prompts. Your access will continue until the end of your current billing period.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I transfer my games to another account?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Game licenses are tied to the purchasing account and cannot be transferred to another account for security and anti-fraud reasons. However, you can share your account with family members through our Family Sharing feature.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="contact-header">
+                <h2>Still need help? Contact our support team</h2>
+                <p>Our expert support team is here to help you with any questions or issues</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Live Chat Support</h3>
+                    <p>Get instant help from our support team through live chat. Available 24/7 for urgent issues.</p>
+                    <button class="contact-btn" onclick="openLiveChat()">
+                        <i class="fas fa-comments"></i> Start Chat
+                    </button>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Support</h3>
+                    <p>Send us a detailed message about your issue. We typically respond within 24 hours.</p>
+                    <a href="mailto:support@gamehub.com" class="contact-btn">
+                        <i class="fas fa-envelope"></i> Send Email
+                    </a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone Support</h3>
+                    <p>Speak directly with our support specialists. Premium support line available for subscribers.</p>
+                    <a href="tel:+1-800-GAMEHUB" class="contact-btn">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Forums</h3>
+                    <p>Connect with other gamers and find solutions in our active community forums.</p>
+                    <a href="community.html" class="contact-btn">
+                        <i class="fas fa-users"></i> Visit Forums
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Live Chat Widget -->
+    <div class="live-chat-widget" id="liveChatWidget">
+        <div class="chat-header">
+            <h3><i class="fas fa-headset"></i> Live Support</h3>
+            <button class="chat-close" onclick="closeLiveChat()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message support">
+                <div class="message-content">
+                    Hi there! 👋 Welcome to GameHub Support. How can I help you today?
+                </div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message..." id="chatInput">
+            <button onclick="sendMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Chat Toggle Button -->
+    <button class="chat-toggle" id="chatToggle" onclick="toggleLiveChat()">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <!-- Enhanced Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-headset"></i> GameHub Support</h3>
+                <p>24/7 support for all your gaming needs. From technical issues to account questions, we're here to help you level up your gaming experience.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitch"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Support Categories</h4>
+                <ul>
+                    <li><a href="#account">Account & Login</a></li>
+                    <li><a href="#games">Games & Gaming</a></li>
+                    <li><a href="#billing">Billing & Payments</a></li>
+                    <li><a href="#technical">Technical Support</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#esports">Esports</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Helpful Links</h4>
+                <ul>
+                    <li><a href="#">System Requirements</a></li>
+                    <li><a href="#">Download GameHub</a></li>
+                    <li><a href="#">Troubleshooting Guide</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="#">Safety Guidelines</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Status & Updates</h4>
+                <ul>
+                    <li><a href="#">Service Status</a></li>
+                    <li><a href="#">Maintenance Schedule</a></li>
+                    <li><a href="#">Release Notes</a></li>
+                    <li><a href="#">Security Updates</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 GameHub Support Center. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="#">Support Terms</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Close all FAQ items
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                    });
+
+                    // Open clicked item if it wasn't active
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // Search functionality
+            const searchInput = document.getElementById('supportSearch');
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const faqItems = document.querySelectorAll('.faq-item');
+
+                faqItems.forEach(item => {
+                    const question = item.querySelector('.faq-question').textContent.toLowerCase();
+                    const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+
+                    if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+
+            // Live Chat functionality
+            let chatMessages = [];
+            let chatStep = 0;
+
+            window.openLiveChat = function() {
+                document.getElementById('liveChatWidget').style.display = 'flex';
+                document.getElementById('chatToggle').style.display = 'none';
+            };
+
+            window.closeLiveChat = function() {
+                document.getElementById('liveChatWidget').style.display = 'none';
+                document.getElementById('chatToggle').style.display = 'block';
+            };
+
+            window.toggleLiveChat = function() {
+                const chatWidget = document.getElementById('liveChatWidget');
+                if (chatWidget.style.display === 'flex') {
+                    closeLiveChat();
+                } else {
+                    openLiveChat();
+                }
+            };
+
+            window.sendMessage = function() {
+                const input = document.getElementById('chatInput');
+                const message = input.value.trim();
+
+                if (message) {
+                    addMessage('user', message);
+                    input.value = '';
+
+                    // Simulate support response
+                    setTimeout(() => {
+                        const responses = [
+                            "Thanks for reaching out! Let me help you with that. Could you please provide more details about the issue you're experiencing?",
+                            "I understand you're having trouble. Let me check our system for any known issues. In the meantime, could you try restarting the application?",
+                            "That sounds frustrating! Our technical team is the best at resolving these kinds of issues. Let me connect you with a specialist.",
+                            "Great question! Here's what you can do: First, make sure your GameHub app is updated to the latest version. You can check for updates in Settings > Updates.",
+                            "I see you're having account-related issues. For security reasons, I need to verify your account. Could you please confirm the email address associated with your GameHub account?",
+                            "Tournament registration issues can be tricky. Let me check the tournament status. Which tournament are you trying to join?"
+                        ];
+
+                        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                        addMessage('support', randomResponse);
+                    }, 1000 + Math.random() * 2000);
+                }
+            };
+
+            function addMessage(type, content) {
+                const messagesContainer = document.getElementById('chatMessages');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${type}`;
+                messageDiv.innerHTML = `<div class="message-content">${content}</div>`;
+                messagesContainer.appendChild(messageDiv);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+
+            // Enter key support for chat
+            document.getElementById('chatInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+
+            // Category navigation
+            window.showCategory = function(category) {
+                // Scroll to FAQ section and filter questions
+                document.querySelector('.faq-section').scrollIntoView({ behavior: 'smooth' });
+
+                // You could implement category filtering here
+                console.log('Showing category:', category);
+            };
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Show chat toggle after page load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('chatToggle').style.display = 'block';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
                     <span>Popular searches:</span>
                     <a href="#">Account recovery</a>
                     <a href="#">Payment issues</a>
@@ -468,8 +902,8 @@
             </div>
         </section>
     </main>
-
     <footer class="dynamic-footer">
+
         <div class="footer-main">
             <div class="footer-container">
                 <div class="footer-section footer-brand">
@@ -478,41 +912,44 @@
                         <h3>GameHub</h3>
                     </div>
                     <p class="footer-description">
-                        Your gaming journey is our priority. We're here to help 24/7.
+                        The ultimate gaming ecosystem where players connect, compete, and create memories.
                     </p>
                     <div class="social-links">
                         <a href="#" class="social-link discord"><i class="fab fa-discord"></i></a>
                         <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="social-link youtube"><i class="fab fa-youtube"></i></a>
                         <a href="#" class="social-link twitch"><i class="fab fa-twitch"></i></a>
+                        <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Support Resources</h4>
+                    <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#"><i class="fas fa-book"></i> Knowledge Base</a></li>
-                        <li><a href="#"><i class="fas fa-video"></i> Video Tutorials</a></li>
-                        <li><a href="#"><i class="fas fa-file-alt"></i> Guides & Manuals</a></li>
-                        <li><a href="#"><i class="fas fa-download"></i> Download Center</a></li>
+                        <li><a href="../index.html"><i class="fas fa-arrow-right"></i> Home</a></li>
+                        <li><a href="games.html"><i class="fas fa-arrow-right"></i> Games Library</a></li>
+                        <li><a href="tournaments.html"><i class="fas fa-arrow-right"></i> Tournaments</a></li>
+                        <li><a href="community.html"><i class="fas fa-arrow-right"></i> Community</a></li>
+                        <li><a href="store.html"><i class="fas fa-arrow-right"></i> Game Store</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Help Categories</h4>
+                    <h4>Community</h4>
                     <ul>
-                        <li><a href="#"><i class="fas fa-user-cog"></i> Account Help</a></li>
-                        <li><a href="#"><i class="fas fa-credit-card"></i> Billing Support</a></li>
-                        <li><a href="#"><i class="fas fa-gamepad"></i> Game Support</a></li>
-                        <li><a href="#"><i class="fas fa-network-wired"></i> Technical Help</a></li>
+                        <li><a href="community.html"><i class="fas fa-comments"></i> Forums</a></li>
+                        <li><a href="community.html"><i class="fas fa-users"></i> Teams</a></li>
+                        <li><a href="reviews.html"><i class="fas fa-chart-line"></i> Leaderboards</a></li>
+                        <li><a href="tournaments.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                        <li><a href="community.html"><i class="fas fa-shield-alt"></i> Clans</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section newsletter">
-                    <h4>Support Updates</h4>
-                    <p>Get notified about system status, maintenance, and new support features.</p>
+                    <h4>Weekly Newsletter</h4>
+                    <p>Get gaming news, updates, and exclusive content delivered weekly.</p>
                     <form class="newsletter-form">
-                        <input type="email" placeholder="Your email" required>
+                        <input type="email" placeholder="Your gaming email" required>
                         <button type="submit">
                             <i class="fas fa-paper-plane"></i>
                         </button>
@@ -524,59 +961,52 @@
         <div class="footer-bottom">
             <div class="footer-bottom-container">
                 <div class="copyright">
-                    <p>&copy; 2025 GameHub Support Center. Need help? We're here 24/7.</p>
+                    <p>&copy; 2025 GameHub. All rights reserved. <span class="age-rating">18+</span></p>
                     <div class="legal-links">
                         <a href="privacy.html">Privacy Policy</a>
                         <a href="terms.html">Terms of Service</a>
                         <a href="#">Cookie Policy</a>
-                        <a href="#">Community Guidelines</a>
+                        <a href="#">Safety Guidelines</a>
                     </div>
                 </div>
                 
                 <div class="footer-features">
                     <div class="feature">
-                        <i class="fas fa-headset"></i>
-                        <span>24/7 Support</span>
-                    </div>
-                    <div class="feature">
                         <i class="fas fa-shield-alt"></i>
-                        <span>Secure Help</span>
+                        <span>Secure Gaming</span>
                     </div>
                     <div class="feature">
                         <i class="fas fa-bolt"></i>
-                        <span>Quick Response</span>
+                        <span>Low Latency</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-globe"></i>
+                        <span>Global Servers</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 Support</span>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- Live Chat Widget -->
-        <div class="live-chat-widget" id="chatWidget">
-            <div class="chat-header">
-                <h4><i class="fas fa-comment-dots"></i> Live Chat Support</h4>
-                <button class="minimize-chat">−</button>
-            </div>
-            <div class="chat-body">
-                <div class="chat-messages">
-                    <div class="message bot">
-                        <div class="avatar">B</div>
-                        <div class="content">
-                            <span class="name">Bot</span>
-                            <p>Hello! How can I help you today?</p>
-                            <span class="time">Just now</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="chat-input">
-                    <input type="text" placeholder="Type your message...">
-                    <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="chat-toggle" id="chatToggle">
-            <i class="fas fa-comment-dots"></i>
-            <span class="notification-badge">3</span>
+        <div class="theme-changer">
+            <button class="theme-btn" data-theme="blue">
+                <i class="fas fa-water"></i>
+            </button>
+            <button class="theme-btn active" data-theme="red">
+                <i class="fas fa-fire"></i>
+            </button>
+            <button class="theme-btn" data-theme="green">
+                <i class="fas fa-leaf"></i>
+            </button>
+            <button class="theme-btn" data-theme="purple">
+                <i class="fas fa-crown"></i>
+            </button>
+            <button class="theme-btn" data-theme="cyber">
+                <i class="fas fa-robot"></i>
+            </button>
         </div>
         
         <div class="scroll-top" id="scrollTop">

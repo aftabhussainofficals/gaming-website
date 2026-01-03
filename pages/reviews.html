@@ -6,30 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameHub - Reviews & Ratings</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/hero.css">
     <link rel="stylesheet" href="../assets/css/reviews.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="bg-overlay"></div>
-    
+    <!-- Enhanced Header -->
     <header>
         <div class="header-bg">
             <div class="header-gradient"></div>
             <div class="header-particles"></div>
         </div>
-        
+
         <div class="header-container">
             <div class="logo">
-                <a href="../index.html" style="text-decoration: none; color: inherit;">
-                    <h1><i class="fas fa-gamepad"></i> GameHub</h1>
-                    <div class="logo-subtitle">Play. Connect. Conquer.</div>
-                </a>
+                <h1><i class="fas fa-gamepad"></i> GameHub</h1>
+                <div class="logo-subtitle">Play. Connect. Conquer.</div>
             </div>
-            
+
+            <div class="xp-progress">
+                <div class="xp-info">
+                    <span class="xp-level">Level 42</span>
+                    <span class="xp-text">62% to next level</span>
+                </div>
+                <div class="xp-bar">
+                    <div class="xp-fill"></div>
+                </div>
+            </div>
+
             <div class="header-right">
-                <a href="login.html" class="login-btn">
-                    <i class="fas fa-sign-in-alt"></i> Login
-                </a>
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=gamer&background=%2300a8ff" alt="User Avatar">
+                        <div class="online-status"></div>
+                    </div>
+                    <div class="user-info">
+                        <span class="username">CyberNinja</span>
+                        <div class="user-badges">
+                            <span class="badge premium"><i class="fas fa-crown"></i></span>
+                            <span class="badge streamer"><i class="fas fa-broadcast-tower"></i></span>
+                            <span class="badge elite"><i class="fas fa-star"></i></span>
+                        </div>
+                    </div>
+                    <button class="profile-dropdown">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-trophy"></i> Achievements</a>
+                        <a href="#"><i class="fas fa-gamepad"></i> My Games</a>
+                        <a href="#"><i class="fas fa-friends"></i> Friends</a>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <button class="theme-toggle">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -40,30 +85,158 @@
                     <li><a href="games.html"><i class="fas fa-gamepad"></i> <span>Games</span></a></li>
                     <li><a href="news.html"><i class="fas fa-newspaper"></i> <span>News</span></a></li>
                     <li><a href="community.html"><i class="fas fa-users"></i> <span>Community</span></a></li>
+                    <li><a href="tournaments.html"><i class="fas fa-trophy"></i> <span>Tournaments</span></a></li>
+                    <li><a href="reviews.html" class="active"><i class="fas fa-broadcast-tower"></i> <span>Reviews</span></a></li>
+                    <li><a href="store.html"><i class="fas fa-shopping-cart"></i> <span>Shop</span></a></li>
                     <li><a href="support.html"><i class="fas fa-headset"></i> <span>Support</span></a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <main class="reviews-main">
-        <!-- Hero Section -->
+    <main class="reviews-container">
+        <!-- Enhanced Hero Section -->
         <section class="reviews-hero">
             <div class="hero-content">
                 <h1><i class="fas fa-star"></i> Game Reviews & Ratings</h1>
-                <p class="hero-subtitle">Discover what gamers are saying about the hottest titles</p>
+                <p class="hero-subtitle">Discover what gamers are saying about the hottest titles and share your own experiences</p>
                 <div class="hero-stats">
-                    <div class="stat">
+                    <div class="stat-item">
                         <span class="stat-value">4.8</span>
                         <span class="stat-label">Average Rating</span>
                     </div>
-                    <div class="stat">
-                        <span class="stat-value">12.4K</span>
-                        <span class="stat-label">Reviews</span>
+                    <div class="stat-item">
+                        <span class="stat-value">12.4K+</span>
+                        <span class="stat-label">Total Reviews</span>
                     </div>
-                    <div class="stat">
+                    <div class="stat-item">
                         <span class="stat-value">98%</span>
                         <span class="stat-label">Positive Feedback</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Review Filters -->
+        <section class="review-filters">
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label for="game-filter">Filter by Game</label>
+                    <select id="game-filter" class="filter-select">
+                        <option value="">All Games</option>
+                        <option value="cyberpunk">Cyber Punk 2077</option>
+                        <option value="valorant">Valorant</option>
+                        <option value="fortnite">Fortnite</option>
+                        <option value="genshin">Genshin Impact</option>
+                        <option value="minecraft">Minecraft</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="rating-filter">Minimum Rating</label>
+                    <select id="rating-filter" class="filter-select">
+                        <option value="">All Ratings</option>
+                        <option value="5">5 Stars</option>
+                        <option value="4">4+ Stars</option>
+                        <option value="3">3+ Stars</option>
+                        <option value="2">2+ Stars</option>
+                        <option value="1">1+ Stars</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sort-filter">Sort By</label>
+                    <select id="sort-filter" class="filter-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="highest">Highest Rated</option>
+                        <option value="lowest">Lowest Rated</option>
+                        <option value="helpful">Most Helpful</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="platform-filter">Platform</label>
+                    <select id="platform-filter" class="filter-select">
+                        <option value="">All Platforms</option>
+                        <option value="pc">PC</option>
+                        <option value="ps5">PlayStation 5</option>
+                        <option value="xbox">Xbox Series X</option>
+                        <option value="switch">Nintendo Switch</option>
+                        <option value="mobile">Mobile</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Review Categories -->
+        <section class="review-categories">
+            <div class="section-header">
+                <h2>Review Categories</h2>
+                <p>Browse reviews by game genre and category</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Action Games</h3>
+                    <p>Fast-paced shooters, beat 'em ups, and intense combat games</p>
+                    <div class="category-stats">
+                        <span><i class="fas fa-star"></i> 4.6 avg</span>
+                        <span><i class="fas fa-comment"></i> 2.3K reviews</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>RPG Games</h3>
+                    <p>Deep story-driven adventures and character progression</p>
+                    <div class="category-stats">
+                        <span><i class="fas fa-star"></i> 4.8 avg</span>
+                        <span><i class="fas fa-comment"></i> 1.8K reviews</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <h3>Strategy Games</h3>
+                    <p>Tactical gameplay, city builders, and turn-based classics</p>
+                    <div class="category-stats">
+                        <span><i class="fas fa-star"></i> 4.4 avg</span>
+                        <span><i class="fas fa-comment"></i> 956 reviews</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Racing Games</h3>
+                    <p>High-speed racing, stunt driving, and motorsport simulation</p>
+                    <div class="category-stats">
+                        <span><i class="fas fa-star"></i> 4.3 avg</span>
+                        <span><i class="fas fa-comment"></i> 742 reviews</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <h3>Sports Games</h3>
+                    <p>Sports simulation, arcade games, and competitive sports</p>
+                    <div class="category-stats">
+                        <span><i class="fas fa-star"></i> 4.2 avg</span>
+                        <span><i class="fas fa-comment"></i> 1.1K reviews</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Puzzle Games</h3>
+                    <p>Brain teasers, logic games, and mind-bending challenges</p>
+                    <div class="category-stats">
+                        <span><i class="fas fa-star"></i> 4.5 avg</span>
+                        <span><i class="fas fa-comment"></i> 634 reviews</span>
                     </div>
                 </div>
             </div>
@@ -75,49 +248,138 @@
                 <h2><i class="fas fa-crown"></i> Featured Reviews</h2>
                 <p>Top-rated reviews from our community</p>
             </div>
-            
-            <div class="reviews-grid">
-                <!-- Review cards will be populated by JavaScript -->
+
+            <div class="reviews-grid" id="reviewsGrid">
+                <!-- Reviews will be populated by JavaScript -->
             </div>
-            
+
             <div class="load-more">
-                <button class="load-more-btn">
+                <button class="load-more-btn" id="loadMoreBtn">
                     <i class="fas fa-sync-alt"></i> Load More Reviews
                 </button>
             </div>
         </section>
 
-        <!-- Review Submission -->
+        <!-- Top Reviewers -->
+        <section class="top-reviewers">
+            <div class="reviewers-header">
+                <h3><i class="fas fa-trophy"></i> Top Reviewers</h3>
+                <p>Our most active and helpful community reviewers</p>
+            </div>
+            <div class="reviewers-grid">
+                <div class="reviewer-card">
+                    <div class="reviewer-rank">1</div>
+                    <div class="reviewer-avatar">GS</div>
+                    <h4>GameMaster</h4>
+                    <div class="reviewer-stats">
+                        <span><i class="fas fa-star"></i> 4.9 avg</span>
+                        <span><i class="fas fa-comment"></i> 247 reviews</span>
+                    </div>
+                </div>
+                <div class="reviewer-card">
+                    <div class="reviewer-avatar">PR</div>
+                    <h4>ProReviewer</h4>
+                    <div class="reviewer-stats">
+                        <span><i class="fas fa-star"></i> 4.8 avg</span>
+                        <span><i class="fas fa-comment"></i> 189 reviews</span>
+                    </div>
+                </div>
+                <div class="reviewer-card">
+                    <div class="reviewer-avatar">RG</div>
+                    <h4>RetroGamer</h4>
+                    <div class="reviewer-stats">
+                        <span><i class="fas fa-star"></i> 4.7 avg</span>
+                        <span><i class="fas fa-comment"></i> 156 reviews</span>
+                    </div>
+                </div>
+                <div class="reviewer-card">
+                    <div class="reviewer-avatar">EG</div>
+                    <h4>EliteGamer</h4>
+                    <div class="reviewer-stats">
+                        <span><i class="fas fa-star"></i> 4.6 avg</span>
+                        <span><i class="fas fa-comment"></i> 134 reviews</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Review Insights -->
+        <section class="review-insights">
+            <div class="insights-header">
+                <h3><i class="fas fa-chart-bar"></i> Review Insights</h3>
+                <p>Discover trends and patterns from our review data</p>
+            </div>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4>Most Reviewed</h4>
+                    <p>Games that get the most attention from reviewers</p>
+                    <div class="insight-value">Cyber Punk 2077</div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-thumbs-up"></i>
+                    </div>
+                    <h4>Highest Rated</h4>
+                    <p>Games with the best average review scores</p>
+                    <div class="insight-value">4.9/5</div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h4>Most Controversial</h4>
+                    <p>Games that spark the most discussion</p>
+                    <div class="insight-value">Battle Arena</div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Community Favorite</h4>
+                    <p>Most loved by our reviewer community</p>
+                    <div class="insight-value">RPG Adventure</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Submit Review Section -->
         <section class="submit-review">
             <div class="submit-container">
                 <div class="submit-info">
                     <h2><i class="fas fa-edit"></i> Share Your Experience</h2>
-                    <p>Help other gamers by sharing your thoughts and ratings</p>
+                    <p>Help other gamers by sharing your thoughts and ratings. Your review could help someone discover their next favorite game!</p>
                     <div class="requirements">
-                        <h4>Review Requirements:</h4>
+                        <h4><i class="fas fa-clipboard-check"></i> Review Guidelines</h4>
                         <ul>
                             <li><i class="fas fa-check-circle"></i> Must have played the game for at least 2 hours</li>
-                            <li><i class="fas fa-check-circle"></i> Provide detailed feedback</li>
-                            <li><i class="fas fa-check-circle"></i> Be honest and constructive</li>
-                            <li><i class="fas fa-check-circle"></i> Follow community guidelines</li>
+                            <li><i class="fas fa-check-circle"></i> Provide detailed, constructive feedback</li>
+                            <li><i class="fas fa-check-circle"></i> Be honest and respectful in your review</li>
+                            <li><i class="fas fa-check-circle"></i> Follow our community guidelines</li>
+                            <li><i class="fas fa-check-circle"></i> Include both positive and negative aspects</li>
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="review-form">
                     <form id="reviewForm">
                         <div class="form-group">
                             <label for="gameSelect">Select Game *</label>
                             <select id="gameSelect" required>
-                                <option value="">Choose a game...</option>
+                                <option value="">Choose a game to review...</option>
+                                <option value="cyberpunk">Cyber Punk 2077</option>
                                 <option value="valorant">Valorant</option>
                                 <option value="fortnite">Fortnite</option>
                                 <option value="genshin">Genshin Impact</option>
                                 <option value="minecraft">Minecraft</option>
                                 <option value="league">League of Legends</option>
+                                <option value="apex">Apex Legends</option>
+                                <option value="cod">Call of Duty</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label>Your Rating *</label>
                             <div class="star-rating">
@@ -133,25 +395,25 @@
                                 <label for="star1"><i class="fas fa-star"></i></label>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="reviewTitle">Review Title *</label>
-                            <input type="text" id="reviewTitle" required placeholder="Summarize your experience">
+                            <input type="text" id="reviewTitle" required placeholder="Summarize your experience in a catchy title">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="reviewText">Your Review *</label>
-                            <textarea id="reviewText" rows="6" required placeholder="Share your detailed thoughts about the game..."></textarea>
+                            <textarea id="reviewText" rows="6" required placeholder="Share your detailed thoughts about the game. What did you like? What could be improved? Would you recommend it to others?"></textarea>
                             <div class="char-count">0/1000 characters</div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label class="checkbox-label">
                                 <input type="checkbox" required>
-                                <span>I confirm this review is based on my personal experience</span>
+                                <span>I confirm this review is based on my personal experience and follows community guidelines</span>
                             </label>
                         </div>
-                        
+
                         <button type="submit" class="submit-btn">
                             <i class="fas fa-paper-plane"></i> Submit Review
                         </button>
@@ -160,8 +422,8 @@
             </div>
         </section>
     </main>
-
     <footer class="dynamic-footer">
+
         <div class="footer-main">
             <div class="footer-container">
                 <div class="footer-section footer-brand">
@@ -170,41 +432,44 @@
                         <h3>GameHub</h3>
                     </div>
                     <p class="footer-description">
-                        Honest reviews from real gamers. Your voice matters.
+                        The ultimate gaming ecosystem where players connect, compete, and create memories.
                     </p>
                     <div class="social-links">
                         <a href="#" class="social-link discord"><i class="fab fa-discord"></i></a>
                         <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="social-link youtube"><i class="fab fa-youtube"></i></a>
                         <a href="#" class="social-link twitch"><i class="fab fa-twitch"></i></a>
+                        <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Top Rated Games</h4>
+                    <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#"><i class="fas fa-star"></i> Valorant</a></li>
-                        <li><a href="#"><i class="fas fa-star"></i> Genshin Impact</a></li>
-                        <li><a href="#"><i class="fas fa-star"></i> Minecraft</a></li>
-                        <li><a href="#"><i class="fas fa-star"></i> Fortnite</a></li>
+                        <li><a href="../index.html"><i class="fas fa-arrow-right"></i> Home</a></li>
+                        <li><a href="games.html"><i class="fas fa-arrow-right"></i> Games Library</a></li>
+                        <li><a href="tournaments.html"><i class="fas fa-arrow-right"></i> Tournaments</a></li>
+                        <li><a href="community.html"><i class="fas fa-arrow-right"></i> Community</a></li>
+                        <li><a href="store.html"><i class="fas fa-arrow-right"></i> Game Store</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Review Guidelines</h4>
+                    <h4>Community</h4>
                     <ul>
-                        <li><a href="#"><i class="fas fa-file-alt"></i> Community Rules</a></li>
-                        <li><a href="#"><i class="fas fa-shield-alt"></i> Content Policy</a></li>
-                        <li><a href="#"><i class="fas fa-flag"></i> Report Abuse</a></li>
-                        <li><a href="#"><i class="fas fa-question-circle"></i> Review FAQ</a></li>
+                        <li><a href="community.html"><i class="fas fa-comments"></i> Forums</a></li>
+                        <li><a href="community.html"><i class="fas fa-users"></i> Teams</a></li>
+                        <li><a href="reviews.html"><i class="fas fa-chart-line"></i> Leaderboards</a></li>
+                        <li><a href="tournaments.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                        <li><a href="community.html"><i class="fas fa-shield-alt"></i> Clans</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section newsletter">
-                    <h4>Review Updates</h4>
-                    <p>Get notified when new reviews are posted for your favorite games.</p>
+                    <h4>Weekly Newsletter</h4>
+                    <p>Get gaming news, updates, and exclusive content delivered weekly.</p>
                     <form class="newsletter-form">
-                        <input type="email" placeholder="Your email" required>
+                        <input type="email" placeholder="Your gaming email" required>
                         <button type="submit">
                             <i class="fas fa-paper-plane"></i>
                         </button>
@@ -216,30 +481,52 @@
         <div class="footer-bottom">
             <div class="footer-bottom-container">
                 <div class="copyright">
-                    <p>&copy; 2025 GameHub Reviews. All reviews are user-generated.</p>
+                    <p>&copy; 2025 GameHub. All rights reserved. <span class="age-rating">18+</span></p>
                     <div class="legal-links">
                         <a href="privacy.html">Privacy Policy</a>
                         <a href="terms.html">Terms of Service</a>
-                        <a href="#">Content Guidelines</a>
-                        <a href="#">Report System</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Safety Guidelines</a>
                     </div>
                 </div>
                 
                 <div class="footer-features">
                     <div class="feature">
-                        <i class="fas fa-star"></i>
-                        <span>Verified Reviews</span>
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Gaming</span>
                     </div>
                     <div class="feature">
-                        <i class="fas fa-user-shield"></i>
-                        <span>Authentic Feedback</span>
+                        <i class="fas fa-bolt"></i>
+                        <span>Low Latency</span>
                     </div>
                     <div class="feature">
-                        <i class="fas fa-thumbs-up"></i>
-                        <span>Helpful Ratings</span>
+                        <i class="fas fa-globe"></i>
+                        <span>Global Servers</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 Support</span>
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <div class="theme-changer">
+            <button class="theme-btn" data-theme="blue">
+                <i class="fas fa-water"></i>
+            </button>
+            <button class="theme-btn active" data-theme="red">
+                <i class="fas fa-fire"></i>
+            </button>
+            <button class="theme-btn" data-theme="green">
+                <i class="fas fa-leaf"></i>
+            </button>
+            <button class="theme-btn" data-theme="purple">
+                <i class="fas fa-crown"></i>
+            </button>
+            <button class="theme-btn" data-theme="cyber">
+                <i class="fas fa-robot"></i>
+            </button>
         </div>
         
         <div class="scroll-top" id="scrollTop">
