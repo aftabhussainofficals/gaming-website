@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
         let currentSlide = 0;
         let autoSlideInterval;
 
+        console.log('Hero slider initialized with', slides.length, 'slides');
+
         // Create indicators
         slides.forEach((_, index) => {
             const indicator = document.createElement('button');
@@ -56,7 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function goToSlide(index) {
             currentSlide = index;
-            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            const translateValue = -currentSlide * 100;
+            track.style.transform = `translateX(${translateValue}%)`;
+            console.log('Going to slide', index, 'translateX:', translateValue + '%');
             updateIndicators();
             resetAutoSlide();
         }
@@ -76,11 +80,10 @@ document.addEventListener('DOMContentLoaded', function() {
             autoSlideInterval = setInterval(nextSlide, 5000);
         }
 
+        // Initialize
+        goToSlide(0);
         prevBtn.addEventListener('click', prevSlide);
         nextBtn.addEventListener('click', nextSlide);
-
-        // Auto slide
-        resetAutoSlide();
 
         // Progress bar animation
         let progress = 0;

@@ -23,11 +23,14 @@
     width: 400%;
     height: 100%;
     transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    flex-wrap: nowrap;
+    transform: translateX(0);
+    position: relative;
 }
 
 .slide-card {
     position: relative;
-    width: 25%;
+    width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
@@ -35,6 +38,7 @@
     align-items: center;
     padding: 0 4rem;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .slide-overlay {
@@ -228,16 +232,17 @@
     gap: 10px;
 }
 
-.slide-indicator {
+.indicator {
     width: 12px;
     height: 12px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.3);
     cursor: pointer;
     transition: all 0.3s ease;
+    border: none;
 }
 
-.slide-indicator.active {
+.indicator.active {
     background: #ff2d75;
     transform: scale(1.2);
     box-shadow: 0 0 10px rgba(255, 45, 117, 0.5);
