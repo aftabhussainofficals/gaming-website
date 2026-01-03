@@ -1,6 +1,6 @@
-/* Enhanced Games Page Styles */
 
-/* Featured Games Section - Improved Single Row Layout */
+
+
 .featured-games {
     padding: 80px 0;
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -45,7 +45,7 @@
     margin: 0 auto;
 }
 
-/* Enhanced Featured Grid - Single Row with Equal Heights */
+
 .featured-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -55,7 +55,7 @@
     padding: 0 20px;
     position: relative;
     z-index: 1;
-    align-items: stretch; /* Make all cards same height */
+    align-items: stretch; 
 }
 
 .featured-card {
@@ -70,9 +70,9 @@
     height: 100%;
 }
 
-/* Remove large card specific styles since all cards are same size now */
+
 .featured-card.large {
-    grid-column: span 1; /* Changed from span 2 */
+    grid-column: span 1; 
 }
 
 .featured-card:hover {
@@ -80,11 +80,11 @@
     box-shadow: 0 25px 50px rgba(0,0,0,0.3);
 }
 
-/* Equal height featured images */
+
 .featured-image {
     position: relative;
     overflow: hidden;
-    height: 220px; /* Standardized height */
+    height: 220px; 
     flex-shrink: 0;
 }
 
@@ -184,7 +184,7 @@
     flex: 1;
 }
 
-/* Games Stats Section */
+
 .games-stats {
     padding: 60px 0;
     background: #f8f9fa;
@@ -240,7 +240,7 @@
     font-weight: 500;
 }
 
-/* Games Hero Section */
+
 .games-hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 80px 0 60px;
@@ -323,7 +323,7 @@
     box-shadow: 0 6px 20px rgba(255,107,107,0.4);
 }
 
-/* Filters Section */
+
 .games-filters {
     padding: 40px 0;
     background: #f8f9fa;
@@ -402,7 +402,7 @@
     box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
 }
 
-/* Enhanced Games Section Layout */
+
 .games-section {
     padding: 60px 0;
 }
@@ -419,7 +419,7 @@
     flex: 1;
 }
 
-/* Enhanced Games Grid - 3 items per row */
+
 .games-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -591,7 +591,7 @@
     letter-spacing: 0.5px;
 }
 
-/* Load More Button */
+
 .load-more {
     text-align: center;
     margin-top: 50px;
@@ -619,7 +619,7 @@
     margin-right: 10px;
 }
 
-/* Animations */
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -631,7 +631,7 @@
     }
 }
 
-/* Responsive Design */
+
 @media (max-width: 1200px) {
     .featured-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -745,7 +745,7 @@
     }
 }
 
-/* Games Sidebar */
+
 .games-sidebar {
     width: 300px;
     margin-left: 30px;
@@ -785,7 +785,7 @@
     font-size: 1.1rem;
 }
 
-/* Category List */
+
 .category-list {
     display: flex;
     flex-direction: column;
@@ -844,7 +844,7 @@
     color: white;
 }
 
-/* Popular Games */
+
 .popular-games {
     display: flex;
     flex-direction: column;
@@ -916,7 +916,7 @@
     color: #ff4757;
 }
 
-/* Recommendations */
+
 .recommendations {
     display: flex;
     flex-direction: column;
@@ -959,7 +959,7 @@
     margin: 0;
 }
 
-/* Enhanced Game Cards for Better Visuals */
+
 .game-card {
     position: relative;
     overflow: hidden;
@@ -1001,18 +1001,18 @@
     transform: scaleX(1);
 }
 
-/* Game Card Rating Stars Enhancement */
+
 .rating i {
     color: #ffc107;
     text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
-/* Ensure equal heights for all game cards */
+
 .games-grid > * {
     min-height: 0;
 }
 
-/* Sidebar responsive adjustments */
+
 @media (max-width: 1024px) {
     .games-sidebar {
         margin-top: 30px;
@@ -1024,7 +1024,7 @@
     }
 }
 
-/* Dark Theme Support */
+
 [data-theme="cyber"] .game-card {
     background: #1a1a2e;
     color: #e0e0e0;
@@ -1063,7 +1063,7 @@
     border-color: #9c88ff;
 }
 
-/* Dark Theme Support for Sidebar */
+
 [data-theme="dark"] .sidebar-section {
     background: rgba(26, 32, 44, 0.95);
     border-color: rgba(255, 255, 255, 0.1);
@@ -1110,7 +1110,7 @@
     color: #a0aec0;
 }
 
-/* Featured Games Dark Theme */
+
 [data-theme="dark"] .featured-card {
     background: #1a1a2e;
 }
@@ -1127,7 +1127,7 @@
     color: #a0aec0;
 }
 
-/* Loading Animation for Game Cards */
+
 @keyframes cardPulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.02); }
@@ -1137,7 +1137,7 @@
     animation: cardPulse 1.5s ease-in-out infinite;
 }
 
-/* Gradient Overlay Enhancement */
+
 .game-image::after {
     content: '';
     position: absolute;
@@ -1154,7 +1154,7 @@
     opacity: 1;
 }
 
-/* Enhanced Responsive Grid with 3 columns on larger screens */
+
 @media (min-width: 769px) and (max-width: 1023px) {
     .featured-grid,
     .games-grid {

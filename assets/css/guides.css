@@ -1,4 +1,4 @@
-/* Enhanced Guides Page Styles with Modern Gaming Theme */
+
 * {
     margin: 0;
     padding: 0;
@@ -42,7 +42,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Enhanced Header */
+
 header {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
@@ -329,7 +329,7 @@ header {
     box-shadow: var(--shadow-medium);
 }
 
-/* Navigation */
+
 nav {
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
@@ -372,7 +372,7 @@ nav {
     font-size: 1.2rem;
 }
 
-/* Enhanced Hero Section */
+
 .guides-hero {
     background: var(--gradient-primary);
     color: var(--light);
@@ -501,7 +501,7 @@ nav {
     transform: translateY(-2px);
 }
 
-/* Search and Filters */
+
 .guides-search {
     background: var(--glass-bg);
     padding: 2rem;
@@ -591,7 +591,7 @@ nav {
     border-color: var(--secondary);
 }
 
-/* Guide Categories */
+
 .categories-section {
     margin: 3rem 0;
 }
@@ -692,7 +692,7 @@ nav {
     color: var(--gray-light);
 }
 
-/* Featured Guides */
+
 .featured-guides {
     margin: 4rem 0;
 }
@@ -852,7 +852,7 @@ nav {
     box-shadow: var(--shadow-medium);
 }
 
-/* Guides Grid */
+
 .guides-section {
     margin: 4rem 0;
 }
@@ -1004,7 +1004,7 @@ nav {
     color: var(--dark);
 }
 
-/* Guide Detail Modal */
+
 .guide-modal {
     position: fixed;
     top: 0;
@@ -1123,7 +1123,7 @@ nav {
     margin-bottom: 0.5rem;
 }
 
-/* Load More */
+
 .load-more {
     text-align: center;
     margin: 3rem 0;
@@ -1151,7 +1151,7 @@ nav {
     cursor: not-allowed;
 }
 
-/* Enhanced Footer */
+
 footer {
     background: var(--darker);
     color: var(--light);
@@ -1232,7 +1232,7 @@ footer::before {
     z-index: 2;
 }
 
-/* Responsive Design */
+
 @media (max-width: 1200px) {
     .guides-grid, .featured-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1343,7 +1343,7 @@ footer::before {
     }
 }
 
-/* Accessibility */
+
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
@@ -1352,7 +1352,7 @@ footer::before {
     }
 }
 
-/* Dark mode support */
+
 @media (prefers-color-scheme: dark) {
     :root {
         --light: #ffffff;
@@ -1361,7 +1361,7 @@ footer::before {
     }
 }
 
-/* Print styles */
+
 @media print {
     * {
         background: transparent !important;

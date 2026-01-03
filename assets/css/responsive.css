@@ -1,6 +1,6 @@
-/* Responsive Design */
 
-/* Large Desktops */
+
+
 @media (max-width: 1440px) {
     .container {
         max-width: 1200px;
@@ -11,7 +11,7 @@
     }
 }
 
-/* Tablets and Small Desktops */
+
 @media (max-width: 1024px) {
     .container {
         max-width: 100%;
@@ -45,7 +45,7 @@
     }
 }
 
-/* Tablets */
+
 @media (max-width: 768px) {
     .container {
         padding: 0 20px;
@@ -106,7 +106,7 @@
     }
 }
 
-/* Mobile Phones */
+
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
@@ -168,7 +168,7 @@
     }
 }
 
-/* Small Mobile Phones */
+
 @media (max-width: 360px) {
     .hero-title {
         font-size: 1.8rem;
@@ -194,7 +194,7 @@
     }
 }
 
-/* Landscape Mode */
+
 @media (max-height: 600px) and (orientation: landscape) {
     .hero-section {
         min-height: auto;
@@ -210,7 +210,7 @@
     }
 }
 
-/* High-DPI Screens */
+
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .logo-icon, .social-link, .btn-primary, .btn-secondary {
         background-image: var(--gradient-primary);
@@ -225,7 +225,7 @@
     }
 }
 
-/* Print Styles */
+
 @media print {
     .main-header, .footer-social, .hero-actions, .games-slider {
         display: none;
@@ -242,7 +242,7 @@
     }
 }
 
-/* Reduced Motion */
+
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
@@ -259,7 +259,7 @@
     }
 }
 
-/* Dark Mode Support */
+
 @media (prefers-color-scheme: dark) {
     :root {
         --dark-bg: #0a0e13;
@@ -268,7 +268,7 @@
     }
 }
 
-/* Light Mode Support */
+
 @media (prefers-color-scheme: light) {
     :root {
         --dark-bg: #f5f7fa;

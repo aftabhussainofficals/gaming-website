@@ -1,4 +1,4 @@
-/* Enhanced Store Styles with Modern Gaming Theme */
+
 * {
     margin: 0;
     padding: 0;
@@ -42,7 +42,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Enhanced Header */
+
 header {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
@@ -228,7 +228,7 @@ nav a:hover, nav a.active {
     transform: scale(1.2);
 }
 
-/* Enhanced Hero Section */
+
 .hero {
     background: var(--gradient-primary);
     color: var(--light);
@@ -348,7 +348,7 @@ nav a:hover, nav a.active {
     box-shadow: var(--shadow-heavy);
 }
 
-/* Enhanced Filters */
+
 .filters {
     background: var(--glass-bg);
     padding: 2rem;
@@ -422,7 +422,7 @@ nav a:hover, nav a.active {
     box-shadow: 0 0 10px rgba(0, 206, 201, 0.3);
 }
 
-/* Product Categories */
+
 .categories-section {
     margin: 3rem 0;
 }
@@ -501,7 +501,7 @@ nav a:hover, nav a.active {
     font-size: 0.9rem;
 }
 
-/* Enhanced Products Grid */
+
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -726,7 +726,7 @@ nav a:hover, nav a.active {
     transform: translateY(0);
 }
 
-/* Featured Products */
+
 .featured-section {
     margin: 4rem 0;
 }
@@ -848,7 +848,7 @@ nav a:hover, nav a.active {
     width: 100%;
 }
 
-/* Special Offer Banner */
+
 .special-offer {
     background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
     color: var(--light);
@@ -1020,7 +1020,7 @@ nav a:hover, nav a.active {
     margin-right: 0.5rem;
 }
 
-/* Newsletter */
+
 .newsletter {
     background: var(--gradient-primary);
     color: var(--light);
@@ -1105,7 +1105,7 @@ nav a:hover, nav a.active {
     box-shadow: var(--shadow-heavy);
 }
 
-/* Enhanced Footer */
+
 footer {
     background: var(--darker);
     color: var(--light);
@@ -1191,7 +1191,7 @@ footer::before {
     transform: translateY(-3px);
 }
 
-/* Loading Animation */
+
 .loading {
     display: inline-block;
     width: 20px;
@@ -1206,7 +1206,7 @@ footer::before {
     to { transform: rotate(360deg); }
 }
 
-/* Enhanced Responsive Design */
+
 @media (max-width: 1200px) {
     .products {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1413,7 +1413,7 @@ footer::before {
     }
 }
 
-/* Accessibility */
+
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
@@ -1422,7 +1422,7 @@ footer::before {
     }
 }
 
-/* Dark mode support */
+
 @media (prefers-color-scheme: dark) {
     :root {
         --light: #ffffff;
@@ -1431,7 +1431,7 @@ footer::before {
     }
 }
 
-/* Print styles */
+
 @media print {
     * {
         background: transparent !important;

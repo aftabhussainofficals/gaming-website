@@ -1,4 +1,4 @@
-/* Enhanced Support Page Styles with Modern Gaming Theme */
+
 * {
     margin: 0;
     padding: 0;
@@ -42,7 +42,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Enhanced Header */
+
 header {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
@@ -389,7 +389,7 @@ header {
     box-shadow: var(--shadow-medium);
 }
 
-/* Navigation */
+
 nav {
     background: rgba(26, 26, 46, 0.9);
     backdrop-filter: blur(10px);
@@ -437,7 +437,7 @@ nav {
     }
 }
 
-/* Support Hero Section */
+
 .support-hero {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
     padding: 4rem 2rem;
@@ -519,7 +519,7 @@ nav {
     color: var(--light);
 }
 
-/* Support Search */
+
 .support-search {
     max-width: 800px;
     margin: 0 auto;
@@ -586,7 +586,7 @@ nav {
     box-shadow: var(--shadow-medium);
 }
 
-/* Support Categories */
+
 .support-categories {
     padding: 4rem 2rem;
     background: rgba(26, 26, 46, 0.5);
@@ -670,7 +670,7 @@ nav {
     line-height: 1.6;
 }
 
-/* FAQ Section */
+
 .faq-section {
     padding: 4rem 2rem;
     background: linear-gradient(135deg, rgba(240, 147, 251, 0.05) 0%, rgba(245, 87, 108, 0.05) 100%);
@@ -759,7 +759,7 @@ nav {
     max-height: 500px;
 }
 
-/* Contact Section */
+
 .contact-section {
     padding: 4rem 2rem;
     background: rgba(26, 26, 46, 0.5);
@@ -855,7 +855,7 @@ nav {
     box-shadow: var(--shadow-medium);
 }
 
-/* Live Chat Widget */
+
 .live-chat-widget {
     position: fixed;
     bottom: 2rem;
@@ -959,7 +959,7 @@ nav {
     transform: translateY(-2px);
 }
 
-/* Chat Toggle Button */
+
 .chat-toggle {
     position: fixed;
     bottom: 2rem;
@@ -982,7 +982,7 @@ nav {
     box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
 }
 
-/* Enhanced Footer */
+
 footer {
     background: var(--darker);
     padding: 3rem 2rem 1rem;
@@ -1080,7 +1080,7 @@ footer {
     color: var(--secondary);
 }
 
-/* Animations */
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -1114,7 +1114,7 @@ footer {
     }
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
@@ -1336,7 +1336,7 @@ footer {
     transform: translateY(-2px);
 }
 
-/* Quick Help Section */
+
 .quick-help {
     padding: 4rem 2rem;
     max-width: 1400px;
@@ -1444,7 +1444,7 @@ footer {
     color: #ffffff;
 }
 
-/* Support Channels */
+
 .support-channels {
     padding: 4rem 2rem;
     background: linear-gradient(135deg, rgba(0, 255, 234, 0.05), rgba(20, 20, 40, 0.9));
@@ -1644,7 +1644,7 @@ footer {
     box-shadow: 0 10px 20px rgba(0, 153, 255, 0.3);
 }
 
-/* FAQ Section */
+
 .faq-section {
     padding: 4rem 2rem;
     max-width: 1400px;
@@ -1781,7 +1781,7 @@ footer {
     margin-bottom: 0.5rem;
 }
 
-/* Contact Form Section */
+
 .contact-form-section {
     padding: 4rem 2rem;
     background: linear-gradient(135deg, rgba(20, 20, 40, 0.9), rgba(26, 26, 53, 0.9));
@@ -1961,7 +1961,7 @@ footer {
     box-shadow: 0 10px 20px rgba(255, 45, 117, 0.3);
 }
 
-/* Status Dashboard */
+
 .status-dashboard {
     padding: 4rem 2rem;
     max-width: 1400px;
@@ -2104,7 +2104,7 @@ footer {
     color: #00ff00;
 }
 
-/* Live Chat Widget */
+
 .live-chat-widget {
     position: fixed;
     bottom: 100px;
@@ -2318,7 +2318,7 @@ footer {
     50% { transform: scale(1.1); }
 }
 
-/* Responsive Design */
+
 @media (max-width: 1200px) {
     .hero-content {
         grid-template-columns: 1fr;

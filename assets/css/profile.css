@@ -1,4 +1,4 @@
-/* Enhanced Profile Page Styles with Modern Gaming Theme */
+
 * {
     margin: 0;
     padding: 0;
@@ -42,7 +42,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Enhanced Header */
+
 header {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
@@ -389,7 +389,7 @@ header {
     box-shadow: var(--shadow-medium);
 }
 
-/* Navigation */
+
 nav {
     background: rgba(26, 26, 46, 0.9);
     backdrop-filter: blur(10px);
@@ -437,7 +437,7 @@ nav {
     }
 }
 
-/* Profile Hero Section */
+
 .profile-hero {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
     padding: 4rem 2rem;
@@ -484,7 +484,7 @@ nav {
     margin-right: auto;
 }
 
-/* Profile Layout */
+
 .profile-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -495,7 +495,7 @@ nav {
     margin-top: 2rem;
 }
 
-/* Profile Sidebar */
+
 .profile-sidebar {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
@@ -684,14 +684,14 @@ nav {
     width: 20px;
 }
 
-/* Profile Main Content */
+
 .profile-main {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-/* Profile Overview */
+
 .profile-overview {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
@@ -781,7 +781,7 @@ nav {
     color: var(--gray-light);
 }
 
-/* Recent Activity */
+
 .recent-activity {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
@@ -867,7 +867,7 @@ nav {
     color: var(--gray);
 }
 
-/* Achievements Section */
+
 .achievements-section {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
@@ -962,7 +962,7 @@ nav {
     color: var(--gray-light);
 }
 
-/* Friends Section */
+
 .friends-section {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
@@ -1033,7 +1033,7 @@ nav {
     color: var(--success);
 }
 
-/* Settings Modal */
+
 .settings-modal {
     position: fixed;
     top: 0;
@@ -1180,7 +1180,7 @@ nav {
     transform: translateY(-2px);
 }
 
-/* Enhanced Footer */
+
 footer {
     background: var(--darker);
     padding: 3rem 2rem 1rem;
@@ -1279,7 +1279,7 @@ footer {
     color: var(--secondary);
 }
 
-/* Animations */
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -1291,7 +1291,7 @@ footer {
     }
 }
 
-/* Responsive Design */
+
 @media (max-width: 1024px) {
     .profile-container {
         grid-template-columns: 1fr;

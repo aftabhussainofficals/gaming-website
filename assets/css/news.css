@@ -1,7 +1,7 @@
-/* News Page Styles */
+
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap');
 
-/* News Hero Section - Enhanced */
+
 .news-hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #4a6bff 100%);
     color: white;
@@ -140,7 +140,7 @@
     letter-spacing: 1px;
 }
 
-/* News Filters - Enhanced */
+
 .news-filters {
     background: rgba(26, 26, 46, 0.95);
     backdrop-filter: blur(20px);
@@ -231,7 +231,7 @@
     color: #00cec9;
 }
 
-/* News Grid - Enhanced */
+
 .news-grid {
     padding: 2rem;
     max-width: 1400px;
@@ -419,7 +419,7 @@
     width: 100%;
 }
 
-/* Featured News - Enhanced */
+
 .featured-news {
     background: linear-gradient(135deg, #ff2d75 0%, #ff5a3d 50%, #ff2d75 100%);
     padding: 4rem 2rem;
@@ -547,7 +547,7 @@
     transform: scale(1.05);
 }
 
-/* Load More Button - Enhanced */
+
 .load-more-container {
     text-align: center;
     padding: 3rem 0;
@@ -595,7 +595,7 @@
     transform: none;
 }
 
-/* News Footer - Matching Home Page Style */
+
 .news-footer {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: white;
@@ -747,7 +747,7 @@
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
 }
 
-/* Responsive Design - Enhanced */
+
 @media (max-width: 1200px) {
     .news-container {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -868,7 +868,7 @@
     }
 }
 
-/* Animation for news cards */
+
 @keyframes slideInUp {
     from {
         opacity: 0;
@@ -887,7 +887,7 @@
 .news-card:nth-child(5) { animation-delay: 0.5s; }
 .news-card:nth-child(6) { animation-delay: 0.6s; }
 
-/* Floating animation for elements */
+
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
@@ -897,7 +897,7 @@
     animation: float 3s ease-in-out infinite;
 }
 
-/* Hover effect for images */
+
 .img-hover-zoom {
     overflow: hidden;
 }
@@ -910,7 +910,7 @@
     transform: scale(1.1);
 }
 
-/* Glow effects */
+
 .glow {
     position: relative;
 }
@@ -933,7 +933,7 @@
     opacity: 0.5;
 }
 
-/* Particle effect for hero section */
+
 .hero-particles {
     position: absolute;
     top: 0;

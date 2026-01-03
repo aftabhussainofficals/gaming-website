@@ -1,6 +1,6 @@
-// Simple dynamic script for GameHub
 
-// Theme changer
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const themeButtons = document.querySelectorAll('.theme-btn');
     themeButtons.forEach(button => {
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Scroll to top
+
     const scrollTopBtn = document.getElementById('scrollTop');
     if (scrollTopBtn) {
         window.addEventListener('scroll', function() {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Hero Slider
+
     const heroSlider = document.getElementById('heroSlider');
     if (heroSlider) {
         const track = heroSlider.querySelector('.hero-track');
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         console.log('Hero slider initialized with', slides.length, 'slides');
 
-        // Create indicators
+
         slides.forEach((_, index) => {
             const indicator = document.createElement('button');
             indicator.className = `indicator ${index === 0 ? 'active' : ''}`;
@@ -80,12 +80,12 @@ document.addEventListener('DOMContentLoaded', function() {
             autoSlideInterval = setInterval(nextSlide, 5000);
         }
 
-        // Initialize
+
         goToSlide(0);
         prevBtn.addEventListener('click', prevSlide);
         nextBtn.addEventListener('click', nextSlide);
 
-        // Progress bar animation
+
         let progress = 0;
         setInterval(() => {
             progress = (progress + 1) % 100;
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 50);
     }
 
-    // Games page functionality
+
     const gamesGrid = document.getElementById('gamesGrid');
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     const categoryItems = document.querySelectorAll('.category-item');
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let gamesLoaded = 6; // Initial games loaded
         const gamesPerLoad = 6;
 
-        // Sample additional games data
+
         const additionalGames = [
             {
                 title: "Space Warriors",
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         ];
 
-        // Load more games function
+
         function loadMoreGames() {
             const startIndex = gamesLoaded;
             const endIndex = Math.min(gamesLoaded + gamesPerLoad, additionalGames.length);
@@ -173,13 +173,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
             gamesLoaded += gamesPerLoad;
 
-            // Hide load more button if all games are loaded
+
             if (gamesLoaded >= additionalGames.length) {
                 loadMoreBtn.style.display = 'none';
             }
         }
 
-        // Create game card element
+
         function createGameCard(game) {
             const gameCard = document.createElement('div');
             gameCard.className = 'game-card';
@@ -207,22 +207,22 @@ document.addEventListener('DOMContentLoaded', function() {
             return gameCard;
         }
 
-        // Load more button event listener
+
         loadMoreBtn.addEventListener('click', loadMoreGames);
     }
 
-    // Category filtering
+
     if (categoryItems.length > 0) {
         categoryItems.forEach(item => {
             item.addEventListener('click', function() {
                 const category = this.getAttribute('data-category');
 
-                // Remove active class from all items
+
                 categoryItems.forEach(cat => cat.classList.remove('active'));
-                // Add active class to clicked item
+
                 this.classList.add('active');
 
-                // Filter games
+
                 const gameCards = document.querySelectorAll('.game-card');
                 gameCards.forEach(card => {
                     if (category === 'all' || card.getAttribute('data-category') === category) {
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Tournament filtering functionality
+
     const gameFilter = document.getElementById('game-filter');
     const typeFilter = document.getElementById('type-filter');
     const statusFilter = document.getElementById('status-filter');
@@ -263,8 +263,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (statusValue && !status.includes(statusValue)) showCard = false;
             if (prizeValue && prize < parseInt(prizeValue)) showCard = false;
 
-            // Type filtering would need additional data attributes on cards
-            // For now, we'll skip type filtering as it requires more complex implementation
+
+
 
             if (showCard) {
                 card.style.display = 'block';
@@ -280,13 +280,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Add event listeners for filters
+
     if (gameFilter) gameFilter.addEventListener('change', filterTournaments);
     if (typeFilter) typeFilter.addEventListener('change', filterTournaments);
     if (statusFilter) statusFilter.addEventListener('change', filterTournaments);
     if (prizeFilter) prizeFilter.addEventListener('change', filterTournaments);
 
-    // Community join form handling
+
     const joinForm = document.querySelector('.join-form');
     if (joinForm) {
         joinForm.addEventListener('submit', function(e) {
@@ -294,13 +294,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
 
-            // Simulate form submission
+
             alert('Thank you for joining the community! We\'ll review your application and get back to you soon.');
             this.reset();
         });
     }
 
-    // Tournament registration simulation
+
     const registerButtons = document.querySelectorAll('.tournament-btn.primary');
     registerButtons.forEach(button => {
         if (button.textContent.includes('Register')) {
